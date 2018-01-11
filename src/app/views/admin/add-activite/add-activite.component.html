@@ -1,0 +1,55 @@
+<app-header></app-header>
+<section class="container-body admin">
+<app-admin-menu></app-admin-menu>
+<app-backlink></app-backlink>
+		<section class="">
+			<h3 class=""></h3>
+			<form action="" class="" (ngSubmit)="onSubmit()" [formGroup]="form">
+				<label for="libelle">Libellé :  </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-pencil"></span></span>
+					<input type="text" id="libelle" name="libelle" class="form-control" aria-describedby="sizing-addon1" required formControlName="libelle">
+				</div>
+				<label for="type_act">Type d'activité : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-pencil"></span></span>
+					<input type="text" id="type_act" name="type_act" class="form-control" aria-describedby="sizing-addon2" required formControlName="type_act">
+				</div>
+				<label for="prix">Prix : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-pencil"></span></span>
+					<input type="text" id="prix" name="prix" class="form-control" aria-describedby="sizing-addon2" required formControlName="prix">
+				</div>
+				<label for="description">Description de l'activité : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-pencil"></span></span>
+					<textarea name="" id="description" name="description" class="form-control" aria-describedby="sizing-addon3" required formControlName="description" minlength="1" maxlength="300"></textarea>
+				</div>
+				<label for="duree_act">Durée : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon4">@</span>
+					<input type="text" id="duree_act" name="duree_act" class="form-control" aria-describedby="sizing-addon4" required formControlName="duree_act">
+				</div>
+				<label for="condition">Conditions : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon5"><span class="glyphicon glyphicon-pencil"></span></span>
+					<textarea name="" id="condition" name="condition" class="form-control" aria-describedby="sizing-addon5"  formControlName="condition" minlength="1" maxlength="300"></textarea>
+				</div>
+				<label for="visible_act">Afficher cette activité sur le site</label>
+				<div class="input-group">
+					<input type="checkbox" id="visible_act" name="visible_act" class="form-control" aria-describedby="sizing-addon6"  formControlName="visible" [checked]="showHome" [disabled]="showHome" [attr.disabled]="showHome">
+				</div>
+				<label for="visible_home">Afficher cette activité sur la page d'accueil</label>
+				<div class="input-group">
+					<input type="checkbox" id="visible_home" name="visible_home" class="form-control" aria-describedby="sizing-addon7"  formControlName="visible_home" (change)="isChecked($event)" >
+				</div>
+			
+				<label for=""></label>
+				<div class="input-group">	
+					<input type="submit" id="add_activite" name="add_activite" value="Créer">
+				</div>
+			</form>
+		</section>		
+		
+	</section>
+<app-footer></app-footer>

@@ -1,0 +1,49 @@
+<app-header></app-header>
+<section class="container-body">
+
+
+<div class="container">
+  <h2>Liste des réservations</h2>
+  <table class="table table-condensed" *ngIf="rsv?.length>0">
+    <thead>
+      <tr>
+      	<!-- <th>Date</th> -->
+        <!-- <th>N° de Réservation</th> -->
+        <th>Activité</th>
+        <th>Date prévue pour l'activité</th>
+        <th>Prix</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i = index ; let res of rsv;" >
+    
+        <td>				
+        	<a *ngIf="act[i]" [routerLink]="['/activite/', act[i]?._id]">
+				{{act[i]?.libelle}}
+			</a>
+			<a *ngIf="!act[i]" >
+				{{act[i]?.libelle}}
+			</a>
+		</td>
+        <td>{{res?.date_rsv | date:'dd MMMM yyyy':'':locale }}</td>
+        <td>{{act[i]?.prix}} {{currency}}</td>
+        <td><a (click)="onSubmit()"><i class="fa fa-times"></i></a></td>
+
+
+      </tr>  
+      <tr>
+      	<td></td>
+      	<td>Total : </td>
+      	<td>{{total}} {{currency}}</td>
+      	<td></td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="rsv?.length==0">Pas de réservation</p>
+  <app-backlink></app-backlink>
+  <a *ngIf="rsv?.length>0" [routerLink]="['/loginOrder']">Valider la commande</a>
+</div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,10 @@
+<div class="row langues">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="" id="other_lang" ngbDropdownToggle>{{langue_cur}}</button>
+      <div ngbDropdownMenu aria-labelledby="other_lang">
+       <a *ngFor="let lang of other_lang" (click)="onClick($event)"><span>{{lang}}</span></a>
+      </div>
+    </div>
+  </div>
+</div>

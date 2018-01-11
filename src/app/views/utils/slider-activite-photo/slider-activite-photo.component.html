@@ -1,0 +1,20 @@
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <img src="assets/img/parachute.jpg" alt="Random first slide" (click)="openPopupPhotoCom($event)">
+    <div class="carousel-caption">
+        <app-photo-rating></app-photo-rating>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img src="assets/img/parachute-2.jpg" alt="Random second slide" (click)="openPopupPhotoCom($event)">
+   <div class="carousel-caption">
+        <app-photo-rating></app-photo-rating>
+   </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img src="assets/img/parachute-3.jpg" alt="Random third slide" (click)="openPopupPhotoCom($event)">
+    <div class="carousel-caption">
+        <app-photo-rating></app-photo-rating>
+    </div>
+  </ng-template>
+</ngb-carousel>

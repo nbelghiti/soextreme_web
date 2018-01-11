@@ -1,0 +1,96 @@
+<app-header></app-header>
+<section class="container-body">
+		<h3 class="title">{{myActivity.libelle }}</h3>
+		<section class="activite">
+			<section class="left_activite">
+				<article class="">
+					<img src="assets/img/parachute.jpg">
+					
+					<section class="descriptif">
+						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
+						<p class="">
+							
+							 {{myActivity.description}}
+						</p>
+					</section>
+					<section class="conditions">
+						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
+						<h3 class="">{{ 'details.conditions.title' | translate}} </h3>
+						<p class="">
+							
+							 {{myActivity.condition}}
+						</p>
+					</section>
+					<h3 class="">{{ 'details.photos.title' | translate}}(3)</h3>
+
+					<section class="share_photos">
+						<!-- <form class="" (ngSubmit)="submitPhoto()" [formGroup]="imageform" method="post" enctype="multipart/form-data"> -->
+							
+							{{ 'details.photos.add' | translate}}
+							<app-upload></app-upload>
+<!-- 						</form>
+ -->						<section class="galerie_photo">
+							<app-slider-activite-photo></app-slider-activite-photo>
+						</section>
+					</section>
+					<section class="notation" *ngIf="isLoggedIn;">
+						
+						<h3 class="">{{ 'details.note_act.title' | translate}}</h3>
+						<form action="" class="">
+							<section class="stars_notation">
+								<app-rating></app-rating>
+							</section>
+						</form>
+
+					</section>
+					<section class="commentaires_container" >
+						<h3 class="">{{ 'details.comment.title' | translate}} ({{nb_coms?.length}})</h3>
+						<h5 class="ajout_comm">{{ 'details.comment.add' | translate}}</h5>
+						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn; elsecreateComment" novalidate>
+
+							<textarea name="" id="" cols="30" rows="10" class="" formControlName="commentTexte"></textarea>
+							<div class="input-group">	
+								<input type="submit" id="valid_comment" name="valid_comment" value="">
+							</div>
+						</form>
+						<div class="mess" #elsecreateComment>
+							{{err}}
+						</div>
+						<section class="commentaires">
+							<app-comments></app-comments>
+						</section>
+
+					</section>
+				</article>
+			</section>
+			<section class="right_activite">
+				<section class="gmap-act">
+					<app-gmap-activite></app-gmap-activite>
+				</section>
+				<form action="" class="" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+					<label for="date_resa">{{ 'details.reserv.title' | translate}} </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="sizing-addon7">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+						<app-datepicker [group]="form.controls.date" ></app-datepicker>
+					</div>
+					<label for=""></label>
+					<!-- <div class="input-group">	
+						<app-timepicker [group]="form.controls.heure_in"></app-timepicker>
+			
+					</div> -->
+					<section class="prix">
+						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
+						<p class="">
+							
+							<span>{{ 'details.reserv.prix_title' | translate}}  {{prix}} {{currency}} </span>
+							<span *ngIf="myActivity.remise !== null"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
+						</p>
+					</section>
+					<input type="submit" id="insc_resa" name="insc_resa" value="{{ 'details.reserv.valid' | translate}}" >
+				</form>
+			</section>
+		</section>
+	</section>
+	<app-footer></app-footer>

@@ -1,0 +1,8 @@
+<article *ngFor="let i = index ; let activite of myActivities">
+	<a [routerLink]="['/activite/', activite._id]">
+		<img src="http://soextreme.fr:8000/ImagesUploader/{{activite.photo }}">
+		<section class="">
+			<h4 class="">{{activite.libelle }}</h4>
+		</section>
+	</a>
+</article>

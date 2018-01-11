@@ -1,0 +1,17 @@
+<ngb-timepicker [(ngModel)]="time" [hourStep]="hourStep" [minuteStep]="minuteStep" ></ngb-timepicker>
+
+<div [formGroup]="heure_in">
+	<div class="row">
+	    <div class="col-sm-6">
+	        <label for="changeHourStep">{{time.hour}}</label>
+	       <!--  <input id="changeHourStep" type="text" class="form-control form-control-sm" [(ngModel)]="time.hour" formControlName="start_hour" /> -->
+	        <input id="changeHourStep" type="number" class="form-control form-control-sm" formControlName="start_hour" />
+	    </div>
+	    <div class="col-sm-6">
+	        <label for="changeMinuteStep">{{time.minute}}</label>
+	       <!--  <input id="changeMinuteStep" type="text" class="form-control form-control-sm" [(ngModel)]="time.minute" formControlName="start_min" /> -->
+	        <input id="changeMinuteStep" type="number" class="form-control form-control-sm" formControlName="start_min" />
+	    </div>
+	   
+	</div>
+</div>

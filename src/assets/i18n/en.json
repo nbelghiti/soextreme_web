@@ -1,0 +1,178 @@
+{
+	"metas"	: {
+
+		"accueil" : {
+
+			"title":"So Extrême | En",
+			
+			"other":{
+
+				"description":"bla bla bla",
+				"og:title":"",
+				"og:type":"",
+				"og:url":"",
+				"og:image":""
+			}
+			
+		},
+		"a-propos" : {
+
+		},
+
+		"activites": {
+
+
+		},
+
+		"login" : {
+
+		}
+
+	},	
+
+	"accueil" : {
+		
+		"slogan" : "There will necessarily be an activity among all the ones we offer ! For you ..."
+
+
+	},
+
+	"activites" : {
+
+		"title":"Activities",
+		"subtitle":"Choose your activity :"
+	},
+	"a-propos" : {
+
+		"intro" : {
+			"para1" : "<p>Since 2004, <a [routerLink]=\"['']\">SO'Extrême</a> is the thrill specialist.</p>",
+			"para2" : "<p>Whether to give a little thrill or to offer a gift box to a loved one.</p>",
+			"para3" : "<p><a [routerLink]=\"['']\">SO'Extrême</a> strives to offer you a multitude of activities at the best price.</p>"
+
+		},
+		"list_act" : {
+
+			"item1":"parachute jump,",
+			"item2":"bungee jumping,",
+			"item3":"rafting,",
+			"item4":"canoe kayak ..."
+
+		},
+		"info_agence":{
+			"localisation":"<span><i class=\"fa fa-map-marker\"></i> Location : </span> Gorges du Verdon(Alpes Haut Provence)",
+			"siege_soc":"<span><i class=\"fa fa-building\"></i> Head office :</span> route de Napoléon, CASTELLANE 04120",
+			"cap_soc":"SARL with share capital of €30 000"
+			
+		}
+
+	},
+
+	"details":{
+
+		"conditions" : {
+			"title":"Conditions :"
+		},
+		"photos":{
+			"title":"Photos",
+			"add":"Add a picture",
+			"upload_photo":"Upload a picture",
+			"valid_upload":"Add"
+		},
+		"note_act":{
+			"title":"Rate this activity"
+		},
+		"comment":{
+			"title":"Comments",
+			"add":"Add a comment",
+			"valid":"Submit",
+			"allcoms":"All comments",
+			"err": {
+				"login":"You must be logged in to comment.",
+				"nocom":"No comment"
+			}
+
+		},
+		"reserv":{
+			"title":"Book an activity :",
+			"prix_title":"Price :",
+			"promo":"instead of",
+			"valid":"Register for this activity",
+			"popup":{
+				"success" : {
+					"title":"Cart",
+										"content":"The reservation has been added to the cart",
+					"btclose":"Close"
+				}
+			}
+		}
+	},
+
+	"header":{
+
+		
+		"main_menu" : {
+			"about": "About",
+			"act":"Activities"
+		},
+		"right_dropdown":{
+
+			"connect_title":"Sign in",
+			"compte":"My account",
+			"reserv":"My activties",
+			"photos":"My pictures",
+			"deconnect":"Sign out",
+			"connect":"Log in"
+		}
+		
+
+
+	},
+	
+	"login":{
+		"creer_compte_title":"Create an account",
+		"nom":"Lastname :",
+		"prenom":"Firstname :",
+		"mail":"Email :",
+		"mdp":"Password  :",
+		"confirm_mdp":"Confirm :",
+		"creer_compte_button":"Create",
+		"connect_title":"Sign in",
+		"connect_button":"Log in",
+		"mdp_oublie_title":"Forgot your password?",
+		"mdp_oublie_button":"Submit"
+
+
+	},
+
+	"panier":{
+
+	},
+
+	"compte":{
+
+	},
+
+	"reservations":{
+
+	},
+
+	"cgv":{
+
+	},
+	"cgu":{
+
+	},
+	"not-found":{
+
+		"message":"<p>Oops,</p><p>it occurred an error.</p><p><a [routerLink]=\"['']\">Click here to go back to the home page</a></p>" 
+	},
+
+	"footer": {
+		"cgv":"Terms of sales",
+		"cgu":"Terms of services",
+		"mentions":"Legal notice"
+
+	}
+
+
+}

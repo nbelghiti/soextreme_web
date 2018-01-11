@@ -1,0 +1,111 @@
+<app-header></app-header>
+<section class="container-body admin">
+<app-admin-menu></app-admin-menu>	
+<div class="container">
+ <app-backlink></app-backlink>
+ <h2>Client</h2>
+ <table class="table table-condensed">
+    <thead>
+      <tr>
+      
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- <tr *ngFor="let i = index ; let res of rsv;" > -->
+	    <tr >
+			<td>{{client?.nom}}</td>
+			<td>{{client?.prenom}}</td>
+			<td>{{client?.email}}</td>
+			<td>{{client?.telephone}}</td>
+
+	    </tr>  
+      
+    </tbody>
+  </table>
+  <h2>Commentaire(s) ({{commentaires?.length}})</h2>
+  <p *ngIf="!ratings?.length>0">Ce client n'a pas commenté</p>
+  <table class="table table-condensed"  *ngIf="commentaires?.length>0">
+    <thead>
+      <tr>
+      
+        <th>Date</th>
+        <th>Activité Commentée</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- <tr *ngFor="let i = index ; let res of rsv;" > -->
+	    <tr *ngFor="let i = index ; let com of commentaires;">
+			<td>
+				{{date_com?date_com[i]:''}}	
+			
+			</td>
+			<td>
+
+				<a *ngIf="act_com[i][0]" [routerLink]="['/activite/', act_com[i][0]?._id]">
+					{{act_com[i][0]?.libelle}}
+				</a>
+				<a *ngIf="!act_com[i][0]" >
+					{{act_com[i][0]?.libelle}}
+				</a>
+			</td>
+			<td>
+				<a *ngIf="com" [routerLink]="['/admin/commentaire', com?._id]">
+					Voir le commentaire
+				</a>
+				<a *ngIf="!com" >
+					Voir le commentaire
+				</a>
+
+			</td>
+
+
+	    </tr>  
+      
+    </tbody>
+  </table>
+  <h2>Note(s) ({{ratings?.length}})</h2>
+  <p *ngIf="!ratings?.length>0">Ce client n'a pas noté</p>
+   <table class="table table-condensed" *ngIf="ratings?.length>0">
+  
+ 	<thead>
+      <tr>
+        <th>Date</th>
+      	<th>Note</th>
+        <th>Activité</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+	     <tr *ngFor="let i = index ; let rating of ratings;">
+			<td>
+				 <div>{{date_note?date_note[i]:''}}</div> 
+			</td>
+	    	<td>
+				<div><ngb-rating [(rate)]="rating.note"></ngb-rating></div>
+			</td>
+			<td>
+				<a *ngIf="act_note[i][0]" [routerLink]="['/activite/', act_note[i][0]?._id]">
+					{{act_note[i][0]?.libelle}}
+				</a>
+				<a *ngIf="!act_note[i][0]" >
+					{{act_note[i][0]?.libelle}}
+				</a>
+			</td>
+			<td>
+				<a  [routerLink]="['/admin/note/', rating?._id]">
+					Voir la note en détail
+				</a>
+			</td> 
+	    </tr>   
+    </tbody>
+  </table>
+</div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,44 @@
+<app-header></app-header>
+<section class="container-body admin">
+<app-admin-menu></app-admin-menu> 
+
+
+<div class="container">
+  <h2>Liste des utilisateurs</h2>
+  <table class="table table-condensed"  *ngIf="users_info?.length>0"> 
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i = index ; let user_info of users_info;">
+	    <!-- <tr *ngFor="let i = index ; let com of commentaires;"> -->
+      <td>{{user_info?.nom}}</td>
+			<td>{{user_info?.prenom}} </td>
+      <td>{{user_info?.email}} </td>
+      <td>{{user_info?.telephone}} </td>
+      <td>
+        <span>Suspendre</span>
+        <span>
+          <a *ngIf="user_info" [routerLink]="['/admin/client/', user_info?._id]">
+            Voir la fiche utilisateur
+          </a>
+          <a *ngIf="!user_info" >
+             Voir la fiche utilisateur
+          </a>
+        </span>
+        <span></span>
+      </td>
+
+	    </tr>  
+    </tbody>
+  </table>
+</div>
+</section>
+
+<app-footer></app-footer>

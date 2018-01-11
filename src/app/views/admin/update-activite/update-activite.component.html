@@ -1,0 +1,67 @@
+<app-header></app-header>
+<section class="container-body admin">
+	<app-admin-menu></app-admin-menu>
+
+		<app-backlink></app-backlink>
+		<section class="">
+			<h3 class=""></h3>
+			<form action="" class="" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+				<label for="libelle">Libellé :  </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-pencil"></span></span>
+					<input type="text" id="libelle" name="libelle" class="form-control" aria-describedby="sizing-addon1" required formControlName="libelle" [(ngModel)]="myActivity.libelle">
+				</div>
+				<label for="type_act">Type d'activité : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-pencil"></span></span>
+					<input type="text" id="type_act" name="type_act" class="form-control" aria-describedby="sizing-addon2" required formControlName="type_act" [(ngModel)]="myActivity.type_act">
+				</div>
+				<label for="prix">Prix : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-pencil"></span></span>
+					<input type="text" id="prix" name="prix" class="form-control" aria-describedby="sizing-addon2" required formControlName="prix" [(ngModel)]="myActivity.prix">
+				</div>
+				<label for="remise">Remise (Prix en {{currency}}) :   </label>
+				<div class="input-group">
+					<input type="text" id="remise" name="remise" class="form-control"
+					[(ngModel)]="myActivity.remise" formControlName="remise">
+				</div>
+				<label for=""></label>
+				<div class="input-group">	
+					<span>Activité en promotion</span>
+					<input type="checkbox" id="isPromo" name="isPromo" [(ngModel)]="myActivity.en_promo" 
+					formControlName="en_promo" (change)="onChangePromo()">
+				</div>
+				<label for="description">Description de l'activité : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon3"><span class="glyphicon glyphicon-pencil"></span></span>
+					<textarea name="" id="description" name="description" class="form-control" aria-describedby="sizing-addon3" required formControlName="description" minlength="1" maxlength="300" [(ngModel)]="myActivity.description"></textarea>
+				</div>
+				<!-- <label for="duree_act">Durée : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon3">@</span>
+					<input type="text" id="duree_act" name="duree_act" class="form-control" aria-describedby="sizing-addon3" required formControlName="duree_act" value="{{myActivity.duree_act}}">
+				</div> -->
+				<label for="condition">Conditions : </label>
+				<div class="input-group">
+					<span class="input-group-addon" id="sizing-addon5"><span class="glyphicon glyphicon-pencil"></span></span>
+					<textarea name="" id="condition" name="condition" class="form-control" aria-describedby="sizing-addon5"  formControlName="condition" minlength="1" maxlength="300" [(ngModel)]="myActivity.condition"></textarea>
+				</div>
+				<label for="visible_act">Afficher cette activité sur le site</label>
+				<div class="input-group">
+					<input type="checkbox" id="visible_act" name="visible_act" class="form-control" aria-describedby="sizing-addon6"  formControlName="visible" [(ngModel)]="myActivity.visible">
+				</div>
+				<label for="visible_home">Afficher cette activité sur la page d'accueil</label>
+				<div class="input-group">
+					<input type="checkbox" id="visible_home" name="visible_home" class="form-control" aria-describedby="sizing-addon7"  formControlName="visible_home" (change)="onChangeVisible()" [(ngModel)]="myActivity.visible_home">
+				</div>
+			
+				<label for=""></label>
+				<div class="input-group">	
+					<input type="submit" id="update_activite" name="update_activite" value="Modifier">
+				</div>
+			</form>
+		</section>		
+		
+	</section>
+<app-footer></app-footer>

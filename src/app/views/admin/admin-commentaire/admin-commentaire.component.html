@@ -1,0 +1,31 @@
+<app-header></app-header>
+<section class="container-body admin">
+<app-admin-menu></app-admin-menu>
+
+
+<div class="container">
+  <h2>Commentaire</h2>
+  <section class="client_com">
+    <article>
+      <div>
+        <h3>Nom : </h3>
+        <span class="">{{user_info_com[0]?.prenom}} {{user_info_com[0]?.nom}}</span>
+      </div>
+      <div>
+        <h3>Date : </h3>
+       <span class="">{{date_com[0]}}</span>
+      </div>
+      <div>
+        <h3>Activité : </h3>
+        <span class="">{{act_com[0]?.libelle}}</span>
+      </div>
+      <div>
+        <h3 class="">Texte : </h3>
+        <div class="">{{comment?.texte}}</div>
+      </div>
+    </article>
+  </section>
+</div>
+</section>
+
+<app-footer></app-footer>

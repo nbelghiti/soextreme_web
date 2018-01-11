@@ -1,0 +1,49 @@
+<app-header></app-header>
+<section class="container-body admin">
+<app-admin-menu></app-admin-menu>
+
+
+<div class="container">
+  <h2>Liste des notes</h2>
+<!--  <table class="table table-condensed"  *ngIf="reservations?.length>0">
+ -->
+  <table class="table table-condensed" *ngIf="ratings?.length>0">
+  
+ 	<thead>
+      <tr>
+        <th>Date</th>
+      	<th>Note</th>
+        <th>Activité</th>
+        <th>Client</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+	     <tr *ngFor="let i = index ; let rating of ratings;">
+			<td>
+				 <div>{{date_note?date_note[i]:''}}</div> 
+			</td>
+	    	<td>
+				<div><ngb-rating [(rate)]="rating.note"></ngb-rating></div>
+			</td>
+			<td>
+				<a *ngIf="act_note[i][0]" [routerLink]="['/activite/', act_note[i][0]?._id]">
+					{{act_note[i][0]?.libelle}}
+				</a>
+				<a *ngIf="!act_note[i][0]" >
+					{{act_note[i][0]?.libelle}}
+				</a>
+			</td>
+			<td>{{user_info_note[i][0]?.prenom}} {{user_info_note[i][0]?.nom}}</td>
+			<td>
+				<a  [routerLink]="['/admin/note/', rating?._id]">
+					Voir la note en détail
+				</a>
+			</td> 
+	    </tr>   
+    </tbody>
+  </table>
+</div>
+</section>
+
+<app-footer></app-footer>

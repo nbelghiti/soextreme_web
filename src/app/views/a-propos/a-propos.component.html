@@ -1,0 +1,38 @@
+<app-header></app-header>
+<section class="container-body">
+	<section class="about">
+		<section class="infos_agence">
+			<article class="">
+				
+				<p [innerHTML]="'a-propos.intro.para1' | translate"></p>
+				<p [innerHTML]="'a-propos.intro.para2' | translate"></p>
+				<p [innerHTML]="'a-propos.intro.para3' | translate"></p>
+				
+				<ul>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item1' | translate}}</li>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item2' | translate}}</li>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item3' | translate}}</li>
+					<li><i class="fa fa-circle"></i> {{'a-propos.list_act.item4' | translate}}</li>
+				</ul>     
+
+			</article>
+		</section>
+		<app-gmap-apropos></app-gmap-apropos>
+		<section class="infos_agence">
+			<ul class="">
+				<li class="">
+					<span class=""  [innerHTML]="'a-propos.info_agence.localisation' | translate">
+						
+					</span>
+				</li>
+				<li class="">
+					<span class=""  [innerHTML]="'a-propos.info_agence.siege_soc' | translate">
+						
+					</span>
+				</li>
+				<li class=""><span class="" [innerHTML]="'a-propos.info_agence.cap_soc' | translate"></span></li>
+			</ul>
+		</section>
+	</section>
+</section>
+<app-footer></app-footer>

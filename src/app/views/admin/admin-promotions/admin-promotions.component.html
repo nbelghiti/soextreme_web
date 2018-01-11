@@ -1,0 +1,32 @@
+<app-header></app-header>
+<section class="container-body admin">
+	<app-admin-menu></app-admin-menu>
+	  <h2>Gestion des promotions</h2>
+	<label for="changeAct">Sélectionnez une activité parmi la liste</label>
+	<select class="form-control" #t (change)="selectActivity($event)" id="changeAct" name="changeAct">
+      <option *ngFor="let i = index ; let act of myActivities;" [value]="act.libelle" [attr.data-index]="i">
+      		{{act.libelle}}
+      </option>
+    </select>
+	<div class="" *ngIf="currentPrice">
+		<div class="">Prix : {{currentPrice}} {{currency}}</div>
+		<form action="" class="" (ngSubmit)="onSubmit()"  novalidate>
+				<label for="remise">Remise (Prix en {{currency}}) :   </label>
+				<div class="input-group">
+					<input type="text" id="remise" name="remise" class="form-control"
+					[(ngModel)]="currentDiscount" [disabled]="isPromo === false">
+				</div>
+				<label for=""></label>
+				<div class="input-group">	
+					<span>Produit en promotion</span>
+					<input type="checkbox" id="isPromo" name="isPromo" [(ngModel)]="isPromo">
+				</div>
+				<label for=""></label>
+				<div class="input-group">	
+					<input type="submit" id="addDiscount" name="addDiscount" value="Enregistrer">
+				</div>
+		</form>
+
+	</div>
+</section>
+<app-footer></app-footer>

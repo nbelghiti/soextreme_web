@@ -1,0 +1,55 @@
+<app-header></app-header>
+<section class="container-body admin">
+<app-admin-menu></app-admin-menu>
+
+
+<div class="container">
+  <h2>Liste des commentaires</h2>
+ <table class="table table-condensed"  *ngIf="commentaires?.length>0">
+    <thead>
+      <tr>
+      
+        <th>Date</th>
+        <th>Nom du commentateur</th>
+        <th>Activité Commentée</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- <tr *ngFor="let i = index ; let res of rsv;" > -->
+	    <tr *ngFor="let i = index ; let com of commentaires;">
+			<td>
+				<div>le {{date_com?date_com[i]:''}}</div>
+				<!-- <div *ngIf="!date_com[i]">le {{date_com[i]}}</div>		 -->
+			</td>
+			<td>{{user_info_com[i][0]?.prenom}} {{user_info_com[i][0]?.nom}}</td>
+			<td>
+				<a *ngIf="act_com[i][0]" [routerLink]="['/activite/', act_com[i][0]?._id]">
+					{{act_com[i][0]?.libelle}}
+				</a>
+				<a *ngIf="!act_com[i][0]" >
+					{{act_com[i][0]?.libelle}}
+				</a>
+			</td>
+			  <td>
+          <ul>
+            <li><a [routerLink]="['/admin/commentaire/', com._id]" target="_blank">Voir</a></li>
+            <li>
+            	<a (click)="toggleVisible(i)">
+            		<span *ngIf="com.visible === true">Retirer</span>
+            		<span *ngIf="!com.visible === true">Remettre</span>
+            	</a>
+            </li>
+            <li><a>Supprimer</a></li>
+
+          </ul>
+        </td>
+
+	    </tr>  
+      
+    </tbody>
+  </table>
+</div>
+</section>
+
+<app-footer></app-footer>

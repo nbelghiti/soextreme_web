@@ -1,0 +1,15 @@
+<article class="comment" *ngFor="let i = index ; let com of commentaires;">
+	<header class="header_comment">
+		<span class="nom_commentateur">{{user_info_com[0]?.prenom}} {{user_info_com[0]?.nom}}</span>
+		<span class="date_comment">le {{date_com}}</span>
+
+	</header>
+	<p class="">{{com?.texte}}</p>
+	<footer class="">
+		<!-- <button type="button" (click)="answer()">Répondre</button> -->
+		<hr class="separate_comment">
+	</footer>
+
+</article>
+<button *ngIf="commentaires?.length>10" class="btn-primary btn">{{ 'details.comment.allcoms' | translate}}</button>
+<p *ngIf="commentaires?.length === 0" class="">{{ 'details.comment.err.nocom' | translate}}</p>

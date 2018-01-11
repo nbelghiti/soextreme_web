@@ -1,0 +1,184 @@
+{
+	"metas"	: {
+
+		"accueil" : {
+
+			"title":"So Extrême | Fr",
+			
+			"other":{
+
+				"description":"bla bla bla",
+				"og:title":"",
+				"og:type":"",
+				"og:url":"",
+				"og:image":""
+			}
+			
+		},
+		"a-propos" : {
+
+		},
+
+		"activites": {
+
+
+		},
+
+		"login" : {
+
+		}
+
+	},
+
+	"accueil" : {
+		
+		"slogan" : "Il y aura forcément une activité parmi toutes celles que nous proposons ! Pour vous ..."
+
+
+	},
+
+	"activites" : {
+
+		"title":"Les activités",
+		"subtitle":"Sélectionnez une activité :"
+	},
+	"a-propos" : {
+
+		"intro" : {
+			"para1" : "<p>Depuis 2004, <a [routerLink]=\"['']\">SO'Extrême</a> est le spécialiste des sensations fortes.</p>",
+			"para2" : "<p>Que ce soit pour se faire un petit frisson ou pour offrir un coffret cadeau à un proche.</p>",
+			"para3" : "<p><a [routerLink]=\"['']\">SO'Extrême</a> s'efforce de vous proposer une multitude d'activités au meilleur prix.</p>"
+
+		},
+		"list_act" : {
+
+			"item1":"saut en parachute,",
+			"item2":"saut à l'élastique,",
+			"item3":"rafting,",
+			"item4":"canoë kayak ..."
+
+		},
+		"info_agence":{
+			"localisation":"<span><i class=\"fa fa-map-marker\"></i> Localisation : </span> Gorges du Verdon(Alpes Haut Provence)",
+			"siege_soc":"<span><i class=\"fa fa-building\"></i> Siège social :</span> route de Napoléon, CASTELLANE 04120",
+			"cap_soc":"SARL au capital social de 30 000€"
+			
+		}
+
+	},
+
+	"details":{
+
+		"conditions" : {
+			"title":"Conditions :"
+		},
+		"photos":{
+			"title":"Photos",
+			"add":"Ajouter une photo",
+			"upload_photo":"Télécharger une photo",
+			"valid_upload":"Ajouter"
+		},
+		"note_act":{
+			"title":"Noter cette activité"
+		},
+		"comment":{
+			"title":"Commentaires",
+			"add":"Ajouter un commentaire",
+			"valid":"Valider",
+			"allcoms":"Tous les commentaires",
+			"err": {
+				"login":"Vous devez être connecté pour pouvoir commenter.",
+				"nocom":"Aucun commentaire"
+			}
+
+		},
+		"reserv":{
+			"title":"Réserver une activité :",
+			"prix_title":"Prix :",
+			"promo":"au lieu de",
+			"valid":"S'inscrire à l'activité",
+			"popup":{
+				"success" : {
+					"title":"Panier",
+					"content":"La réservation a bien été ajoutée au panier",
+					"btclose":"Fermer"
+				}
+			}
+		}
+	},
+
+
+	"header":{
+
+		
+		"main_menu" : {
+			"about": "A propos",
+			"act":"Activités"
+		},
+		"right_dropdown":{
+
+			"connect_title":"Se connecter",
+			"compte":"Mon compte",
+			"reserv":"Mes activités",
+			"photos":"Mes photos",
+			"deconnect":"Déconnexion",
+			"connect":"Connexion"
+		}
+		
+
+
+	},
+	
+	"login":{
+		"creer_compte_title":"Créer un compte",
+		"nom":"Nom :",
+		"prenom":"Prénom :",
+		"mail":"Adresse email :",
+		"mdp":"Mot de passe  :",
+		"confirm_mdp":"Confirmation :",
+		"creer_compte_button":"Créer",
+		"connect_title":"Se connecter",
+		"connect_button":"Se connecter",
+		"mdp_oublie_title":"Mot de passe oublié?",
+		"mdp_oublie_button":"Valider"
+
+
+	},
+
+	"panier":{
+
+	},
+
+	"compte":{
+
+	},
+
+	"reservations":{
+
+	},
+
+	"backlinks":{
+
+		"continue":"Continuer mes achats",
+		"back":"Retour"
+
+	},
+
+	"cgv":{
+
+	},
+	"cgu":{
+
+	},
+	"not-found":{
+
+		"message":"<p>Oups,</p><p>il s'est produit une erreur.</p><p><a [routerLink]=\"['']\">Cliquez ici pour revenir \u00E0 la page d'accueil</a></p>" 
+	},
+
+	"footer": {
+		"cgv":"Cgv",
+		"cgu":"Cgu",
+		"mentions":"Mentions légales"
+	}
+
+}

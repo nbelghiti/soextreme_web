@@ -1,0 +1,37 @@
+<section class="container-body">
+
+	<section class="connexion">
+		<h3 class="">Se connecter</h3>
+		<form name="form" (ngSubmit)="login()" [formGroup]="form" novalidate >
+
+					<label for="adrs_email">Adresse email :  </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="sizing-addon-cmail"><span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" id="adrs_email" name="email" class="form-control" aria-describedby="sizing-addon-cmail" formControlName="email" required>
+					</div>
+					<label for="cmdp">Mot de passe :  </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="sizing-addon-cmdp"><span class="glyphicon glyphicon-pencil"></span></span>
+						<input type="text" id="cmdp" name="password" class="form-control" aria-describedby="sizing-addon-cmdp" required formControlName="password">
+					</div>
+					<label for=""></label>
+					<div class="input-group">		
+						<input type="submit" id="connect" name="connect" value="Se connecter">
+					</div>
+				</form>
+	</section>
+	<section class="mdp_oublie">
+		<h3 class="">Mot de passe oublié?</h3>
+		<form action="" class="">
+			<label for="lost_mail">Adresse email : </label>
+			<div class="input-group">
+				<span class="input-group-addon" id="sizing-addon6">@</span>
+				<input type="password" id="lost_mail" name="lost_mail" class="form-control" aria-describedby="sizing-addon6" required>
+			</div>
+			<label for=""></label>
+			<div class="input-group">	
+				<input type="submit" id="lost_mdp" name="lost_mdp" value="Valider">
+			</div>
+		</form>
+	</section>
+</section>
