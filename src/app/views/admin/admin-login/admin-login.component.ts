@@ -42,12 +42,10 @@ export class AdminLoginComponent implements OnInit {
                 data => {
                   let email     = this.form.get('email').value,
                       password  = this.form.get('password').value;
-                      //console.log(data);
                       this.router.navigate([this.returnUrl]);
-                      //console.log(this.returnUrl);
 
                 },
-                error => {
+                err => {
                     //this.alertService.error(error);
                     this.loading = false;
                 });

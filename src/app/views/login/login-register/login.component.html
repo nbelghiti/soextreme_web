@@ -7,7 +7,6 @@
 		<section class="right_login">
 			<section class="connexion">
 				<h3 class="">{{ 'login.connect_title' | translate}}</h3>
-				<!-- <form class="" (submit)="loginUser($event)" > -->
     			<form name="form" (ngSubmit)="login()" [formGroup]="form" novalidate >
 
 					<label for="adrs_email">{{ 'login.mail' | translate}}  </label>
@@ -26,7 +25,6 @@
 			</section>
 			<section class="mdp_oublie">
 				<h3 class="">{{ 'login.mdp_oublie_title' | translate}}</h3>
-				<!-- <form [formGroup]="complexForm" action="" class="" #form="ngForm"  novalidate> -->
 				<form  action="" class=""  novalidate>
 				
  				 	<label for="lost_mail">{{ 'login.mail' | translate}} </label>

@@ -61,7 +61,9 @@ public filesSelect(selectedFiles: Ng4FilesSelected): void {
          this.photo.createPhoto(this.imgphoto).subscribe(data => {
 
            console.log(data);
-         })
+         },err =>{
+      
+    })
         //console.log( this.selectedFiles);
 
   }
@@ -78,12 +80,16 @@ public filesSelect(selectedFiles: Ng4FilesSelected): void {
     		 this.photo.createPhoto(this.imgphoto).subscribe(data => {
 
     		 	console.log(data);
-    		 })
+    		 },err =>{
+      
+    })
 	        // this.photo
 	        //     .upload(fileToUpload)
 	        //     .subscribe(res => {
 	        //         console.log(res);
-	        //     });
+	        //     },err =>{
+      
+    });
 	    }
 	}*/
   ngOnInit() {

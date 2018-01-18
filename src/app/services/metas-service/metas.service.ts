@@ -15,6 +15,9 @@ export class MetasService {
          
         this.titleService.setTitle( res );
 
+    }, err =>{
+
+      
     });
   }
   public setOtherMetas( obj ){
@@ -31,6 +34,9 @@ export class MetasService {
            this.meta.updateTag({ name: tab[i], content: res[tab[i]] });
          }
        }
+    }, err =>{
+
+      
     });
 
   }

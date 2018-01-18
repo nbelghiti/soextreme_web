@@ -21,7 +21,6 @@ import { ConfirmPopupComponent,CommentsComponent } from '../../views/utils/index
   providers : [ConfirmPopupComponent, CommentsComponent, NgbModal, NgbActiveModal]
 })
 export class DetailsActiviteComponent implements OnInit {
- //@ViewChild(CommentsComponent)
  @Input() nb_coms;
   myActivity : any =[];
   err: String ='';
@@ -113,21 +112,22 @@ export class DetailsActiviteComponent implements OnInit {
   getActivite(){
 		 this.activite.getActivite(this.id_activite)
                   .subscribe(data => {this.myActivity=data ;
-                    console.log(this.myActivity);
                     this.prix = this.activite.getPrice (this.myActivity.prix, this.myActivity.remise);
-                  });
+                  },err =>{
+      
+    });
                   this.nb_coms = this.coms.nb_coms;
 
-                  console.log('Nombre com : '+this.nb_coms.length);
   }
 
 
   createReservation(){
 
      this.reservation.createReservation(this.rsv).subscribe(data => {
-         console.log(data);
 
-     });
+     },err =>{
+      
+    });
     
   }
   onSubmit(){
@@ -136,7 +136,6 @@ export class DetailsActiviteComponent implements OnInit {
          jour       = this.form.get('date').get('mydate').value.day,
          date       = `${annee},${mois},${jour}`;
 
-    console.log(date);
     this.rsv.date_rsv =new Date(date);
     this.sess.addCartItem();
     this.createReservation();
@@ -145,21 +144,7 @@ export class DetailsActiviteComponent implements OnInit {
   }
 
  onFileChange(event){
-   /* let reader = new FileReader();
-    if(event.target.files && event.target.files.length > 0) {
-      let file = event.target.files[0];
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        
-         this.imageform = this.fb.group({
-      
-          img_upload:  file.name
 
-         });
-      };
-    }*/
-    /* let file = event.target.files[0]; 
-     this.imageform.controls['imgUploader'].setValue(file ? file.name : '');*/
     if(event.target.files.length > 0) {
       let file = event.target.files[0];
      // this.form.get('imgUploader').setValue(file);
@@ -167,13 +152,7 @@ export class DetailsActiviteComponent implements OnInit {
     }
    
   }
-   private prepareSave(): any {
-    let input = new FormData();
- 
-    input.append('imgUploader', this.imageform.get('imgUploader').value);
-    console.log(input);
-    return input;
-  }
+  
   openPopup() {
     const modalRef = this.modalService.open(ConfirmPopupComponent);
     var popup_info = ["details.reserv.popup.success.title",
@@ -184,7 +163,9 @@ export class DetailsActiviteComponent implements OnInit {
         modalRef.componentInstance.title   = res[popup_info[0]];
         modalRef.componentInstance.content = res[popup_info[1]];
         modalRef.componentInstance.btClose = res[popup_info[2]];
-      });
+      },err =>{
+      
+    });
   }
 
 
@@ -192,16 +173,15 @@ export class DetailsActiviteComponent implements OnInit {
   uploadedPhoto(){
       this.imgphoto.id_cli = myGlobals.CURRENT_CLIENT._id;
       this.imgphoto.id_activite = this.id_activite;
-      this.prepareSave();
+      //this.prepareSave();
       this.imgphoto.nom_img = this.imageform.get('imgUploader').value;
 
-      // console.log(this.imageform.get('img_upload').value);
-
-      //console.log(this.imageform.get('imgUploader').value);
+    
       /*  this.photo.createPhoto(this.imgphoto).subscribe(data => {
-         console.log(data);
         
-      });*/
+      },err =>{
+      
+    });*/
   }
 
   submitPhoto(){
@@ -213,6 +193,20 @@ export class DetailsActiviteComponent implements OnInit {
 
      }
 
+  }
+   errPopup() {
+    const modalRef = this.modalService.open(ConfirmPopupComponent);
+    var popup_info = ["details.comment.title",
+                      "details.comment.err.empty",
+                      "details.reserv.popup.success.btclose"];
+
+    this.translate.get(popup_info).subscribe((res:String) =>{
+        modalRef.componentInstance.title   = res[popup_info[0]];
+        modalRef.componentInstance.content = res[popup_info[1]];
+        modalRef.componentInstance.btClose = res[popup_info[2]];
+      },err =>{
+      
+    });
   }
   createComment() {
 
@@ -229,14 +223,12 @@ export class DetailsActiviteComponent implements OnInit {
         this.comment.type ="";
 
         this.commentaire.createCommentaire(this.comment).subscribe(data => {
-           console.log(data);
 
-       });
+       },err =>{
+      
+    });
       } else {
-         this.translate.get("details.comment.err.empty").subscribe((res:String) =>{ 
-           alert(res);
-
-        });
+        this.errPopup();
       }
 		  //this.err='';
 
@@ -250,17 +242,17 @@ export class DetailsActiviteComponent implements OnInit {
    
     
     if(!this.isLoggedIn){
-      console.log('not connected');
       //this.err=myGlobals.ERROR_FORM.commentaire.nologgedIn.message;
       this.translate.get("details.comment.err.login").subscribe((res:String) =>{
         this.err = res;
-      })
+      },err =>{
+      
+    })
       
        
     } else {
       
      
-      console.log('connected');
       this.err='';
       
     }    

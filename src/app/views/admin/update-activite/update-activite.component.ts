@@ -25,7 +25,6 @@ export class UpdateActiviteComponent implements OnInit {
   			  public fb: FormBuilder) { 
   			
   			 let id_activite = this.route.snapshot.paramMap.get('id');
-  			 console.log(id_activite);
 
   			  this.form = fb.group({
 	          libelle: ['',[Validators.required, Validators.minLength(3)]],
@@ -43,7 +42,6 @@ export class UpdateActiviteComponent implements OnInit {
                //duree_act:['',[Validators.required, Validators.maxLength(2)]],
                _id:null
         	  });
-        	  //console.log(this.form);
 
   }
 getActivite(){
@@ -52,15 +50,15 @@ getActivite(){
 
        this.myActivity=data ;
 
-       console.log(this.myActivity);
 
-     });
+     },err =>{
+      
+    });
 
   }
   isChecked(e){
 
     this.showHome = e.target.checked;
-    console.log(this.showHome);
 
   }
 
@@ -124,14 +122,14 @@ this.form = this.fb.group({
                _id:this.myActivity._id
             });
 
-          //console.log(this.form)
 
  	 	 
      this.activite.updateActivite(this.form.value).subscribe(data => {
      	
-       console.log(data);
 
-     });
+     },err =>{
+      
+    });
 
   }
 

@@ -29,9 +29,10 @@ export class AdminPromotionsComponent implements OnInit {
   	 .subscribe(data => {
 
        this.myActivities=data;
-       console.log(this.myActivities);
        
 
+     },err => {
+       
      });
 
   }
@@ -50,8 +51,9 @@ export class AdminPromotionsComponent implements OnInit {
   updatePromo(){
   	this.activites.updateActivite(this.updateAct).subscribe(data => {
 
-	  		console.log(data);
-	});
+	},err => {
+    
+  });
   }
   onSubmit(){
 

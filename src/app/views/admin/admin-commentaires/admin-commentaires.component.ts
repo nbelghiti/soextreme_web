@@ -29,18 +29,20 @@ export class AdminCommentairesComponent implements OnInit {
   	this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.user_info_com.push(response);
-	  	//console.log('user : ',this.user_info_com);
-	  })
+	  }, err =>{
+
+      
+    })
 
   }
   getActCom(id : String){
   	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.act_com.push(response);
-	  	//console.log('activite : ',this.act_com);
-      
+	  }, err =>{
 
-	  })
+      
+    })
 
   }
   toggleVisible(index){
@@ -54,8 +56,10 @@ export class AdminCommentairesComponent implements OnInit {
 
      this.commentaire.updateCommentaire(this.commentaires[index]).subscribe((response)=>{
 
-       console.log(response);
-     });
+     }, err =>{
+
+      
+    });
 
   }
   getAllComments(){
@@ -73,10 +77,11 @@ export class AdminCommentairesComponent implements OnInit {
           this.getUserInfoCom(this.id_cli_com);
 		  		this.getActCom(this.id_act_com);
 	  		}
-        //console.log(this.commentaires);
   		}
-  		//console.log(data);
-  	});
+  	}, err =>{
+
+      
+    });
 
   }
   ngOnInit() {

@@ -39,17 +39,21 @@ export class AdminCommentaireComponent implements OnInit {
 	        this.getActCom(this.id_act_com);
 	        this.getUserInfoCom(this.id_cli_com);
   		}
-  		console.log(data);
-  	});
+  	}, err =>{
+
+      
+    });
 
   }
    getActCom(id : String){
     this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
     .subscribe((response)=>{
       this.act_com.push(response[0]);
-    //  console.log('activite : ',this.act_com);
       
 
+    }, err =>{
+
+      
     })
 
   }
@@ -58,7 +62,9 @@ export class AdminCommentaireComponent implements OnInit {
     this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
     .subscribe((response)=>{
       this.user_info_com.push(response[0]);
-     // console.log('user : ',this.user_info_com);
+    }, err =>{
+
+      
     })
 
   }

@@ -12,10 +12,6 @@ import { AuthService } from '../../../services/index';
 })
 export class InfoCompteComponent implements OnInit {
 
-  
-
-
-
     returnUrl: string;
     form:FormGroup;
     create_user_form:FormGroup;
@@ -42,7 +38,6 @@ export class InfoCompteComponent implements OnInit {
  
     ngOnInit() {
          //this.authService.logout();
-         console.log('return url',this.route.snapshot.queryParams['returnUrl']);
          this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
          this.hideField();
          this.getClient();
@@ -55,7 +50,6 @@ export class InfoCompteComponent implements OnInit {
     	} else {
     		this.hideInfo = false;
     	}
-    	console.log(this.hideInfo);
     }
     getLocation(){
 
@@ -75,9 +69,10 @@ export class InfoCompteComponent implements OnInit {
 
    		   	this.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
 			this.authService.getClient(this.id_cli).subscribe(res =>{
-			   		//console.log(res);
 			   		this.client_info = res;
-			})
+			},err =>{
+      
+    })
    	}
 
    	
@@ -102,30 +97,22 @@ export class InfoCompteComponent implements OnInit {
             .subscribe(
                 data => {
                       
-
-                      console.log(data);
-                      
                 },
-                error => {
+                err => {
                     
                 });
-   		 
-       
+   
     }
     createAccount() {
        this.authService.createClient(this.create_user_form.value)
             .subscribe(
                 data => {
                       
-
-                      console.log(data);
                       this.router.navigate([this.returnUrl]);
                       location.reload();
 
-                      //console.log(this.returnUrl);
-
                 },
-                error => {
+                err => {
                     
                 });
     }

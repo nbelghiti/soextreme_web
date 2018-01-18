@@ -35,7 +35,6 @@ export class ReservationsComponent implements OnInit {
 	  .subscribe((response)=>{
 
 	  	this.rsv = response;
-	  	//console.log(response.length);
 		if (this.rsv.length>0) {
 			for(let i=0; i<response.length; i++){
 				this.getActivitesByClient(this.rsv[i].id_act);
@@ -45,12 +44,16 @@ export class ReservationsComponent implements OnInit {
 	  
 
 
-	  });
+	  },err =>{
+      
+    });
 
   }
   getActivitesByClient(id : String){
 
-  	 this.activite.getActivite(id).subscribe(data => { this.act.push(data); console.log(this.act)});
+  	 this.activite.getActivite(id).subscribe(data => { this.act.push(data); },err =>{
+      
+    });
 
   }
   ngOnInit() {

@@ -40,17 +40,21 @@ export class AdminReservationComponent implements OnInit {
         this.getActRsv(this.id_act_rsv);
         this.getUserInfoRsv(this.id_cli_rsv);
   		}
-  		console.log(data);
-  	});
+  	}, err =>{
+
+      
+    });
 
   }
    getActRsv(id : String){
     this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
     .subscribe((response)=>{
       this.act_rsv.push(response[0]);
-    //  console.log('activite : ',this.act_rsv);
       
 
+    }, err =>{
+
+      
     })
 
   }
@@ -59,7 +63,9 @@ export class AdminReservationComponent implements OnInit {
     this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
     .subscribe((response)=>{
       this.user_info_rsv.push(response[0]);
-     // console.log('user : ',this.user_info_rsv);
+    }, err =>{
+
+      
     })
 
   }

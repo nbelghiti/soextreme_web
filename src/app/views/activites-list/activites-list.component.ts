@@ -22,13 +22,13 @@ export class ActivitesListComponent implements OnInit {
   	 if(location.pathname == '/'){
 
   	 	this.activity_list.map((result) => result.filter( item => item.visible === true && item.visible_home === true ))
-  	 	.subscribe(data => {this.myActivities=data ;console.log(this.myActivities);});
+  	 	.subscribe(data => {this.myActivities=data;}, err =>{});
 
 
   	 } else if(location.pathname == '/activites'){
 
      	this.activity_list.map((result) => result.filter( item => item.visible === true ))
-     	 .subscribe(data => {this.myActivities=data ;console.log(this.myActivities);});
+     	 .subscribe(data => {this.myActivities=data;}, err =>{});
 
   	 }
 

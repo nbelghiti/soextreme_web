@@ -27,7 +27,6 @@ public didPaypalScriptLoad: boolean = false;
                private activite : ActivitesService, 
                private reservation : ReservationService) { }
   retrieveTotal(total){
-    console.log(total);
     this.paymentAmount = total;
     return total;
   }

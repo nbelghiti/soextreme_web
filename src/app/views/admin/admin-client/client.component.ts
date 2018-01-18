@@ -47,7 +47,6 @@ export class AdminClientComponent implements OnInit {
   	.map((result) => result.filter( item => item._id === id ))
     .subscribe((data) => {
   		this.client = data[0];
-  	//	console.log(data);
   	});
 
   }   
@@ -81,14 +80,12 @@ export class AdminClientComponent implements OnInit {
         }
       
       }
-      console.log(data);
     });
   }
   getActCom(id : String){
   	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.act_com.push(response);
-	  	//console.log('activite : ',this.act_com);
       
 
 	  })
@@ -98,7 +95,6 @@ export class AdminClientComponent implements OnInit {
     this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
     .subscribe((response)=>{
       this.act_note.push(response);
-      //console.log('activite : ',this.act_com);
       
 
     })

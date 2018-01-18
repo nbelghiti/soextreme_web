@@ -42,26 +42,32 @@ export class AdminReservationsComponent implements OnInit {
 	  		}
       
   		}
-  		console.log(data);
-  	});
+  	}, err =>{
+
+      
+    });
   }
     getUserRsv(id : String){
 
   	this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.user_info_rsv.push(response);
-	  	//console.log('user : ',this.user_info_rsv);
-	  })
+	  }, err =>{
+
+      
+    })
 
   }
   getActRsv(id : String){
   	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.act_rsv.push(response);
-	  	//console.log('activite : ',this.act_rsv);
       
 
-	  })
+	  }, err =>{
+
+      
+    })
 
   }
   ngOnInit() {

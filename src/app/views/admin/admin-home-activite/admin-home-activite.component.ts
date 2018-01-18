@@ -40,13 +40,14 @@ export class AdminHomeActiviteComponent implements OnInit {
   	 this.activites.getAllActivites().subscribe(data => {
 
        this.myActivities=data;
-       //console.log(this.myActivities);
        for (let i = 0; i <this.myActivities.length; i++) {
          this.getAverageByActivity(this.myActivities[i]._id);
          this.prices.push(this.activites.getPrice(this.myActivities[i].prix,this.myActivities[i].remise));
        }
 
-     });
+     },err =>{
+      
+    });
 
   }
   getAverageByActivity(id_act : String){
@@ -59,7 +60,6 @@ export class AdminHomeActiviteComponent implements OnInit {
          for (let i = 0; i < this.ratings.length; i++) {
            this.sum += this.ratings[i].note;
          }
-         console.log(this.sum);   
          this.average = this.sum / this.ratings.length;
          this.average = Math.round(this.average);
 
@@ -68,15 +68,15 @@ export class AdminHomeActiviteComponent implements OnInit {
          this.average = 0;
        }
        this.allaverages.push(this.average);
-       console.log(this.allaverages);
-     });
+     },err =>{
+      
+    });
   }
 
   deleteActivite(){
 
   	// let id_activite = this.route.snapshot.paramMap.get('id');
-    // this.activite.deleteActivite(id_activite).subscribe(data => {this.myActivity=data ;console.log(this.myActivity);});
-    console.log('delete');
+    // this.activite.deleteActivite(id_activite).subscribe(data => {this.myActivity=data;},err =>{ });
   }
   
   ngOnInit() {

@@ -24,7 +24,6 @@ export class SliderActivitePhotoComponent implements OnInit {
     modalRef.componentInstance.content = event.toElement.src;
     modalRef.componentInstance.btClose = 'Fermer';
 
-    console.log(event.toElement.src);
   }
 
 

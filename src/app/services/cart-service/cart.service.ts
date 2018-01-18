@@ -23,14 +23,12 @@ export class CartService {
   addProduct(product :any){
 
   	this.Products.push(product);
-  	console.log('Add to the list : ',this.Products);
 
   }
 
   removeProduct(id : any){
 
   	this.Products = this.Products.filter((item) =>  item._id !== id );
-  	  	console.log('Remove from the list: ',this.Products);
 
 
   }

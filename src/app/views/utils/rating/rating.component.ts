@@ -62,7 +62,9 @@ export class RatingComponent implements OnInit {
   createNote(){
  
     this.rating.note = this.selected;
-    this.note.createNote(this.rating).subscribe(data => {console.log(data);});
+    this.note.createNote(this.rating).subscribe(data => {},err =>{
+      
+    });
   }
   onClick(){
 

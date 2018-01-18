@@ -11,7 +11,6 @@ export class GmapAproposComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	console.log(this.position);
   }
 
 }

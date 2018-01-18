@@ -45,10 +45,9 @@ export class LoginService {
 
          })
          .subscribe(
-        // We're assuming the response will be an object
-        // with the JWT on an id_token key
-        data => console.log(data),
-        error => console.log(error)
+ 
+        data => {},
+        error =>{}
       );
   }
 }

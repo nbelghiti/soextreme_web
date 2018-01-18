@@ -51,26 +51,29 @@ export class AdminNotesComponent implements OnInit {
 	  		}
       
   		}
-  		console.log(data);
-  	});
+  	},err => {
+      
+    });
   }
     getUserNote(id : String){
 
   	this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.user_info_note.push(response);
-	  	//console.log('user : ',this.user_info_note);
-	  })
+	  },err => {
+      
+    })
 
   }
   getActNote(id : String){
   	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.act_note.push(response);
-	  	//console.log('activite : ',this.act_note);
       
 
-	  })
+	  },err => {
+      
+    })
 
   }
   ngOnInit() {

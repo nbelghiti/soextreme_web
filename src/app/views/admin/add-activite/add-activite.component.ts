@@ -48,15 +48,13 @@ export class AddActiviteComponent implements OnInit {
      		type_act 	= this.form.get('type_act').value,
      		duree_act	= this.form.get('duree_act').value;
      	
-     	console.log(data);
 
-     });
+     }, err =>{});
 
   }
   isChecked(e){
 
     this.showHome = e.target.checked;
-    console.log(this.showHome);
 
   }
 

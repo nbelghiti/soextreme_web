@@ -24,43 +24,14 @@ export class AdminClientsComponent implements OnInit {
 
   	this.auth.getAllClients().subscribe((response)=>{
 	  	this.users_info = response;
-	  	console.log('user : ',this.users_info);
-	  })
+	  },err =>{
+      
+    })
 
   }
- /* getActCom(id : String){
-  	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
-	  .subscribe((response)=>{
-	  	this.act_com.push(response);
-      
-
-	  })
-
-  }*/
- /* getAllComments(){
-  
-  	this.commentaire.getAllCommentaires()
-
-    .subscribe((data) => {
-  		this.commentaires = data;
-  		if (this.commentaires.length>0) {
-
-	  		for (let i = 0; i<this.commentaires.length; i++) {
-	  			this.id_cli_com = this.commentaires[i].id_client;
-	  			this.id_act_com = this.commentaires[i].id_act;
-	  			this.date_com.push(this.date.getFullDate(this.commentaires[i].date));
-          this.getUserInfoCom(this.id_cli_com);
-		  		this.getActCom(this.id_act_com);
-	  		}
-        //console.log(this.commentaires);
-  		}
-  		//console.log(data);
-  	});
-
-  }*/
+ 
   ngOnInit() {
     this.getUser();
-  //	this.getAllComments();
   }
 
 }

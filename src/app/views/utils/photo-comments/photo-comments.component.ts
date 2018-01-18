@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import * as myGlobals from '../../../globals/index';
 import { Activites, Reservation, Commentaires, Photo, Session } from '../../../models/index';
 import { ActivitesService,
@@ -23,7 +24,7 @@ export class PhotoCommentsComponent implements OnInit {
   @Input() btClose;
   commentform: FormGroup;
   id_activite = this.route.snapshot.paramMap.get('id');
-  err='';
+  err : string ='';
 
    isLoggedIn = this.auth.isLoggedIn();
    comment : Commentaires = {
@@ -43,6 +44,8 @@ export class PhotoCommentsComponent implements OnInit {
   	private auth : AuthService,
   	private fb: FormBuilder,
   	private commentaire : CommentairesService,
+    private translate : TranslateService
+
 ) {
   	 this.commentform = this.fb.group({
       
@@ -53,18 +56,14 @@ export class PhotoCommentsComponent implements OnInit {
   
    errComment(){
 
-   
-    
     if(!this.isLoggedIn){
-      console.log('not connected');
-      this.err=myGlobals.ERROR_FORM.commentaire.nologgedIn.message;
+      this.translate.get("details.comment.err.login").subscribe((res:string) =>{
+        this.err = res;
+      },err =>{
       
+    })
     } else {
-      
-     
-      console.log('connected');
-      this.err='';
-      
+       this.err='';
     }    
   
   }
@@ -73,10 +72,8 @@ export class PhotoCommentsComponent implements OnInit {
     this.errComment();
 
     }
-  createComment() {
-
    
-	  
+  createComment() {
 	  if(this.isLoggedIn){
 		  
       let commentTexte = this.commentform.get('commentTexte').value;
@@ -88,18 +85,21 @@ export class PhotoCommentsComponent implements OnInit {
         this.comment.type ="";
 
         this.commentaire.createCommentaire(this.comment).subscribe(data => {
-           console.log(data);
-
-       });
+          
+       },err =>{
+      
+    });
       } else {
 
-        alert('Votre commentaire est vide');
-      }
-		  //this.err='';
+       this.translate.get("details.comment.err.empty").subscribe((res:String) =>{ 
+           alert(res);
 
+        },err =>{
       
+    });
+      }
+  
 	  }
-	  //return this.err;
 	  
   }
 }

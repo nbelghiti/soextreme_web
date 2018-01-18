@@ -44,24 +44,21 @@ export class TabPanierComponent implements OnInit {
 	  .subscribe((response)=>{
 
 	  	this.rsv = response;
-	  	console.log(this.rsv);
-	  	//console.log(response.length);
 		if (this.rsv.length>0) {
 			for(let i=0; i<response.length; i++){
 				this.getActivitesByClient(this.rsv[i].id_act);
 				//this.deleteRsv(this.rsv[i]._id);
-				//this.total += +this.rsv[i].prix;
-				//console.log('toto '+this.test);
 	  		}
 	  	} else{ 	}
 	  
 
 
-	  });
+	  },err =>{
+      
+    });
 
   }
   isDisplay(){
-    console.log(this.locale);
     if (this.location.path() === '/loginOrder') {
      this.display = false;
     } else {
@@ -69,7 +66,9 @@ export class TabPanierComponent implements OnInit {
     }
   }
   deleteRsv(id){
-  	this.reservation.deleteReservation(id).subscribe(data => { console.log(data)});
+  	this.reservation.deleteReservation(id).subscribe(data => { console.log(data)},err =>{
+      
+    });
   }
   getTotal(datarray){
   	this.total = 0;
@@ -77,7 +76,6 @@ export class TabPanierComponent implements OnInit {
 	  	for(let i=0; i<datarray.length; i++){
 	  	 		this.total += datarray[i].prix;
 		}  	 	
-		console.log(this.total);
   	}
 
 	return this.total;
@@ -88,10 +86,10 @@ export class TabPanierComponent implements OnInit {
   	 this.activite.getActivite(id).subscribe(data => { 
   	 	this.act.push(data);
   	 	this.getTotal(this.act);
-  	 	
-  	 	 //console.log(this.act);
-        this.retrieveTotal.emit(this.total);
-  	 });
+      this.retrieveTotal.emit(this.total);
+  	 },err =>{
+      
+    });
 
   }
   onSubmit(){

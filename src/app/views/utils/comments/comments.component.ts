@@ -29,8 +29,9 @@ export class CommentsComponent implements OnInit {
   	this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
 	  .subscribe((response)=>{
 	  	this.user_info_com = response;
-	  	//console.log('user : ',response);
-	  })
+	  },err =>{
+      
+    })
 
   }
   getAllComments(id : String){
@@ -40,19 +41,18 @@ export class CommentsComponent implements OnInit {
   	.subscribe((data) => {
   		this.commentaires = data;
       this.nb_coms = this.commentaires.length;
-      console.log('Nombre de com cote comments --- '+this.nb_coms)
   		if (this.commentaires.length>0) {
 	  		for (let i = 0; i<this.commentaires.length; i++) {
 	  			this.id_cli_com = this.commentaires[i].id_client;
 	  			//this.id_act_com = this.commentaires[i].id_act;
 	  			this.date_com = this.date.getFullDate(this.commentaires[i].date);
-	  			//console.log(this.id_cli_com);
 	  		}	  
 	  		this.getUserInfoCom(this.id_cli_com);
 
   		}
-  		console.log(data);
-  	});
+  	},err =>{
+      
+    });
 
 
   }

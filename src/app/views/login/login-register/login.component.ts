@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
  
     ngOnInit() {
          //this.authService.logout();
-         console.log('return url',this.route.snapshot.queryParams['returnUrl']);
          this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
 
     }
@@ -52,32 +51,14 @@ export class LoginComponent implements OnInit {
                 data => {
                   let email     = this.form.get('email').value,
                       password  = this.form.get('password').value;
-                      //console.log(data);
                       this.router.navigate([this.returnUrl]);
-                          location.reload();
+                  location.reload();
 
-                      //console.log(this.returnUrl);
 
                 },
-                error => {
+                err => {
                     //this.alertService.error(error);
                 });
     }
-    /*createAccount() {
-       this.authService.createClient(this.create_user_form.value)
-            .subscribe(
-                data => {
-                      
-
-                      console.log(data);
-                      this.router.navigate([this.returnUrl]);
-                      location.reload();
-
-                      //console.log(this.returnUrl);
-
-                },
-                error => {
-                    
-                });
-    }*/
+   
 }

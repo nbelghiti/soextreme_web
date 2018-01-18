@@ -18,7 +18,6 @@ export class BackComponent implements OnInit {
         this._location.back();
   }
   getTitleButton(){
-    console.log(this.nb_article);
   	if (this._location.path() == '/mon-panier' && (this.nb_article !== null)) {
 
        this.used_trans = "backlinks.continue";
@@ -30,6 +29,8 @@ export class BackComponent implements OnInit {
   	}
     this.translate.get(this.used_trans).subscribe((res: String)=>{
         this.title = res;      
+    },err =>{
+      
     });
   	return this.title;
   }
