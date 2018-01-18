@@ -35,6 +35,8 @@
     "font-awesome": "^4.7.0",
     "intl": "^1.2.5",
     "jquery": "^3.2.1",
+    "localize-router": "^1.0.0-rc.3",
+    "localize-router-http-loader": "^1.0.1",
     "ng4-loading-spinner": "^1.0.27",
     "popper.js": "^1.12.9",
     "rxjs": "^5.4.2",

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Activites } from '../../../models/index';
-import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Activites } from '../../../models/index';
 import * as myGlobals from '../../../globals/index';
 import { ActivitesService, NotesService } from '../../../services/index';
 

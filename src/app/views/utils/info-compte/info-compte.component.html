@@ -1,0 +1,28 @@
+<form name="create_user_form" (ngSubmit)="onSubmit()" [formGroup]="create_user_form" novalidate >
+				<label for="nom">{{ 'login.nom' | translate}}  </label>
+				<div class="input-group">
+		<!-- 			<input type="text" id="nom" name="nom" class="form-control" aria-describedby="sizing-addon1" formControlName="nom" required> -->
+		<input type="text" id="nom" name="nom" class="form-control" aria-describedby="sizing-addon1" formControlName="nom" [value]="client_info?.nom" required>
+				</div>
+				<label for="prenom">{{ 'login.prenom' | translate}} </label>
+				<div class="input-group">
+					<input type="text" id="prenom" name="prenom" class="form-control" aria-describedby="sizing-addon2" formControlName="prenom"  [value]="client_info?.prenom" required>
+				</div>
+				<label for="mail" *ngIf="hideInfo === false">{{ 'login.mail' | translate}} </label>
+				<div class="input-group" *ngIf="hideInfo === false">
+					<input type="email" id="mail" name="mail" class="form-control" aria-describedby="sizing-addon3" formControlName="email"  [value]="client_info?.email" required>
+				</div>
+				<label for="new_mdp">{{ 'login.mdp' | translate}} </label>
+				<div class="input-group">
+					<input  type="password" id="new_mdp" name="new_mdp" class="form-control" aria-describedby="sizing-addon4" formControlName="password"   [value]="client_info?.password" required>
+				</div>
+				<label for="confirm_mdp"> {{ 'login.confirm_mdp' | translate}} </label>
+				<div class="input-group">
+					<input type="password" id="confirm_mdp" name="confirm_mdp" class="form-control" aria-describedby="sizing-addon5" formControlName="confirm_password"  [value]="client_info?.confirm_password" required>
+				</div>
+				<label for=""></label>
+				<div class="input-group">	
+					<input type="submit" id="create_account" name="create_account" value="{{ 'login.creer_compte_button' | translate}}" *ngIf="hideInfo === false">
+					<input type="submit" id="update_account" name="update_account" value="{{ 'login.modif_compte_button' | translate}}" *ngIf="hideInfo === true">
+				</div>
+			</form>

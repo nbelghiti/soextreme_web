@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoaderPageService } from '../../services/index'
+import { LoaderPageService } from '../../services/index';
 
 @Component({
   selector: 'app-footer',

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '../../../services/index';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService, LoaderPageService} from '../../../services/index';
 import  * as myGlobals from '../../../globals/index';
-import { LoaderPageService } from '../../../services/index'
 
 @Component({
   selector: 'app-dropdown-header',
@@ -35,9 +34,8 @@ export class DropdownHeaderComponent implements OnInit {
   logout(){
 
     this.authService.logout();
-   /* this.router.navigate(['/']);
-    location.reload();*/
-    this.onClick('/');
+    this.router.navigate(['/']);
+    location.reload();
 
   }
 }

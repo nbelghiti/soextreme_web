@@ -88,7 +88,8 @@
 			"allcoms":"All comments",
 			"err": {
 				"login":"You must be logged in to comment.",
-				"nocom":"No comment"
+				"nocom":"No comment",
+				"empty":"Your comment is empty"
 			}
 
 		},
@@ -118,7 +119,8 @@
 
 			"connect_title":"Sign in",
 			"compte":"My account",
-			"reserv":"My activties",
+			"reserv":"My activities",
+			"infos" :"My information",
 			"photos":"My pictures",
 			"deconnect":"Sign out",
 			"connect":"Log in"
@@ -136,6 +138,7 @@
 		"mdp":"Password  :",
 		"confirm_mdp":"Confirm :",
 		"creer_compte_button":"Create",
+		"modif_compte_button":"Update",
 		"connect_title":"Sign in",
 		"connect_button":"Log in",
 		"mdp_oublie_title":"Forgot your password?",
@@ -146,6 +149,40 @@
 
 	"panier":{
 
+		"title":"Booking list",
+		"entete": {
+			"item1":"Activity",
+			"item2":"Expected date for the activity",
+			"item3":"Price"
+
+		},
+
+		"button": "Validate the order",
+		"total"	: "Total :",
+		"no_rsv": "No booking"
+
+	},
+
+	"login-order":{
+
+		"loading": "Loading ..."
+
+	},
+	"mes-photos":{
+
+		"entete": {
+			"item1":"Photos",
+			"item2":"Date",
+			"item3":"Comments"
+		},
+
+		"button": {
+			
+			"voir_com":"See comments",
+			"gestion_com":"Settings"
+
+		}
+
 	},
 
 	"compte":{
@@ -153,9 +190,30 @@
 	},
 
 	"reservations":{
+		"title":"Booking list",
+		"entete": {
+			"item1":"Date",
+			"item2":"Booking number",
+			"item3":"Activity",
+			"item4":"Expected date for the activity",
+			"item5":"Price",
+			"item6":"Actions"
+
+		},
+
+		"button": {
+			
+		},
+		"no_rsv":"No booking"
+
 
 	},
+	"backlinks":{
 
+		"continue":"Continue shopping",
+		"back":"Back"
+
+	},
 	"cgv":{
 
 	},

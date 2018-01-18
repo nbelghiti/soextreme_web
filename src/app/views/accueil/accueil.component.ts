@@ -14,8 +14,6 @@ export class AccueilComponent implements OnInit {
 
   }
 
- 
-
   ngOnInit(){  
 
   	this.meta.setTitle('metas.accueil.title');
@@ -24,3 +22,4 @@ export class AccueilComponent implements OnInit {
 
 
 }
+

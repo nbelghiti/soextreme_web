@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivitesService } from '../../../../services/index';
 import { Router,ActivatedRoute } from '@angular/router';
+import { ActivitesService } from '../../../../services/index';
 import { Activites} from '../../../../models/index';
 
 @Component({

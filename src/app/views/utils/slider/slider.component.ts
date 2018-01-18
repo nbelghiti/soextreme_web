@@ -6,7 +6,7 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css'],
-  providers: [NgbCarouselConfig] 
+ // providers: [NgbCarouselConfig] 
 
 })
 

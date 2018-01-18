@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoaderPageService } from '../../services/index'
 import { Location } from '@angular/common';
+import { LoaderPageService } from '../../services/index';
 
 @Component({
   selector: 'app-header',

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<section class="container-body">
+
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>{{'mes-photos.entete.item1' | translate}}</th>
+        <th>{{'mes-photos.entete.item2' | translate}}</th>
+        <th>{{'mes-photos.entete.item3' | translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr > 
+	      	<td><img src="/assets/img/elastique-2.jpg" alt=""></td>
+	        <td></td>
+	        <td>
+	      		<a [routerLink]="['/mes-photos/id']">{{'mes-photos.button.voir_com' | translate}}</a>
+	      		<a [routerLink]="['/mes-photos/gestion/id']">{{'mes-photos.button.gestion_com' | translate}}</a>
+	      	</td>
+      	</tr>  
+	    <tr>
+	      	<td><img src="/assets/img/parachute-2.jpg" alt=""></td>
+	      	<td></td>
+	      	<td>
+				<a [routerLink]="['/mes-photos/id']">{{'mes-photos.button.voir_com' | translate}}</a>
+	      		<a [routerLink]="['/mes-photos/gestion/id']">{{'mes-photos.button.gestion_com' | translate}}</a>
+	      	</td>
+	    </tr>
+    </tbody>
+  </table>
+  <app-backlink></app-backlink>
+</section>
+<app-footer></app-footer>

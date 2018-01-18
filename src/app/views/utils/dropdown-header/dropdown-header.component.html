@@ -7,8 +7,9 @@
 	  </button>
 	  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
 		<button class="dropdown-item" (click)="onClick('mon-compte')">{{ 'header.right_dropdown.compte' | translate}}</button>
+		<button class="dropdown-item" (click)="onClick('mes-informations')">{{ 'header.right_dropdown.infos' | translate}}</button>
 		<button class="dropdown-item" (click)="onClick('mes-reservations')">{{ 'header.right_dropdown.reserv' | translate}}</button>
-		<button class="dropdown-item">{{ 'header.right_dropdown.photos' | translate}}</button> 
+		<button class="dropdown-item" (click)="onClick('mes-photos')">{{ 'header.right_dropdown.photos' | translate}}</button> 
 		<button class="dropdown-item" *ngIf="userConnected"  (click)="logout()">{{ 'header.right_dropdown.deconnect' | translate}}</button>
 		<button class="dropdown-item" *ngIf="!userConnected" (click)="onClick('login')">{{ 'header.right_dropdown.connect' | translate}}</button>
 

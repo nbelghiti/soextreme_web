@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
-import {   Note } from '../../../models/index';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Note } from '../../../models/index';
 import * as myGlobals from '../../../globals/index';
 import { NotesService, AuthService } from '../../../services/index';
-import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Activites } from '../../../models/activites';
 import * as myGlobals from '../../../globals/index';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivitesService } from '../../../services/index';
 
 @Component({

@@ -1,5 +1,5 @@
 //export const API = "http://54.36.190.213:3000/";
-export const PORT = 4040;
+export const PORT = 8000;
 export const API = 'http://soextreme.fr:'+PORT+'/';
 export const NOW = new Date();
 export const LANGUE = 'fr';

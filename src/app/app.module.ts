@@ -1,11 +1,10 @@
 import { BrowserModule, Title, Meta } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component, ElementRef, NgZone} from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { CommonModule, DatePipe } from '@angular/common';
-import { AppComponent } from './app.component';
-import { Location } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CommonModule, DatePipe,Location } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
 import { UserService, LoginService, ActivitesService, AuthService, CartService, DateService,
          GerantService, ReservationService, NotesService, CommentairesService, PhotosService, 
          SessionsService, LoaderPageService, MetasService } from './services/index';
@@ -18,7 +17,6 @@ import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
   declarations: [
     AppComponent ,
     OrderbyPipe
-   
     ],
   imports: [
     BrowserModule,

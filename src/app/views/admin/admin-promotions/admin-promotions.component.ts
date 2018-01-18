@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Activites } from '../../../models/index';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Activites } from '../../../models/index';
 import * as myGlobals from '../../../globals/index';
 import { ActivitesService } from '../../../services/index';
 

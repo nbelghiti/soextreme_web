@@ -1,71 +1,83 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService, ReservationService } from '../../../services/index';
-import { Reservation } from '../../../models/index';
-import * as myGlobals from '../../../globals/index';
+import { Component, OnInit,AfterViewChecked, Input} from '@angular/core';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/map';
-
+import { UserService, ReservationService, ActivitesService } from '../../../services/index';
+import { Reservation } from '../../../models/index';
+import * as myGlobals from '../../../globals/index';
+declare let paypal: any;
 
 @Component({
   selector: 'app-login-order',
   templateUrl: './login-order.component.html',
   styleUrls: ['./login-order.component.css']
 })
-export class LoginOrderComponent implements OnInit {
-	rsv : any;
-	session  = JSON.parse(localStorage.getItem('currentSession'))._id;
-	id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
-	panier : Reservation;
 
-  constructor( private user : UserService, private reservation : ReservationService) { }
+export class LoginOrderComponent implements AfterViewChecked {
 
-   getAllReservationsByClient(session){
-
-	  this.reservation.getAllReservations()
-	  .map((result) => result.filter( item => item.session === session && item.statut === "non-reserve" ))
-	  .subscribe((response)=>{
-
-	  	this.rsv = response;
-
-	  	for (var i = 0; i< this.rsv.length ;i++) {	
-	  	  	if (this.rsv[i].id_cli === null || this.rsv[i].id_cli === '') {
-
-		  		 this.panier  = {
-					id_cli : this.id_cli,
-	      			id_act : this.rsv[i].id_act,
-	     			heure_in  : this.rsv[i].heure_in,
-	     			heure_out  :this.rsv[i].heure_out,
-	      			date_rsv : this.rsv[i].date_rsv,
-	      			_id :this.rsv[i]._id,
-	     			statut:'non-reserve',
-	     			session: this.rsv[i].session
-				};
-				console.log('Article n°'+(i+1),this.panier);
-		  		this.updateRsv(this.panier);
-		  	}
-		}
-		console.log(this.rsv);
-		  	
-		  
-
-	  	
-
-	  });
-
-  }
-  updateRsv(panier){
-
-  	this.reservation.updateReservation(panier).subscribe(data => {
-     	//data.id_cli = this.id_cli;
-       console.log(data);
-
-     });
+  rsv : any;
+  session  = JSON.parse(localStorage.getItem('currentSession'))._id;
+  id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
+  panier : Reservation;
+  act:any = [];
+public didPaypalScriptLoad: boolean = false;
+  public loading: boolean = true;
+  public paymentAmount: number = 0;    
+  constructor( private user : UserService,
+               private activite : ActivitesService, 
+               private reservation : ReservationService) { }
+  retrieveTotal(total){
+    console.log(total);
+    this.paymentAmount = total;
+    return total;
   }
 
-  ngOnInit() {
-  	  	this.getAllReservationsByClient(this.session);
+  public paypalConfig: any = {
+    env: 'sandbox',
+    client: {
+      sandbox: 'AWlMGZwpQbS0dq_r2Dt0ejp1TxDm72JD7Pt4Uc2mYlihAE3FU5axxS9wr4HcnVc13gB7TcbYDVLp9Vne',
+      production: 'xxxxxxxxxx'
+    },
+    commit: true,
+    payment: (data, actions) => {
+      return actions.payment.create({
+        payment: {
+          transactions: [
+            { amount: { total: this.paymentAmount, currency: 'EUR' } }
+          ]
+        }
+      });
+    },
+    onAuthorize: (data, actions) => {
+      return actions.payment.execute().then((payment) => {
+        // show success page
+      });
+    }
+  };
+ 
+   
+/*** PAYPAL ******/
 
+
+  public ngAfterViewChecked(): void {
+    if(!this.didPaypalScriptLoad) {
+      this.loadPaypalScript().then(() => {
+        paypal.Button.render(this.paypalConfig, '#paypal-button');
+        this.loading = false;
+      });
+    }
   }
 
+  public loadPaypalScript(): Promise<any> {
+    this.didPaypalScriptLoad = true;      
+
+    return new Promise((resolve, reject) => {
+      const scriptElement = document.createElement('script');
+      scriptElement.src = 'https://www.paypalobjects.com/api/checkout.js';
+      scriptElement.onload = resolve;
+      document.body.appendChild(scriptElement);
+    });
+  }
+  
 }
+

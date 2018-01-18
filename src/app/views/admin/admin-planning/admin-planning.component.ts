@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { CalendarEvent,  CalendarEventTimesChangedEvent, CalendarDateFormatter, DAYS_OF_WEEK} from 'angular-calendar';
-import * as myGlobals from '../../../globals/index';
 import { CustomDateFormatter } from './custom-date-formatter';
+import * as myGlobals from '../../../globals/index';
 
 @Component({
   selector: 'app-admin-planning',

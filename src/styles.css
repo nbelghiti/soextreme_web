@@ -92,6 +92,7 @@ body.login input[type="submit"]{
     padding: 15px 20px;
 }
 .left_login .input-group .form-control:not([type="submit"]),
+app-info-compte .input-group .form-control:not([type="submit"]),
 .right_login .input-group .form-control:not([type="submit"]){
        border-color: #30b49a; 
 }
@@ -452,12 +453,14 @@ agm-map {
     vertical-align: top;
     width: calc(50% - 24px);
 }
-app-login input[type="submit"] {
+app-login input[type="submit"],
+app-info-compte input[type="submit"] {
 
     width: 120px;
 }
 
 app-backlink button,
+app-info-compte input[type="submit"],
 app-login input[type="submit"]{
     border: none;
     background: #010e19;
@@ -488,6 +491,24 @@ app-panier app-backlink+a{
     font-size: 7px;
     vertical-align: middle;
 }
+app-photos-gestion section.container-body section{
+    min-height: 300px
+}
+
+.permission label {
+    display: inline-block;
+    background: #30b49a;
+    padding: 6px 19px 6px 0px;
+    color: #fff;
+    border: solid 1px #fff;
+}
+.permission label.active-check{
+   
+    border-color: #010e19;
+}
+.permission input {
+    visibility: hidden;
+}
 .infos_agence li{
 
 	display: block;
@@ -495,6 +516,17 @@ app-panier app-backlink+a{
 app-gmap-apropos{
     display: inline-block;
     width: 50%;
+}
+app-photos img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+app-mes-infos section.container-body section{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 600px;
 }
 section.activites article {
     display: inline-block;
@@ -607,6 +639,11 @@ section.container-body.admin{
     color: #010e19;
     font-size: 17px;
 }
+app-login-order  #paypal-button{
+    float: right;
+    display: block;
+}
+
 .right_activite .prix{
     font-size: 17px;
     color: #010e19;
@@ -650,6 +687,7 @@ section.activites article:nth-child(3n+3) {
     color: #30b49a;
 
 }
+
 app-datepicker input.form-control{
     color: #010e19;
     border-color: currentColor;

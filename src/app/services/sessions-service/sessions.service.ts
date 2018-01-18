@@ -56,7 +56,7 @@ export class SessionsService {
     }
     addCartItem(){
       //console.log('ajout ', myGlobals.CURRENT_SESSION.cart_qty);
-      let cartQty =  parseInt(localStorage.getItem('cartQty'))+1;
+      let cartQty =  parseInt(localStorage.getItem('cartQty'))+1 || 1;
 
       return localStorage.setItem('cartQty',cartQty.toString());
 

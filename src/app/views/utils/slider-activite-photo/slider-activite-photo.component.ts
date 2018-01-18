@@ -1,14 +1,12 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
-import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import { PhotoCommentsComponent } from '../../../views/utils/photo-comments/photo-comments.component';
-import { CommentsComponent } from '../../../views/utils/comments/comments.component';
+import { NgbCarouselConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { PhotoCommentsComponent,CommentsComponent } from '../../../views/utils/index';
 
 @Component({
   selector: 'app-slider-activite-photo',
   templateUrl: './slider-activite-photo.component.html',
   styleUrls: ['./slider-activite-photo.component.css'],
-  providers: [NgbCarouselConfig, PhotoCommentsComponent, CommentsComponent, NgbModal, NgbActiveModal]
+ // providers: [NgbCarouselConfig, PhotoCommentsComponent, CommentsComponent, NgbModal, NgbActiveModal]
 
 })
 export class SliderActivitePhotoComponent implements OnInit {

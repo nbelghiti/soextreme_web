@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Gerant } from '../../../models/index';
 import { GerantService } from '../../../services/index';
 
-import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-login',

@@ -8,6 +8,15 @@ export * from './slider-activite-photo/index';
 export * from './photo-rating/index';
 export * from './gmaps/index';
 export * from './ngdatepicker/index';
+export * from './comments/index';
+export * from './confirm-popup/index';
+export * from './upload/index';
+export * from './photo-comments/index';
+export * from './langues/index';
+export * from './panier-menu/index';
+export * from './tab-panier/index';
+
+
 
 
 

@@ -1,10 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import * as myGlobals from '../../../globals/index';
-import { Router,ActivatedRoute } from '@angular/router';
-import { Activites, Reservation, Commentaires, Photo, Session } from '../../../models/index';
-import { ActivitesService,AuthService,ReservationService,CommentairesService,PhotosService,SessionsService } from '../../../services/index';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router,ActivatedRoute } from '@angular/router';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import * as myGlobals from '../../../globals/index';
+import { Activites, Reservation, Commentaires, Photo, Session } from '../../../models/index';
+import { ActivitesService,
+         AuthService,
+         ReservationService,
+         CommentairesService,
+         PhotosService,
+         SessionsService } from '../../../services/index';
+
 @Component({
   selector: 'app-photo-comments',
   templateUrl: './photo-comments.component.html',
@@ -12,10 +18,10 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class PhotoCommentsComponent implements OnInit {
 
-   @Input() title;
+  @Input() title;
   @Input() content;
   @Input() btClose;
-    commentform: FormGroup;
+  commentform: FormGroup;
   id_activite = this.route.snapshot.paramMap.get('id');
   err='';
 

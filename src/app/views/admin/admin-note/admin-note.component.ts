@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Activites,  Reservation, Note } from '../../../models/index';
 import * as myGlobals from '../../../globals/index';
-import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ActivitesService,NotesService, AuthService,DateService } from '../../../services/index';
 @Component({
   selector: 'app-admin-note',

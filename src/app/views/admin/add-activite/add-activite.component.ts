@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Activites } from '../../../models/index';
 import {FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Activites } from '../../../models/index';
 import { ActivitesService } from '../../../services/index';
 
 @Component({

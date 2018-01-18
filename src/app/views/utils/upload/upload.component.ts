@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
-import { Photo } from '../../../models/index';
-import { PhotosService } from '../../../services/index';
-import * as myGlobals from '../../../globals/index';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router,ActivatedRoute } from '@angular/router';
 import {
   Ng4FilesStatus,
   Ng4FilesSelected
 } from 'angular4-files-upload';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Photo } from '../../../models/index';
+import { PhotosService } from '../../../services/index';
+import * as myGlobals from '../../../globals/index';
 
 
 @Component({

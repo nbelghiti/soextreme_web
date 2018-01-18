@@ -88,7 +88,8 @@
 			"allcoms":"Tous les commentaires",
 			"err": {
 				"login":"Vous devez être connecté pour pouvoir commenter.",
-				"nocom":"Aucun commentaire"
+				"nocom":"Aucun commentaire",
+				"empty":"Votre commentaire est vide"
 			}
 
 		},
@@ -120,6 +121,7 @@
 			"connect_title":"Se connecter",
 			"compte":"Mon compte",
 			"reserv":"Mes activités",
+			"infos" :"Mes informations",
 			"photos":"Mes photos",
 			"deconnect":"Déconnexion",
 			"connect":"Connexion"
@@ -137,6 +139,7 @@
 		"mdp":"Mot de passe  :",
 		"confirm_mdp":"Confirmation :",
 		"creer_compte_button":"Créer",
+		"modif_compte_button":"Modifier",
 		"connect_title":"Se connecter",
 		"connect_button":"Se connecter",
 		"mdp_oublie_title":"Mot de passe oublié?",
@@ -147,13 +150,63 @@
 
 	"panier":{
 
+		"title":"Liste des réservations",
+		"entete": {
+			"item1":"Activité",
+			"item2":"Date prévue pour l'activité",
+			"item3":"Prix"
+
+		},
+
+		"button": "Valider la commande",
+		"total"	: "Total :",
+		"no_rsv": "Pas de réservation"
+
 	},
 
+	"login-order":{
+
+		"loading": "Chargement ..."
+
+	},
+	"mes-photos":{
+
+		"entete": {
+			"item1":"Photos",
+			"item2":"Date de la photo",
+			"item3":"Commentaires"
+		},
+
+		"button": {
+
+			"voir_com":"Voir les commentaires",
+			"gestion_com":"Gestion commentaires"
+
+		}
+
+	},
 	"compte":{
 
 	},
 
 	"reservations":{
+
+		"title":"Liste des réservations",
+		"entete": {
+			"item1":"Date",
+			"item2":"N° de Réservation",
+			"item3":"Activité",
+			"item4":"Date prévue pour l'activité",
+			"item5":"Prix",
+			"item6":"Actions"
+
+		},
+
+		"button": {
+			
+		},
+		"no_rsv":"Pas de réservation"
+
 
 	},
 

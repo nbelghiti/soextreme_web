@@ -30,6 +30,37 @@ export class AuthService {
                  
            
     }
+    public createClient (client : User) : Observable<User>{
+        return this._http.post(myGlobals.API+'client/add', client)
+                .map(result =>{ 
+                         let res = result.json();
+                         if (res ) {
+                           localStorage.setItem('currentUser', JSON.stringify(client));
+                         }
+ 
+                        return client;
+                 })
+                 .catch(this.handleError);
+                 
+           
+    }
+
+     public getClient(id ) : Observable<User> {
+     return this._http.get(myGlobals.API+"client/"+id)
+         .map(result => result.json())
+         .catch(this.handleError);
+
+  }
+
+
+     public updateClient (client : User) : Observable<User>{
+
+     return this._http.put(myGlobals.API+"client/"+client._id,client)
+           .map(result => result.json())
+           .catch(this.handleError);
+
+    }
+    
     public getAllClients () : Observable<User[]>{
         return this._http.get(myGlobals.API+'client/login')
                  .map(result => result.json())

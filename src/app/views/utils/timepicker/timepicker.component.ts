@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {NgbTimepickerConfig, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {FormGroup } from '@angular/forms';
+import {NgbTimepickerConfig, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-timepicker',

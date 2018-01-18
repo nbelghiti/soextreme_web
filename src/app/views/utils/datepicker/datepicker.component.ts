@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import {FormGroup } from '@angular/forms';
 import {NgbDateStruct, NgbDatepickerConfig,NgbDatepickerI18n,NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import {CustomNgdatepicker} from '../ngdatepicker/index';
 import {NgbDateFRParserFormatter} from '../datepicker-format-date/ng-date-frparser-formatter';
 import * as myGlobals from '../../../globals/index';
-import {FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-datepicker',

@@ -1,15 +1,18 @@
 import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import { Activites, Reservation, Commentaires, Photo, Session } from '../../models/index';
-import { ConfirmPopupComponent } from '../../views/utils/confirm-popup/confirm-popup.component';
-import {TranslateService} from '@ngx-translate/core';
-import * as myGlobals from '../../globals/index';
-import { CommentsComponent } from '../../views/utils/comments/comments.component';
-
-import { ActivitesService,AuthService,ReservationService,CommentairesService,PhotosService,SessionsService } from '../../services/index';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
+import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
+import { Activites, Reservation, Commentaires, Photo, Session } from '../../models/index';
+import * as myGlobals from '../../globals/index';
+import { ActivitesService,
+         AuthService,
+         ReservationService,
+         CommentairesService,
+         PhotosService,
+         SessionsService } from '../../services/index';
+import { ConfirmPopupComponent,CommentsComponent } from '../../views/utils/index';
 
 @Component({
   selector: 'app-details-activite',
@@ -230,8 +233,10 @@ export class DetailsActiviteComponent implements OnInit {
 
        });
       } else {
+         this.translate.get("details.comment.err.empty").subscribe((res:String) =>{ 
+           alert(res);
 
-        alert('Votre commentaire est vide');
+        });
       }
 		  //this.err='';
 

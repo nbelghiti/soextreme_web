@@ -1,0 +1,33 @@
+<app-header></app-header>
+<section class="container-body">
+	<section class="">
+	  <form [formGroup]="radioGroupForm">
+		  <div class=""><h3>Accessibilité :</h3></div>
+		  <div class="permission">	
+			  <label  [class.active-check]="selected==='all'">
+			  	<input  type="radio"  value="all" [(ngModel)]="showInput" (change)="getCheckVal()" formControlName="model"> 
+			      Tous	  
+			  </label> 
+			  <label [class.active-check]="selected==='group'">
+				 <input  type="radio"  value="group" [(ngModel)]="showInput"   (change)="getCheckVal()" formControlName="model"> 
+				  Groupe
+			  </label> 
+			  <label [class.active-check]="selected==='users'"> 	  
+				 <input  type="radio"  value="users" [(ngModel)]="showInput"  (change)="getCheckVal()" formControlName="model"> 
+				  Utilisateurs
+			  </label>
+			  <label [class.active-check]="selected==='private'">	  
+				 <input  type="radio"  value="private" [(ngModel)]="showInput"   (change)="getCheckVal()" formControlName="model"> 
+				  Privée  
+			  </label>
+		  </div>
+
+		  <div class="" *ngIf="showInput">
+		  	<label for="typeahead-basic">Search for a state:</label>
+			<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="myText" formControlName="myText" [ngbTypeahead]="search"/>
+		  </div>
+	  </form>
+  </section>
+  <app-backlink></app-backlink>
+</section>
+<app-footer></app-footer>
