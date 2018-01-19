@@ -4,39 +4,39 @@ import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
-  selector: 'app-backlink',
-  templateUrl: './back.component.html',
-  styleUrls: ['./back.component.css']
+    selector: 'app-backlink',
+    templateUrl: './back.component.html',
+    styleUrls: ['./back.component.css']
 })
 export class BackComponent implements OnInit {
-  title : String = '';
-  nb_article : String = JSON.parse(localStorage.getItem("cart_qty"));
-  used_trans : string='';
-  
- constructor(private _location: Location, private translate : TranslateService) {    }
-  backClicked() {
+    title: String = '';
+    nb_article: String = JSON.parse(localStorage.getItem("cart_qty"));
+    used_trans: string = '';
+
+    constructor(private _location: Location, private translate: TranslateService) {}
+    backClicked() {
         this._location.back();
-  }
-  getTitleButton(){
-  	if (this._location.path() == '/mon-panier' && (this.nb_article !== null)) {
+    }
+    getTitleButton() {
+        if (this._location.path() == '/mon-panier' && (this.nb_article !== null)) {
 
-       this.used_trans = "backlinks.continue";
+            this.used_trans = "backlinks.continue";
 
-  	} else {
+        } else {
 
-  		 this.used_trans = "backlinks.back";
+            this.used_trans = "backlinks.back";
 
-  	}
-    this.translate.get(this.used_trans).subscribe((res: String)=>{
-        this.title = res;      
-    },err =>{
-      
-    });
-  	return this.title;
-  }
-  ngOnInit() {
+        }
+        this.translate.get(this.used_trans).subscribe((res: String) => {
+            this.title = res;
+        }, err => {
 
-  	this.getTitleButton();
-  }
+        });
+        return this.title;
+    }
+    ngOnInit() {
+
+        this.getTitleButton();
+    }
 
 }

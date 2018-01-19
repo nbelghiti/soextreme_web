@@ -33,6 +33,9 @@ import { PhotosGestionComponent } from '../views/photos-gestion/photos-gestion.c
 import { PhotoClientCommentComponent } from '../views/photo-client-comment/photo-client-comment.component';
 import { InfoCompteComponent } from '../views/utils/info-compte/info-compte.component';
 import { MesInfosComponent } from '../views/mes-infos/mes-infos.component';
+import { TabReservationsComponent } from '../views/utils/tab-reservations/tab-reservations.component';
+import { TabPhotosComponent } from '../views/utils/tab-photos/tab-photos.component';
+import { RecapInfosComponent } from '../views/utils/recap-infos/recap-infos.component';
 
 import { AdminMenuComponent,
          AdminHomeComponent,
@@ -195,7 +198,10 @@ export const appRoutes: Routes = [
     PhotosGestionComponent,
     PhotoClientCommentComponent,
     InfoCompteComponent,
-    MesInfosComponent
+    MesInfosComponent,
+    TabReservationsComponent,
+    TabPhotosComponent,
+    RecapInfosComponent
    
    ],
   	providers : [

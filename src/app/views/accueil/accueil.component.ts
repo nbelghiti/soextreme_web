@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { MetasService } from '../../services/index';
 
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css']
+    selector: 'app-accueil',
+    templateUrl: './accueil.component.html',
+    styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
 
 
- constructor(private meta : MetasService ) {
+    constructor(private meta: MetasService) {
 
 
-  }
+    }
 
-  ngOnInit(){  
+    ngOnInit() {
 
-  	this.meta.setTitle('metas.accueil.title');
-  	this.meta.setOtherMetas('metas.accueil.other');
-  }
+        this.meta.setTitle('metas.accueil.title');
+        this.meta.setOtherMetas('metas.accueil.other');
+    }
 
 
 }

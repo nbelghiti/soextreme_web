@@ -15,28 +15,36 @@ import * as myGlobals from '../../../globals/index';
 
 })
 export class DatepickerComponent implements OnInit {
-   model: NgbDateStruct;
+    model: NgbDateStruct;
     @Input('group')
     public date: FormGroup;
-	 now = myGlobals.NOW;
- selectToday() {
-    this.model = {year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate()};
+    now = myGlobals.NOW;
+    selectToday() {
+        this.model = {
+            year: this.now.getFullYear(),
+            month: this.now.getMonth() + 1,
+            day: this.now.getDate()
+        };
 
-  }
-  constructor(config:NgbDatepickerConfig,
-              private datePipe: DatePipe,    
-              private ngbDateParserFormatter: NgbDateParserFormatter) { 
-    
+    }
+    constructor(config: NgbDatepickerConfig,
+        private datePipe: DatePipe,
+        private ngbDateParserFormatter: NgbDateParserFormatter) {
 
-	  config.minDate = {year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate()};
-    config.outsideDays = 'hidden';
 
-  }
-  
+        config.minDate = {
+            year: this.now.getFullYear(),
+            month: this.now.getMonth() + 1,
+            day: this.now.getDate()
+        };
+        config.outsideDays = 'hidden';
 
-  ngOnInit() {
-	  
-	  this.selectToday();
-  }
+    }
+
+
+    ngOnInit() {
+
+        this.selectToday();
+    }
 
 }

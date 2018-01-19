@@ -6,80 +6,80 @@ import * as myGlobals from '../../../globals/index';
 import { ActivitesService,NotesService, AuthService,DateService } from '../../../services/index';
 
 @Component({
-  selector: 'app-admin-notes',
-  templateUrl: './admin-notes.component.html',
-  styleUrls: ['./admin-notes.component.css']
+    selector: 'app-admin-notes',
+    templateUrl: './admin-notes.component.html',
+    styleUrls: ['./admin-notes.component.css']
 })
 export class AdminNotesComponent implements OnInit {
 
-  ratings : any = [];
-  id_cli_note : any ;
-  id_act_note : any;
-  date_note : any = [];
-  user_info_note : any = [];
-  act_note : any = [];
-  type_note : String = "activite";
+    ratings: any = [];
+    id_cli_note: any;
+    id_act_note: any;
+    date_note: any = [];
+    user_info_note: any = [];
+    act_note: any = [];
+    type_note: String = "activite";
 
-  constructor(private notes : NotesService,
-  			      private route : ActivatedRoute,
-              private router : Router,
-              private config: NgbRatingConfig,
-              private activite : ActivitesService,
-              private date : DateService,
-              private auth : AuthService) {
+    constructor(private notes: NotesService,
+        private route: ActivatedRoute,
+        private router: Router,
+        private config: NgbRatingConfig,
+        private activite: ActivitesService,
+        private date: DateService,
+        private auth: AuthService) {
 
 
-      config.readonly = true;
-      config.max = myGlobals.RATING_ACT;
+        config.readonly = true;
+        config.max = myGlobals.RATING_ACT;
 
-  }
+    }
 
-  getAllNotes(type : String){
+    getAllNotes(type: String) {
 
-  	this.notes.getAllNotes()
-      .map((result) => result.filter( item => item.type === type ))  	
-      .subscribe((data) => {
-  		this.ratings = data;
-  		if (this.ratings.length>0) {
+        this.notes.getAllNotes()
+            .map((result) => result.filter(item => item.type === type))
+            .subscribe((data) => {
+                this.ratings = data;
+                if (this.ratings.length > 0) {
 
-  			for (let i = 0; i<this.ratings.length; i++) {
-	  			this.id_cli_note = this.ratings[i].id_client;
-	  			this.id_act_note = this.ratings[i].id_act;
-	  			this.date_note.push(this.date.getDate(this.ratings[i].createdAt));
-          this.getUserNote(this.id_cli_note);
-		  		this.getActNote(this.id_act_note);
-	  		}
-      
-  		}
-  	},err => {
-      
-    });
-  }
-    getUserNote(id : String){
+                    for (let i = 0; i < this.ratings.length; i++) {
+                        this.id_cli_note = this.ratings[i].id_client;
+                        this.id_act_note = this.ratings[i].id_act;
+                        this.date_note.push(this.date.getDate(this.ratings[i].createdAt));
+                        this.getUserNote(this.id_cli_note);
+                        this.getActNote(this.id_act_note);
+                    }
 
-  	this.auth.getAllClients().map((result) => result.filter( item => item._id === id ))
-	  .subscribe((response)=>{
-	  	this.user_info_note.push(response);
-	  },err => {
-      
-    })
+                }
+            }, err => {
 
-  }
-  getActNote(id : String){
-  	this.activite.getAllActivites().map((result) => result.filter( item => item._id === id ))
-	  .subscribe((response)=>{
-	  	this.act_note.push(response);
-      
+            });
+    }
+    getUserNote(id: String) {
 
-	  },err => {
-      
-    })
+        this.auth.getAllClients().map((result) => result.filter(item => item._id === id))
+            .subscribe((response) => {
+                this.user_info_note.push(response);
+            }, err => {
 
-  }
-  ngOnInit() {
+            })
 
-  	this.getAllNotes(this.type_note);
-  }
+    }
+    getActNote(id: String) {
+        this.activite.getAllActivites().map((result) => result.filter(item => item._id === id))
+            .subscribe((response) => {
+                this.act_note.push(response);
+
+
+            }, err => {
+
+            })
+
+    }
+    ngOnInit() {
+
+        this.getAllNotes(this.type_note);
+    }
 
 
 }

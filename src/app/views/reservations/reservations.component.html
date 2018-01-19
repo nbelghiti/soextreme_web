@@ -4,46 +4,7 @@
 
 <div class="container">
   <h2>{{'reservations.title' | translate}}</h2>
-  <table class="table table-condensed" *ngIf="rsv?.length>0">
-    <thead>
-      <tr>
-      	<th>{{'reservations.entete.item1' | translate}}</th>
-        <th>{{'reservations.entete.item2' | translate}}</th>
-        <th>{{'reservations.entete.item3' | translate}}</th>
-        <th>{{'reservations.entete.item4' | translate}}</th>
-        <th>{{'reservations.entete.item5' | translate}}</th>
-        <th>{{'reservations.entete.item6' | translate}}</th>
-      </tr>
-    </thead>
-    <tbody>
-       <tr *ngFor="let i = index ; let res of rsv;" >
-       	 <td>{{res?.updatedAt | date:'dd MMMM yyyy':'':locale }}</td>
-        <td>{{res?._id }}</td>
-        <td>{{res?.date_rsv | date:'dd MMMM yyyy':'':locale }}</td>
-        <td>				
-        	<a *ngIf="act[i]" [routerLink]="['/activite/', act[i]?._id]">
-				{{act[i]?.libelle}}
-			</a>
-			<a *ngIf="!act[i]" >
-				{{act[i]?.libelle}}
-			</a>
-		</td>
-        <td>{{act[i]?.prix}} {{currency}}</td>
-
-        <!-- <td>{{res.type_act }}</td> -->
-        <!-- <td>{{res.libelle }}</td> -->
-       <!-- <td>
-          <ul>
-            <li><a [routerLink]="['/activite/', activite._id]" target="_blank">Voir</a></li>
-            <li><a [routerLink]="['/admin/update-activite', activite._id]">Modifier</a></li>
-            <li><a confirm>Supprimer</a></li>
-
-          </ul>
-        </td>-->
-      </tr> 
-    </tbody>
-  </table>
-  <p *ngIf="rsv?.length==0">{{'reservations.no_rsv' | translate}}</p>
+  <app-tab-reservations></app-tab-reservations>
 </div>
 </section>
 

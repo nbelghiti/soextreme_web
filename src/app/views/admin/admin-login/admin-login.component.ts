@@ -6,43 +6,43 @@ import { GerantService } from '../../../services/index';
 
 
 @Component({
-  selector: 'app-admin-login',
-  templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.css']
+    selector: 'app-admin-login',
+    templateUrl: './admin-login.component.html',
+    styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
 
-  loading = false;
+    loading = false;
     returnUrl: string;
-    form:FormGroup;
- 
+    form: FormGroup;
+
     constructor(
         private route: ActivatedRoute,
         private router: Router,
         private gerantService: GerantService,
-        public fb: FormBuilder) { 
+        public fb: FormBuilder) {
 
-          this.form = fb.group({
-                email: ['',[Validators.required, Validators.minLength(3)]],
-               password:['',[Validators.required, Validators.minLength(3)]],
-              
-            });
+        this.form = fb.group({
+            email: ['', [Validators.required, Validators.minLength(3)]],
+            password: ['', [Validators.required, Validators.minLength(3)]],
 
-             }
- 
-    ngOnInit() {
-         //this.gerantService.logout();
-         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'admin/home';
+        });
+
     }
- 
+
+    ngOnInit() {
+        //this.gerantService.logout();
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'admin/home';
+    }
+
     login() {
         this.loading = true;
-       this.gerantService.login(this.form.value)
+        this.gerantService.login(this.form.value)
             .subscribe(
                 data => {
-                  let email     = this.form.get('email').value,
-                      password  = this.form.get('password').value;
-                      this.router.navigate([this.returnUrl]);
+                    let email = this.form.get('email').value,
+                        password = this.form.get('password').value;
+                    this.router.navigate([this.returnUrl]);
 
                 },
                 err => {

@@ -4,33 +4,33 @@ import { ActivitesService } from '../../../../services/index';
 import { Activites} from '../../../../models/index';
 
 @Component({
-  selector: 'app-gmap-activite',
-  templateUrl: './gmap-activite.component.html',
-  styleUrls: ['./gmap-activite.component.css']
+    selector: 'app-gmap-activite',
+    templateUrl: './gmap-activite.component.html',
+    styleUrls: ['./gmap-activite.component.css']
 })
 export class GmapActiviteComponent implements OnInit {
-  position : any ={};
+    position: any = {};
 
-  constructor(private activite : ActivitesService,
-  			      private route : ActivatedRoute,
-              private router : Router) { }
+    constructor(private activite: ActivitesService,
+        private route: ActivatedRoute,
+        private router: Router) {}
 
-   getPosition(){
-		 let id_activite = this.route.snapshot.paramMap.get('id');
-		 this.activite.getActivite(id_activite).subscribe(data => {
-		 	this.position.lat= data.latitude  || 0;
-		 	this.position.lon= data.longitude || 0;
+    getPosition() {
+        let id_activite = this.route.snapshot.paramMap.get('id');
+        this.activite.getActivite(id_activite).subscribe(data => {
+            this.position.lat = data.latitude || 0;
+            this.position.lon = data.longitude || 0;
 
-		 },err =>{
-      
-    });
+        }, err => {
 
-  }
+        });
+
+    }
 
 
-  ngOnInit() {
+    ngOnInit() {
 
-  	this.getPosition();
-  }
+        this.getPosition();
+    }
 
 }

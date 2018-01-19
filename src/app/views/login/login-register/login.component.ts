@@ -5,54 +5,52 @@ import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
 
-
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
     returnUrl: string;
-    form:FormGroup;
-    create_user_form:FormGroup;
+    form: FormGroup;
+    create_user_form: FormGroup;
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
         private authService: AuthService,
-        public fb: FormBuilder) { 
+        public fb: FormBuilder) {
 
-          this.form = fb.group({
-                email: ['',[Validators.required, Validators.minLength(3)]],
-               password:['',[Validators.required, Validators.minLength(3)]],
-              
-            });
-         /* this.create_user_form = fb.group({
-             nom: ['',[Validators.required, Validators.minLength(3)]],
-               prenom:['',[Validators.required, Validators.minLength(3)]],
-                email: ['',[Validators.required, Validators.minLength(3)]],
-               password:['',[Validators.required, Validators.minLength(3)]],
-               confirm_password:['',[Validators.required, Validators.minLength(3)]]
-              
-            });*/
+        this.form = fb.group({
+            email: ['', [Validators.required, Validators.minLength(3)]],
+            password: ['', [Validators.required, Validators.minLength(3)]],
 
-             }
- 
-    ngOnInit() {
-         //this.authService.logout();
-         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
+        });
+        /* this.create_user_form = fb.group({
+            nom: ['',[Validators.required, Validators.minLength(3)]],
+              prenom:['',[Validators.required, Validators.minLength(3)]],
+               email: ['',[Validators.required, Validators.minLength(3)]],
+              password:['',[Validators.required, Validators.minLength(3)]],
+              confirm_password:['',[Validators.required, Validators.minLength(3)]]
+             
+           });*/
 
     }
- 
+
+    ngOnInit() {
+        //this.authService.logout();
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
+
+    }
+
     login() {
-       this.authService.login(this.form.value)
+        this.authService.login(this.form.value)
             .subscribe(
                 data => {
-                  let email     = this.form.get('email').value,
-                      password  = this.form.get('password').value;
-                      this.router.navigate([this.returnUrl]);
-                  location.reload();
+                    let email = this.form.get('email').value,
+                        password = this.form.get('password').value;
+                    this.router.navigate([this.returnUrl]);
+                    location.reload();
 
 
                 },
@@ -60,5 +58,5 @@ export class LoginComponent implements OnInit {
                     //this.alertService.error(error);
                 });
     }
-   
+
 }

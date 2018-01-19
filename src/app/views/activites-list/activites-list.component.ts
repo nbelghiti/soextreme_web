@@ -5,38 +5,42 @@ import { Activites } from '../../models/index';
 import { ActivitesService } from '../../services/index';
 
 @Component({
-  selector: 'app-activites-list',
-  templateUrl: './activites-list.component.html',
-  styleUrls: ['./activites-list.component.css']
+    selector: 'app-activites-list',
+    templateUrl: './activites-list.component.html',
+    styleUrls: ['./activites-list.component.css']
 })
 export class ActivitesListComponent implements OnInit {
 
-  myActivities : any =[];
-  activity_list;
-  constructor(private router: Router, private activites :ActivitesService ) { }
+    myActivities: any = [];
+    activity_list;
+    constructor(private router: Router, private activites: ActivitesService) {}
 
-  getActivites(){
+    getActivites() {
 
-  	 this.activity_list = this.activites.getAllActivites();
+        this.activity_list = this.activites.getAllActivites();
 
-  	 if(location.pathname == '/'){
+        if (location.pathname == '/') {
 
-  	 	this.activity_list.map((result) => result.filter( item => item.visible === true && item.visible_home === true ))
-  	 	.subscribe(data => {this.myActivities=data;}, err =>{});
+            this.activity_list.map((result) => result.filter(item => item.visible === true && item.visible_home === true))
+                .subscribe(data => {
+                    this.myActivities = data;
+                }, err => {});
 
 
-  	 } else if(location.pathname == '/activites'){
+        } else if (location.pathname == '/activites') {
 
-     	this.activity_list.map((result) => result.filter( item => item.visible === true ))
-     	 .subscribe(data => {this.myActivities=data;}, err =>{});
+            this.activity_list.map((result) => result.filter(item => item.visible === true))
+                .subscribe(data => {
+                    this.myActivities = data;
+                }, err => {});
 
-  	 }
+        }
 
-  }
+    }
 
-  ngOnInit() {
+    ngOnInit() {
 
-   this.getActivites();
-  }
+        this.getActivites();
+    }
 
 }

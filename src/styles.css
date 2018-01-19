@@ -517,7 +517,7 @@ app-gmap-apropos{
     display: inline-block;
     width: 50%;
 }
-app-photos img {
+app-tab-photos img {
     width: 100%;
     height: auto;
     max-width: 300px;

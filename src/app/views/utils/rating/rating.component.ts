@@ -8,92 +8,92 @@ import { NotesService, AuthService } from '../../../services/index';
 
 
 @Component({
-  selector: 'app-rating',
-  templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.css']
+    selector: 'app-rating',
+    templateUrl: './rating.component.html',
+    styleUrls: ['./rating.component.css']
 })
 
 export class RatingComponent implements OnInit {
-  
-  selected = 0;
-  hovered = 0;
-  id_act = this.route.snapshot.paramMap.get('id');
-  id_cli = myGlobals.CURRENT_CLIENT._id;
-  type_rating : String = "activite";
-  isLoggedIn = this.auth.isLoggedIn();
-  nCnt: number = 0;
-  rating : Note = {
 
-    note:null,
-    type:this.type_rating,
-    id_client : this.id_cli,
-    id_act : this.id_act,
-    _id:null
-   
- };
- ctrl = new FormControl(null, Validators.required);
- 
+    selected = 0;
+    hovered = 0;
+    id_act = this.route.snapshot.paramMap.get('id');
+    id_cli = myGlobals.CURRENT_CLIENT._id;
+    type_rating: String = "activite";
+    isLoggedIn = this.auth.isLoggedIn();
+    nCnt: number = 0;
+    rating: Note = {
 
- constructor( private config: NgbRatingConfig,
-              private route : ActivatedRoute,
-              private router : Router,
-              private note : NotesService,
-              private auth : AuthService) {
-              config.max = myGlobals.RATING_ACT;
-            
+        note: null,
+        type: this.type_rating,
+        id_client: this.id_cli,
+        id_act: this.id_act,
+        _id: null
+
+    };
+    ctrl = new FormControl(null, Validators.required);
 
 
-  
-  }
-  disableRate(){
-    if (this.isLoggedIn) {
-       
-       this.ctrl.enable();  
+    constructor(private config: NgbRatingConfig,
+        private route: ActivatedRoute,
+        private router: Router,
+        private note: NotesService,
+        private auth: AuthService) {
+        config.max = myGlobals.RATING_ACT;
 
-    } else {
 
-        this.ctrl.disable();
-        this.nCnt = 0;
 
-    }    
 
-  }
+    }
+    disableRate() {
+        if (this.isLoggedIn) {
 
-  createNote(){
- 
-    this.rating.note = this.selected;
-    this.note.createNote(this.rating).subscribe(data => {},err =>{
-      
-    });
-  }
-  onClick(){
+            this.ctrl.enable();
 
-    this.nCnt = this.nCnt + 1;
+        } else {
 
-    if (this.nCnt >= 1) {
+            this.ctrl.disable();
+            this.nCnt = 0;
 
-       this.ctrl.disable();
-   
-       if (this.nCnt == 1) {
-         
-           this.createNote();
+        }
 
-       }
-
-     // else if le client est connecté mais n'a pas participé à cette activité ==>  this.ctrl.disable();
-
-    } else{
-
-       this.ctrl.enable();
     }
 
-  }
+    createNote() {
 
-  ngOnInit() {
+        this.rating.note = this.selected;
+        this.note.createNote(this.rating).subscribe(data => {}, err => {
 
-    this.disableRate();
+        });
+    }
+    onClick() {
 
-  }
+        this.nCnt = this.nCnt + 1;
+
+        if (this.nCnt >= 1) {
+
+            this.ctrl.disable();
+
+            if (this.nCnt == 1) {
+
+                this.createNote();
+
+            }
+
+            // else if le client est connecté mais n'a pas participé à cette activité ==>  this.ctrl.disable();
+
+        } else {
+
+            this.ctrl.enable();
+        }
+
+    }
+
+    ngOnInit() {
+
+        this.disableRate();
+
+    }
 
 
 }
