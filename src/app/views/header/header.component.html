@@ -1,19 +1,19 @@
-<app-spinner> </app-spinner>
-
+<ngx-loading [show]="loader.loading"></ngx-loading>
 <header class="header navbar-fixed-top">
 		<section class="head">
 			<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-			  <a class="navbar-brand"  (click)="onClick('')" class="logo"><img src="assets/img/Logo-essai3.png" alt="" ></a>
+			  <a class="navbar-brand"  (click)="onClick('')" class="logo"><img src="assets/img/Logo-essai3.png" alt="" ></a> 
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
 			  <div class="collapse navbar-collapse" id="collapsibleNavbar">
 			    <ul class="navbar-nav" id="navbar">
 			      <li class="nav-item">
-			        <a class="nav-link" (click)="onClick('a-propos')" [class.active-menu]="isActive('/a-propos')">{{ 'header.main_menu.about' | translate}}</a>
+			         <a class="nav-link" (click)="onClick('a-propos')" [class.active-menu]="isActive('/a-propos')">{{ 'header.main_menu.about' | translate}}</a> 
+			      
 			      </li>    
 			      <li class="nav-item">
-			        <a class="nav-link" (click)="onClick('activites')" [class.active-menu]="isActive('/activites')">{{ 'header.main_menu.act' | translate}}</a>
+			         <a class="nav-link" (click)="onClick('activites')" [class.active-menu]="isActive('/activites')">{{ 'header.main_menu.act' | translate}}</a> 
 			      </li>
 			    </ul>
 			  </div>  
@@ -22,7 +22,7 @@
 					
 					<app-langues></app-langues>
 					<app-dropdown-header></app-dropdown-header>
-					<a (click)="onClick('mon-panier')">
+					 <a (click)="onClick('mon-panier')"> 
 						<i class="fa fa-shopping-cart"></i> 
 						<span class="" >{{cart_items }}</span>
 						<input type="hidden" [(ngModel)]="cart_items">

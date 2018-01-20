@@ -2,7 +2,7 @@ import { Component, OnInit,AfterViewChecked, Input} from '@angular/core';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/map';
-import { UserService, ReservationService, ActivitesService } from '../../../services/index';
+import { UserService, ReservationService, ActivitesService, LoaderPageService } from '../../../services/index';
 import { Reservation } from '../../../models/index';
 import * as myGlobals from '../../../globals/index';
 declare let paypal: any;
@@ -21,11 +21,15 @@ export class LoginOrderComponent implements AfterViewChecked {
     panier: Reservation;
     act: any = [];
     public didPaypalScriptLoad: boolean = false;
-    public loading: boolean = true;
+   // public loading: boolean = true;
     public paymentAmount: number = 0;
     constructor(private user: UserService,
         private activite: ActivitesService,
-        private reservation: ReservationService) {}
+        private reservation: ReservationService,
+        private loader : LoaderPageService) {
+
+        this.loader.load();
+    }
     retrieveTotal(total) {
         this.paymentAmount = total;
         return total;
@@ -65,7 +69,6 @@ export class LoginOrderComponent implements AfterViewChecked {
         if (!this.didPaypalScriptLoad) {
             this.loadPaypalScript().then(() => {
                 paypal.Button.render(this.paypalConfig, '#paypal-button');
-                this.loading = false;
             });
         }
     }

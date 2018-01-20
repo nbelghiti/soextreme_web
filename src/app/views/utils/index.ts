@@ -15,6 +15,12 @@ export * from './photo-comments/index';
 export * from './langues/index';
 export * from './panier-menu/index';
 export * from './tab-panier/index';
+export * from './info-compte/index';
+export * from './tab-reservations/index';
+export * from './tab-photos/index';
+export * from './recap-infos/index';
+
+
 
 
 

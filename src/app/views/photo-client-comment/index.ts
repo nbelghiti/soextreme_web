@@ -1,0 +1,1 @@
+export * from './photo-client-comment.component';

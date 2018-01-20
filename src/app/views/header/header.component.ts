@@ -11,13 +11,13 @@ export class HeaderComponent implements OnInit {
 
     cart_items: any;
 
-
     constructor(private loader: LoaderPageService, private location: Location) {
 
 
-    }
-    onClick(url) {
 
+
+    }
+    onClick(url) { 
         this.loader.onClick(url);
     }
 

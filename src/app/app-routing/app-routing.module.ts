@@ -3,12 +3,12 @@ import { CommonModule, Location } from '@angular/common';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
-import { LANGUE, GMAP_KEY } from '../globals/index';
+import { LANGUE, GMAP_KEY, LOADER_SETTINGS } from '../globals/index';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng4FilesModule } from 'angular4-files-upload';
 import { CalendarModule } from 'angular-calendar';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { LoadingModule  } from 'ngx-loading';
 import { AgmCoreModule } from '@agm/core';
 import { SharedModule } from '../../app/shared/shared.module';
 
@@ -21,21 +21,18 @@ import { FooterComponent } from '../views/footer/index';
 import { LoginComponent, LoginOrderComponent } from '../views/login/index';
 import { DetailsActiviteComponent } from '../views/details-activite/index';
 import { ReservationsComponent } from '../views/reservations/index';
-import { MonCompteComponent } from '../views/mon-compte/mon-compte.component';
 import { PanierComponent } from '../views/panier/index';
-import { ActivitesListComponent } from '../views/activites-list/activites-list.component';
 import { AuthguardGuard, AdminGuard } from '../views/guards/index';
-import { CgvComponent } from '../views/cgv/cgv.component';
-import { CguComponent } from '../views/cgu/cgu.component';
-import { MentionsLegalesComponent } from '../views/mentions-legales/mentions-legales.component';
 import { PhotosComponent } from '../views/photos/index';
-import { PhotosGestionComponent } from '../views/photos-gestion/photos-gestion.component';
-import { PhotoClientCommentComponent } from '../views/photo-client-comment/photo-client-comment.component';
-import { InfoCompteComponent } from '../views/utils/info-compte/info-compte.component';
-import { MesInfosComponent } from '../views/mes-infos/mes-infos.component';
-import { TabReservationsComponent } from '../views/utils/tab-reservations/tab-reservations.component';
-import { TabPhotosComponent } from '../views/utils/tab-photos/tab-photos.component';
-import { RecapInfosComponent } from '../views/utils/recap-infos/recap-infos.component';
+import { MonCompteComponent } from '../views/mon-compte/index';
+import { MentionsLegalesComponent } from '../views/mentions-legales/index';
+import { CgvComponent } from '../views/cgv/index';
+import { CguComponent } from '../views/cgu/index';
+import { ActivitesListComponent } from '../views/activites-list/index';
+import { PhotoClientCommentComponent } from '../views/photo-client-comment/index';
+import { MesInfosComponent } from '../views/mes-infos/index';
+import { PhotosGestionComponent } from '../views/photos-gestion/index';
+
 
 import { AdminMenuComponent,
          AdminHomeComponent,
@@ -71,7 +68,11 @@ import { BackComponent,
          PhotoCommentsComponent,
          LanguesComponent,
          PanierMenuComponent,
-         TabPanierComponent} from '../views/utils/index';
+         TabPanierComponent,
+         InfoCompteComponent,
+         TabReservationsComponent, 
+         TabPhotosComponent,
+         RecapInfosComponent} from '../views/utils/index';
          
 
 // import {LocalizeRouterHttpLoader} from 'localize-router-http-loader';
@@ -128,7 +129,7 @@ export const appRoutes: Routes = [
     ),
     SharedModule,
     Ng4FilesModule,
-    Ng4LoadingSpinnerModule,
+    LoadingModule.forRoot(LOADER_SETTINGS),
     CalendarModule.forRoot(),
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
@@ -207,7 +208,7 @@ export const appRoutes: Routes = [
   	providers : [
   	AuthguardGuard,
     AdminGuard,
-         { provide: LOCALE_ID, useValue: LANGUE }
+         { provide: LOCALE_ID, useValue: JSON.parse(localStorage.getItem('langue')) }
 
    ],
   	entryComponents: [

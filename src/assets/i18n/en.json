@@ -172,8 +172,9 @@
 
         "entete": {
             "item1": "Photos",
-            "item2": "Date",
-            "item3": "Comments"
+            "item2": "Activities",
+            "item3": "Date",
+            "item4": "Comments"
         },
 
         "button": {

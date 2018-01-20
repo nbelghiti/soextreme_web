@@ -247,7 +247,6 @@ export class DetailsActiviteComponent implements OnInit {
     errComment() {
 
         if (!this.isLoggedIn) {
-            //this.err=myGlobals.ERROR_FORM.commentaire.nologgedIn.message;
             this.translate.get("details.comment.err.login").subscribe((res: String) => {
                 this.err = res;
             }, err => {

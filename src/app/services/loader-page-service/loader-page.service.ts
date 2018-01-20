@@ -1,19 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Router } from '@angular/router';
+import { LOADER_DURATION } from '../../globals/index';
 
 @Injectable()
 export class LoaderPageService {
 
-  constructor(private ng4LoadingSpinnerService: Ng4LoadingSpinnerService,
-               private router: Router) { }
+    public loading = false;
+    public duration = LOADER_DURATION;
+    constructor(private router: Router) {}
+    onClick(url) {
 
-   onClick(url){
+        this.loading = true;
+        setTimeout(() => {
 
-   	   this.ng4LoadingSpinnerService.show();
-	   setTimeout(() => {
-	    this.ng4LoadingSpinnerService.hide();
-	    this.router.navigate(['/'+url+'']);
-	    }, 2000);
+            this.loading = false;
+            this.router.navigate(['/' + url + '']);
+        }, this.duration);
+    }
+    load() {
+
+        this.loading = true;
+        setTimeout(() => {
+
+            this.loading = false;
+        }, this.duration);
     }
 }

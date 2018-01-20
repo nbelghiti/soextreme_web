@@ -28,26 +28,30 @@ ul{
 }
 @font-face {
  font-family: "PassionOne Black";
- src: url("assets/fonts/passionone/PassionOne-Black.otf") format("otf"),
-        url("assets/fonts/passionone/PassionOne-Black.ttf") format("ttf");
+ src: url("/src/assets/fonts/passionone/PassionOne-Black.otf") format("otf"),
+        url("/src/assets/fonts/passionone/PassionOne-Black.ttf") format("ttf");
 }
 @font-face {
  font-family: "PassionOne Bold";
- src: url("assets/fonts/passionone/PassionOne-Bold.otf") format("otf"),
-        url("assets/fonts/passionone/PassionOne-Bold.ttf") format("ttf");
+ src: url("/src/assets/fonts/passionone/PassionOne-Bold.otf") format("otf"),
+        url("/src/assets/fonts/passionone/PassionOne-Bold.ttf") format("ttf");
 }
 @font-face {
  font-family: "PassionOne Regular";
- src: url("assets/fonts/passionone/PassionOne-Regular.otf") format("otf"),
-        url("assets/fonts/passionone/PassionOne-Regular.ttf") format("ttf");
+ src: url("/src/assets/fonts/passionone/PassionOne-Regular.otf") format("otf"),
+        url("/src/assets/fonts/passionone/PassionOne-Regular.ttf") format("ttf");
 }
 app-dropdown-header{
     display: inline-block;
     margin-right: 30px;
 }
-app-dropdown-header+a:not([href]):not([tabindex]) {
+app-dropdown-header+a:not([href]):not([tabindex]),
+app-dropdown-header+a:not([href]):not([tabindex]):hover {
     display: inline-block;
     color: #fff;
+}
+app-backlink button:hover, app-info-compte input[type="submit"]:hover, app-login input[type="submit"]:hover {
+    background: #30b49a;
 }
 app-dropdown-header+a i{
     color: #30b49a;
@@ -78,9 +82,14 @@ section.head .main-nav{
     text-align: center;
 }
 
-body.login input[type="submit"]{
-
-	float: right;
+.dropdown-item, app-dropdown-header button{
+    cursor: pointer;
+}
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover{
+    color: #010e19;
+    background-color: #fff;
 }
 .right_login,.left_login{
 	
@@ -193,6 +202,12 @@ li.nav-item:last-child {
 .navbar-default .navbar-collapse {
     border: none;
 }
+.input-group:last-child{
+    display: inline-block;
+}
+app-info-compte input[type="submit"], app-login input[type="submit"]{
+    float: right;
+}
 footer.footer{
 
 	position: relative;
@@ -200,6 +215,7 @@ footer.footer{
 	bottom:  -50px;
 	left:0;
 	width: 100%;
+    clear: both;
 }
 section.top_footer ul li a{
     color: #fff;
@@ -240,6 +256,7 @@ button#other_lang {
     background: none;
     color: #fff;
     display: inline-block;
+    cursor: pointer;
 }
 footer.footer section.bottom_footer {
     background: #010e19;
@@ -321,7 +338,7 @@ body.login label{
 
 }
 .mdp_oublie{
-	margin-top: 67px;
+	margin-top: 12px;
 	margin-bottom: 15px;
 }
 body.about section.container-body,
@@ -412,6 +429,15 @@ app-photo-comments .modal-footer button{
     right: 0;
     width: 100%;
 }
+app-tab-photos td:last-child a{
+    color: #30b49a;
+}
+app-tab-photos td:last-child a:last-child{
+    float: right;
+}
+.head .navbar-dark .navbar-nav .nav-link.active-menu {
+    color: #30b49a;
+}
 .photoCom .input-group{
     margin-bottom: 0;
     display: inline-block;
@@ -466,6 +492,7 @@ app-login input[type="submit"]{
     background: #010e19;
     color: #fff;
     padding: 7px 10px;
+    cursor: pointer;
 }
 .infos_agence:nth-child(3) li {
     margin-top: 10px;
@@ -476,6 +503,7 @@ app-panier app-backlink+a{
     color: #fff;
     height: 33px;
     display: inline-block;
+    float: right;
 }
 .infos_agence:nth-child(3) li span span {
    color: #30b49a;
@@ -633,11 +661,45 @@ section.container-body.admin{
     vertical-align: top;
     margin-left: 15px;
 }
+.table thead th {
+    border-bottom-width: 1px;
+    color: #010e19;
+}
+.div-item-container:first-child{
+    margin-bottom: 20px;
+}
+.div-item-container header{
+    margin-bottom: 20px;
+
+}
+app-recap-infos a {
+    color: #30b49a;
+}
+.div-item-container header h4{
+    color: #010e19;
+
+}
+app-login-order app-backlink button{
+    margin-bottom: 20px;
+}
+app-backlink button{
+   min-width: 120px;
+}
 .right_activite label{
 
     margin-top: 20px;
     color: #010e19;
     font-size: 17px;
+}
+ app-info-compte label{
+
+    color: #010e19;
+    font-size: 15px;
+}
+app-info-compte label:first-child{
+
+    margin-top: 10px;
+
 }
 app-login-order  #paypal-button{
     float: right;
@@ -905,7 +967,9 @@ app-page-not-found .container-body div p:nth-child(3) a{
     .navbar>a {
         width: 67px;
     }
-
+    app-gmap-apropos {
+        width: 100%;
+    }
     section.top_footer ul li {
 
         font-size: 13px;

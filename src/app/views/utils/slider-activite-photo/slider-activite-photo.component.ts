@@ -21,7 +21,7 @@ export class SliderActivitePhotoComponent implements OnInit {
   openPopupPhotoCom(event) {
     const modalRef = this.modalService.open(PhotoCommentsComponent);
     modalRef.componentInstance.title = 'Photo';
-    modalRef.componentInstance.content = event.toElement.src;
+    modalRef.componentInstance.content = event.target.src;
     modalRef.componentInstance.btClose = 'Fermer';
 
   }

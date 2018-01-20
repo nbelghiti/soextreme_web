@@ -1,9 +1,8 @@
 <app-header></app-header>
 <section class="container-body">
 
-<app-backlink></app-backlink>
 <app-tab-panier (retrieveTotal)="retrieveTotal($event)"></app-tab-panier>
-<h1 *ngIf="loading">{{'login-order.loading' | translate}}</h1> 
+<app-backlink></app-backlink>
 <div id="paypal-button"></div>
 </section>
 <app-footer></app-footer>

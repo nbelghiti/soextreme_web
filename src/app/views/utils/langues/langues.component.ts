@@ -33,7 +33,7 @@ export class LanguesComponent implements OnInit {
 
     }
     onClick(event) {
-        let new_lang = event.toElement.innerHTML;
+        let new_lang = event.target.innerText;
         this.translate.use(new_lang);
         localStorage.setItem("langue", JSON.stringify(new_lang));
         setTimeout(() => {
