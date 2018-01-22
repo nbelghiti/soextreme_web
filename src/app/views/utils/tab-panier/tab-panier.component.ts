@@ -17,8 +17,9 @@ import { ActivitesService,AuthService,ReservationService,CartService } from '../
 })
 export class TabPanierComponent implements OnInit {
     @Output() retrieveTotal: EventEmitter < number > = new EventEmitter < number > ();
+    @Output() retrievePanier: EventEmitter < Reservation > = new EventEmitter < Reservation > ();
 
-    // id_client = myGlobals.CURRENT_CLIENT._id;
+    id_client = null;
     locale = JSON.parse(localStorage.getItem("langue"));
     id_act: any;
     act: any = [];
@@ -29,6 +30,8 @@ export class TabPanierComponent implements OnInit {
     id_rsv: any;
     display: boolean = true;
     currency = myGlobals.CURRENCY.euro;
+    panier : Reservation;
+
     constructor(private route: ActivatedRoute,
         private router: Router,
         private activite: ActivitesService,
@@ -43,19 +46,47 @@ export class TabPanierComponent implements OnInit {
             .map((result) => result.filter(item => item.session === session && item.statut === "non-reserve"))
             .subscribe((response) => {
 
-                this.rsv = response;
-                if (this.rsv.length > 0) {
-                    for (let i = 0; i < response.length; i++) {
-                        this.getActivitesByClient(this.rsv[i].id_act);
-                        //this.deleteRsv(this.rsv[i]._id);
-                    }
-                } else {}
-
-
+                //this.rsv = response;
+              
+                this.getResponse(response);
 
             }, err => {
 
             });
+
+    }
+    getResponse(res){
+        this.rsv = res;
+        console.log(this.rsv);
+        if (this.location.path() == '/mon-panier') {
+            
+              if (this.rsv.length > 0) {
+                    for (let i = 0; i < this.rsv.length; i++) {
+                        this.getActivitesByClient(this.rsv[i].id_act);
+                        //this.deleteRsv(this.rsv[i]._id);
+                    }
+                } else {}
+        } else {
+            this.id_client = JSON.parse(localStorage.getItem('currentUser'))._id;
+            for (var i = 0; i< this.rsv.length ;i++) {    
+                   this.getActivitesByClient(this.rsv[i].id_act);
+                if (this.rsv[i].id_cli === null || this.rsv[i].id_cli === '') {
+                   this.panier  = {
+                    id_cli : this.id_client,
+                      id_act : this.rsv[i].id_act,
+                     heure_in  : this.rsv[i].heure_in,
+                     heure_out  :this.rsv[i].heure_out,
+                      date_rsv : this.rsv[i].date_rsv,
+                      _id :this.rsv[i]._id,
+                     statut:'non-reserve',
+                     session: this.rsv[i].session
+                };
+                    console.log(this.panier);
+                  this.updateRsv(this.panier);
+              }
+          }
+          this.retrievePanier.emit(this.rsv);
+        }
 
     }
     isDisplay() {
@@ -93,6 +124,14 @@ export class TabPanierComponent implements OnInit {
 
         });
 
+    }
+    updateRsv(panier){
+
+      this.reservation.updateReservation(panier).subscribe(data => {
+         //data.id_cli = this.id_cli;
+       console.log('update reservation',data);
+
+     });
     }
     onSubmit() {
         //  this.deleteRsv(this._rsv.RsvId());

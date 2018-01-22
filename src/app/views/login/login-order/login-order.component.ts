@@ -2,20 +2,26 @@ import { Component, OnInit,AfterViewChecked, Input} from '@angular/core';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/map';
-import { UserService, ReservationService, ActivitesService, LoaderPageService } from '../../../services/index';
+import { Router,ActivatedRoute } from '@angular/router';
+import { UserService, ReservationService, ActivitesService, LoaderPageService, AuthService } from '../../../services/index';
+import { TranslateService } from '@ngx-translate/core';
 import { Reservation } from '../../../models/index';
 import * as myGlobals from '../../../globals/index';
 declare let paypal: any;
+import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmPopupComponent } from '../../../views/utils/index';
 
 @Component({
     selector: 'app-login-order',
     templateUrl: './login-order.component.html',
-    styleUrls: ['./login-order.component.css']
+    styleUrls: ['./login-order.component.css'],
+    providers: [ConfirmPopupComponent,  NgbModal, NgbActiveModal]
+
 })
 
 export class LoginOrderComponent implements AfterViewChecked {
 
-    rsv: any;
+    rsv:  any = [];
     session = JSON.parse(localStorage.getItem('currentSession'))._id;
     id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
     panier: Reservation;
@@ -26,7 +32,11 @@ export class LoginOrderComponent implements AfterViewChecked {
     constructor(private user: UserService,
         private activite: ActivitesService,
         private reservation: ReservationService,
-        private loader : LoaderPageService) {
+        private modalService: NgbModal,
+        private translate: TranslateService,
+        private router : Router,
+        private loader : LoaderPageService,
+        private auth : AuthService) {
 
         this.loader.load();
     }
@@ -34,12 +44,36 @@ export class LoginOrderComponent implements AfterViewChecked {
         this.paymentAmount = total;
         return total;
     }
+    retrievePanier(panier) {
+         for (var i = 0; i<panier.length; i++) {
+
+            this.rsv.push(panier[i]);
+         }
+
+    }
+   
+    
+    public updateStatut(){     
+        for (var i = 0; i<this.rsv.length; i++) {
+            this.rsv[i].statut = "en cours";
+            this.reservation.updateReservation(this.rsv[i]).subscribe(data => {
+
+             });
+         } 
+               
+    }
+    public resetPanier(){
+        localStorage.removeItem('cartQty');
+        this.auth.logout();
+    }
+
 
     public paypalConfig: any = {
         env: 'sandbox',
         client: {
-            sandbox: 'AWlMGZwpQbS0dq_r2Dt0ejp1TxDm72JD7Pt4Uc2mYlihAE3FU5axxS9wr4HcnVc13gB7TcbYDVLp9Vne',
+            sandbox: myGlobals.PAYPAL_CLIENT_ID,
             production: 'xxxxxxxxxx'
+            
         },
         commit: true,
         payment: (data, actions) => {
@@ -57,6 +91,15 @@ export class LoginOrderComponent implements AfterViewChecked {
         onAuthorize: (data, actions) => {
             return actions.payment.execute().then((payment) => {
                 // show success page
+                console.log(payment);
+                    this.updateStatut();
+
+                    this.openPopup();
+                    setTimeout(() => {
+                        this.resetPanier();
+                        this.router.navigate(['/']);
+                        location.reload();
+                    }, 3000);
             });
         }
     };
@@ -64,7 +107,22 @@ export class LoginOrderComponent implements AfterViewChecked {
 
     /*** PAYPAL ******/
 
+    public openPopup(){
 
+        const modalRef = this.modalService.open(ConfirmPopupComponent);
+        var popup_info = ["details.reserv.popup.success.title",
+            "details.reserv.popup.success.content",
+            "details.reserv.popup.success.btclose"
+        ];
+
+        this.translate.get(popup_info).subscribe((res: String) => {
+            modalRef.componentInstance.title = res[popup_info[0]];
+            modalRef.componentInstance.content = res[popup_info[1]];
+            modalRef.componentInstance.btClose = res[popup_info[2]];
+        }, err => {
+
+        });
+    }
     public ngAfterViewChecked(): void {
         if (!this.didPaypalScriptLoad) {
             this.loadPaypalScript().then(() => {

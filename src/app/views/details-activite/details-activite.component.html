@@ -85,7 +85,7 @@
 						<p class="">
 							
 							<span>{{ 'details.reserv.prix_title' | translate}}  {{prix}} {{currency}} </span>
-							<span *ngIf="myActivity.remise !== null"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
+							<span *ngIf="myActivity.remise !== null || myActivity.remise !== 'undefined'"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
 						</p>
 					</section>
 					<input type="submit" id="insc_resa" name="insc_resa" value="{{ 'details.reserv.valid' | translate}}" >

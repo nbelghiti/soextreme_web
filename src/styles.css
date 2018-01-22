@@ -234,7 +234,13 @@ section.top_footer ul li{
 
 
 }
+app-tab-reservations a, app-tab-reservations a:hover{
+        color: #30b49a;
 
+}
+app-datepicker .input-group:last-child {
+    display: flex;
+}
 div.langues{
     display: inline-block;
     padding: 0;
@@ -338,7 +344,7 @@ body.login label{
 
 }
 .mdp_oublie{
-	margin-top: 12px;
+	margin-top: 37px;
 	margin-bottom: 15px;
 }
 body.about section.container-body,

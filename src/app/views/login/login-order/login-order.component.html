@@ -1,7 +1,6 @@
 <app-header></app-header>
 <section class="container-body">
-
-<app-tab-panier (retrieveTotal)="retrieveTotal($event)"></app-tab-panier>
+<app-tab-panier (retrieveTotal)="retrieveTotal($event)" (retrievePanier)="retrievePanier($event)"></app-tab-panier>
 <app-backlink></app-backlink>
 <div id="paypal-button"></div>
 </section>

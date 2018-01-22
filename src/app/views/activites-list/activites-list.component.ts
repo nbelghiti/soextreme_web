@@ -21,7 +21,8 @@ export class ActivitesListComponent implements OnInit {
 
         if (location.pathname == '/') {
 
-            this.activity_list.map((result) => result.filter(item => item.visible === true && item.visible_home === true))
+           // this.activity_list.map((result) => result.filter(item => item.visible === true && item.visible_home === true))
+               this.activity_list
                 .subscribe(data => {
                     this.myActivities = data;
                 }, err => {});
@@ -29,9 +30,11 @@ export class ActivitesListComponent implements OnInit {
 
         } else if (location.pathname == '/activites') {
 
-            this.activity_list.map((result) => result.filter(item => item.visible === true))
+          //  this.activity_list.map((result) => result.filter(item => item.visible === true))
+               this.activity_list
                 .subscribe(data => {
                     this.myActivities = data;
+                    console.log(data);
                 }, err => {});
 
         }

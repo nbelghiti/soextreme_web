@@ -13,7 +13,6 @@
        <tr *ngFor="let i = index ; let res of rsv;" >
        	 <td>{{res?.updatedAt | date:'dd MMMM yyyy':'':locale }}</td>
         <td>{{res?._id }}</td>
-        <td>{{res?.date_rsv | date:'dd MMMM yyyy':'':locale }}</td>
         <td>				
         	<a *ngIf="act[i]" [routerLink]="['/activite/', act[i]?._id]">
 				{{act[i]?.libelle}}
@@ -22,7 +21,9 @@
 				{{act[i]?.libelle}}
 			</a>
 		</td>
-        <td>{{act[i]?.prix}} {{currency}}</td>
+        <td>{{res?.date_rsv | date:'dd MMMM yyyy':'':locale }}</td>
+     <td>{{act[i]?.prix}} {{currency}}</td>
+     <td>{{res?.statut}}</td>
 
         <!-- <td>{{res.type_act }}</td> -->
         <!-- <td>{{res.libelle }}</td> -->
