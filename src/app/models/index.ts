@@ -6,6 +6,8 @@ export * from './user';
 export * from './reservation';
 export * from './commentaires';
 export * from './session';
+export * from './amis';
+export * from './groupes';
 
 
 

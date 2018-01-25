@@ -32,6 +32,8 @@ import { ActivitesListComponent } from '../views/activites-list/index';
 import { PhotoClientCommentComponent } from '../views/photo-client-comment/index';
 import { MesInfosComponent } from '../views/mes-infos/index';
 import { PhotosGestionComponent } from '../views/photos-gestion/index';
+import { MesGroupesComponent } from '../views/mes-groupes/index';
+
 
 
 import { AdminMenuComponent,
@@ -58,7 +60,6 @@ import { BackComponent,
          DropdownHeaderComponent,
          RatingComponent,
          TimepickerComponent,
-         SliderActivitePhotoComponent,
          PhotoRatingComponent,
          GmapAproposComponent,
          GmapActiviteComponent,
@@ -72,9 +73,10 @@ import { BackComponent,
          InfoCompteComponent,
          TabReservationsComponent, 
          TabPhotosComponent,
-         RecapInfosComponent} from '../views/utils/index';
-         
-
+         RecapInfosComponent,
+         GroupesComponent,
+         AmisComponent} from '../views/utils/index';
+  import {         SliderActivitePhotoComponent}  from '../views/utils/slider-activite-photo/slider-activite-photo.component';
 // import {LocalizeRouterHttpLoader} from 'localize-router-http-loader';
 // import {LocalizeRouterModule, LocalizeParser, LocalizeRouterSettings} from 'localize-router';
 
@@ -99,6 +101,7 @@ export const appRoutes: Routes = [
    { path: 'admin/promotions', component:AdminPromotionsComponent, canActivate:[AdminGuard]},
    { path: 'loginOrder', component: LoginOrderComponent, canActivate:[AuthguardGuard] },
    { path: 'mes-photos', component: PhotosComponent, canActivate:[AuthguardGuard] },
+   { path: 'mes-amis', component: MesGroupesComponent, canActivate:[AuthguardGuard] },
    { path: 'mes-informations', component: MesInfosComponent, canActivate:[AuthguardGuard] },
    { path: 'mes-photos/gestion/id', component: PhotosGestionComponent, canActivate:[AuthguardGuard] },
    { path: 'mes-photos/id', component: PhotoClientCommentComponent, canActivate:[AuthguardGuard] },
@@ -202,7 +205,10 @@ export const appRoutes: Routes = [
     MesInfosComponent,
     TabReservationsComponent,
     TabPhotosComponent,
-    RecapInfosComponent
+    RecapInfosComponent,
+    MesGroupesComponent,
+    GroupesComponent,
+    AmisComponent
    
    ],
   	providers : [

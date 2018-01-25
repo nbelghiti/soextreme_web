@@ -50,6 +50,7 @@ export class UploadComponent implements OnInit {
     addFile() {
             let input = new FormData();
             input.append("file", this.selectedFiles[0]);
+            console.log(this.selectedFiles);
             this.imgphoto.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
             this.imgphoto.nom_img = this.selectedFiles[0].name;
             this.imgphoto.id_activite = this.id_activite;

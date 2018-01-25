@@ -15,8 +15,8 @@ export class CommentsComponent implements OnInit {
     id_act_com: any = this.route.snapshot.paramMap.get('id');
     test: any;
     nb_coms: any = [];
-    date_com: String;
-    user_info_com: User[] = [];
+    date_com: any = [];
+    user_info_com : any = [];
     constructor(private route: ActivatedRoute,
         private router: Router,
         private activite: ActivitesService,
@@ -28,7 +28,7 @@ export class CommentsComponent implements OnInit {
 
         this.auth.getAllClients().map((result) => result.filter(item => item._id === id))
             .subscribe((response) => {
-                this.user_info_com = response;
+                this.user_info_com.push(response[0]);
             }, err => {
 
             })
@@ -37,17 +37,17 @@ export class CommentsComponent implements OnInit {
     getAllComments(id: String) {
 
         this.commentaire.getAllCommentaires()
-            .map((result) => result.filter(item => item.id_act === id && item.visible === true))
+            .map((result) => result.filter(item => item.id_act === id && item.visible === false))
             .subscribe((data) => {
-                this.commentaires = data;
+                this.commentaires = data; 
                 this.nb_coms = this.commentaires.length;
                 if (this.commentaires.length > 0) {
                     for (let i = 0; i < this.commentaires.length; i++) {
                         this.id_cli_com = this.commentaires[i].id_client;
                         //this.id_act_com = this.commentaires[i].id_act;
-                        this.date_com = this.date.getFullDate(this.commentaires[i].date);
+                        this.date_com.push(this.date.getFullDate(this.commentaires[i].createdAt));
+                        this.getUserInfoCom(this.commentaires[i].id_client);
                     }
-                    this.getUserInfoCom(this.id_cli_com);
 
                 }
             }, err => {

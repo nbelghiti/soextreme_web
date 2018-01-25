@@ -28,8 +28,8 @@ export class TabReservationsComponent implements OnInit {
 
     getAllReservationsByClient(id: String) {
 
-        this.reservation.getAllReservations()
-            .map((result) => result.filter(item => item.id_cli === id && item.statut === "reserve"))
+        this.reservation.getReservation(this.id_client)
+            .map((result) => result.filter(item =>  item.statut !== "non-reserve" && item.statut !== null && item.statut !==""))
             .subscribe((response) => {
 
                 this.rsv = response;

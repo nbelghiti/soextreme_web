@@ -1,8 +1,7 @@
   <table class="table table-condensed" *ngIf="rsv?.length>0">
     <thead>
       <tr>
-      	<!-- <th>Date</th> -->
-        <!-- <th>N° de Réservation</th> -->
+        <th></th>
         <th>{{'panier.entete.item1' | translate}}</th>
         <th>{{'panier.entete.item2' | translate}}</th>
         <th>{{'panier.entete.item3' | translate}}</th>
@@ -11,7 +10,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let i = index ; let res of rsv;" >
-    
+        <td>
+            <a *ngIf="act[i]" [routerLink]="['/activite/', act[i]?._id]">
+              <img src="assets/img/{{act[i]?.photo }}" >
+            </a>
+        </td>
         <td>				
         	<a *ngIf="act[i]" [routerLink]="['/activite/', act[i]?._id]">
 				{{act[i]?.libelle}}
@@ -23,7 +26,7 @@
         <td *ngIf="locale === 'fr'">{{res?.date_rsv | date:'dd MMMM yyyy':'':locale }}</td>
         <td *ngIf="locale !== 'fr'">{{res?.date_rsv | date:'MMMM, dd yyyy':'':locale }}</td>
         <td>{{act[i]?.prix}} {{currency}}</td>
-        <td *ngIf=" display === true"><a (click)="onSubmit()"><i class="fa fa-times"></i></a></td>
+        <td *ngIf=" display === true"><a (click)="deleteRsv(res?._id)"><i class="fa fa-times"></i></a></td>
 
 
       </tr>  

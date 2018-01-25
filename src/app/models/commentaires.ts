@@ -2,7 +2,7 @@ export interface Commentaires {
 
   type: string;
   texte : String;
-  date : Date;
+  createdAt : Date;
   id_act : String;
   id_client : String;
   visible:boolean;

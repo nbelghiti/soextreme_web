@@ -50,7 +50,10 @@ app-dropdown-header+a:not([href]):not([tabindex]):hover {
     display: inline-block;
     color: #fff;
 }
-app-backlink button:hover, app-info-compte input[type="submit"]:hover, app-login input[type="submit"]:hover {
+app-backlink button:hover,
+app-info-compte input[type="submit"]:hover,
+app-login input[type="submit"]:hover,
+#valid_comment:hover {
     background: #30b49a;
 }
 app-dropdown-header+a i{
@@ -129,7 +132,18 @@ body.login .input-group:last-child{
     height: auto;
 }
 
-
+app-tab-panier td:first-child, app-tab-reservations td:first-child{
+    width: 150px;
+    padding-left: 0;
+}
+app-tab-panier td:first-child img,
+app-tab-reservations td:first-child img{
+    width: 100%;
+    height:auto;
+}
+app-tab-panier a{
+   color: #30b49a;
+}
 .left_activite img{
 
     width: 100%; 
@@ -234,7 +248,13 @@ section.top_footer ul li{
 
 
 }
+app-tab-reservations a, app-tab-reservations a:hover{
+        color: #30b49a;
 
+}
+app-datepicker .input-group:last-child {
+    display: flex;
+}
 div.langues{
     display: inline-block;
     padding: 0;
@@ -279,6 +299,9 @@ section.container-body{
     top: 50px;
 
 
+}
+.allfriends li{
+    
 }
 ngb-datepicker.dropdown-menu{
     background: #fff;
@@ -338,7 +361,7 @@ body.login label{
 
 }
 .mdp_oublie{
-	margin-top: 12px;
+	margin-top: 4px;
 	margin-bottom: 15px;
 }
 body.about section.container-body,
@@ -408,6 +431,10 @@ app-photo-comments  #valid_comment_photo {
 app-photo-comments .modal-body{
     font-size: 0;
     /*padding-bottom: 0;*/
+}
+app-panier h2, app-login-order h2{
+    
+    margin-bottom: 20px;
 }
 app-photo-comments app-comments {
     height: 190px;
@@ -694,9 +721,10 @@ app-backlink button{
  app-info-compte label{
 
     color: #010e19;
-    font-size: 15px;
+    font-size: 13px;
 }
-app-info-compte label:first-child{
+app-info-compte label:first-child,
+.right_login label:first-child{
 
     margin-top: 10px;
 
@@ -1018,4 +1046,9 @@ app-page-not-found .container-body div p:nth-child(3) a{
         font-size: 12px;
     }
 
+}
+@media (min-width: 1200px){
+    .container {
+        max-width: 930px;
+    }
 }

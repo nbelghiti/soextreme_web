@@ -8,10 +8,12 @@
 			<section class="connexion">
 				<h3 class="">{{ 'login.connect_title' | translate}}</h3>
     			<form name="form" (ngSubmit)="login()" [formGroup]="form" novalidate >
-
+					
+					<div class="" *ngIf="form.invalid && ( form.dirty || form.touched)">		<p>{{ 'forms.form_invalid' | translate}}</p>
+					</div>
 					<label for="adrs_email">{{ 'login.mail' | translate}}  </label>
 					<div class="input-group">
-						<input type="text" id="adrs_email" name="email" class="form-control" aria-describedby="sizing-addon-cmail" formControlName="email" required>
+						<input type="text" id="adrs_email" name="email" class="form-control" aria-describedby="sizing-addon-cmail" formControlName="email" required [(ngModel)]="email">
 					</div>
 					<label for="cmdp">{{ 'login.mdp' | translate}}  </label>
 					<div class="input-group">
@@ -19,7 +21,7 @@
 					</div>
 					<label for=""></label>
 					<div class="input-group">		
-						<input type="submit" id="connect" name="connect" value="{{ 'login.connect_button' | translate}}">
+						<input type="submit" id="connect" name="connect" value="{{ 'login.connect_button' | translate}}" [disabled]="form.invalid">
 					</div>
 				</form>
 			</section>

@@ -26,10 +26,14 @@ export class AdminReservationComponent implements OnInit {
         private reservation: ReservationService,
         private date: DateService,
         private auth: AuthService) {}
-    getReservation(id: String) {
 
-        this.reservation.getAllReservations()
-            .map((result) => result.filter(item => item._id === id && item.statut === "reserve"))
+    getReservation() {
+   // getReservation(id: String) {
+
+        //this.reservation.getAllReservations()
+           // .map((result) => result.filter(item => item._id === id && item.statut === "reserve"))
+         this.reservation.getReservation(this.id_com)
+            .map((result) => result.filter(item =>  item.statut !== "non-reserve" && item.statut !== null && item.statut !==""))
             .subscribe((data) => {
                 this.reservations = data;
                 if (this.reservations.length > 0) {
@@ -71,7 +75,7 @@ export class AdminReservationComponent implements OnInit {
     }
     ngOnInit() {
 
-        this.getReservation(this.id_com);
+        this.getReservation();
     }
 
 }

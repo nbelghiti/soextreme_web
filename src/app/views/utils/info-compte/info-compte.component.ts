@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import {NgForm,FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 //import { UserService } from '../services/user-service/user.service';
 import {Location} from '@angular/common';
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
+
+function passwordMatchValidator(g: FormGroup) {
+   return g.get('password').value === g.get('confirm_password').value
+      ? null : {'mismatch': true};
+}
 @Component({
     selector: 'app-info-compte',
     templateUrl: './info-compte.component.html',
@@ -41,7 +46,7 @@ export class InfoCompteComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
         this.hideField();
         this.getClient();
-
+        console.log(this.create_user_form);
     }
     hideField() {
 
@@ -51,6 +56,11 @@ export class InfoCompteComponent implements OnInit {
             this.hideInfo = false;
         }
     }
+      passwordConfirming(c: AbstractControl): { invalid: boolean } {
+    if (c.get('password').value !== c.get('confirm_password').value) {
+                return {invalid: true};
+            }
+        }
     getLocation() {
 
         return location.pathname === '/mes-informations';

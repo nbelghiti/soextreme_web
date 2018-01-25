@@ -32,8 +32,8 @@ export class ReservationService {
 
   }
   
-  public getReservation(id ) : Observable<Reservation> {
-     return this._http.get(myGlobals.API+"reservation/"+id)
+  public getReservation(id ) : Observable<Reservation[]> {
+     return this._http.get(myGlobals.API+"reservations/"+id)
          .map(result => result.json())
          .catch(this.handleError);
 
@@ -41,7 +41,7 @@ export class ReservationService {
 
 
   public createReservation(reservation : Reservation) : Observable<Reservation>{
-
+     console.log(reservation);
      return this._http.post(myGlobals.API+"reservation/add", reservation)
          .map(result =>{
            let reservation = result.json();

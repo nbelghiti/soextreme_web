@@ -4,7 +4,7 @@ export * from './datepicker/index';
 export * from './timepicker/index';
 export * from './dropdown-header/index';
 export * from './rating/index';
-export * from './slider-activite-photo/index';
+//export * from './slider-activite-photo/index';
 export * from './photo-rating/index';
 export * from './gmaps/index';
 export * from './ngdatepicker/index';
@@ -19,7 +19,8 @@ export * from './info-compte/index';
 export * from './tab-reservations/index';
 export * from './tab-photos/index';
 export * from './recap-infos/index';
-
+export * from './amis/index';
+export * from './groupes/index';
 
 
 

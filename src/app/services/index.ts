@@ -12,7 +12,8 @@ export * from './date-service/index';
 export * from './sessions-service/index';
 export * from './loader-page-service/index';
 export * from './metas-service/index';
-
+export * from './groupes-service/index';
+export * from './amis-service/index';
 
 
 

@@ -1,5 +1,5 @@
 import { ANIMATION_TYPES } from 'ngx-loading';
-export const PORT = 8000;
+export const PORT = 4040;
 export const API = 'http://soextreme.fr:' + PORT + '/';
 export const NOW = new Date();
 export const LANGUE = 'fr';
@@ -25,6 +25,7 @@ export const I18N_VALUES = {
         months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     }
 };
+export const PAYPAL_CLIENT_ID = 'AdbBE5QgBMuyz50l8zoGQj2AL1vC5lhmxNmhrUC6gRbX14vEL9QN9uei70gOROFu2tG_YDlxfiNl-GRk';
 export const ASSET_IMG_PATH = 'assets/img/';
 export const ASSET_JS_PATH = 'assets/js/';
 export const CURRENT_SESSION = JSON.parse(localStorage.getItem('currentSession'));

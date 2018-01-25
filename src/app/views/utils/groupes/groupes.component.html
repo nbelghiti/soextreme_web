@@ -1,0 +1,14 @@
+<section class="groupe">
+	<h2 class="">Mes groupe</h2>
+	<!-- <div class="row">
+			<label for="search_groupe">Rechercher un ami : </label>
+			<input id="search_groupe" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+
+	</div> -->
+	<ul class="allgroups row" *ngIf="allgroups.length>0">
+		<li class="col-md-3" *ngFor="let groupe of allgroups">
+			<span>{{groupe?.nom}}</span>
+		</li>
+	</ul>
+	<p class="" *ngIf="allgroups.length === 0">Pas de groupe<p>
+</section>
