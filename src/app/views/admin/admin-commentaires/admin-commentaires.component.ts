@@ -73,7 +73,7 @@ export class AdminCommentairesComponent implements OnInit {
                 for (let i = 0; i < this.commentaires.length; i++) {
                     this.id_cli_com = this.commentaires[i].id_client;
                     this.id_act_com = this.commentaires[i].id_act;
-                    this.date_com.push(this.date.getFullDate(this.commentaires[i].date));
+                    this.date_com.push(this.date.getFullDate(this.commentaires[i].createdAt));
                     this.getUserInfoCom(this.id_cli_com);
                     this.getActCom(this.id_act_com);
                 }

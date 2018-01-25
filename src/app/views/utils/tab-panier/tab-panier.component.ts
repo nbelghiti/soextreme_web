@@ -6,7 +6,7 @@ import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/map';
 import { Activites, Reservation } from '../../../models/index';
 import * as myGlobals from '../../../globals/index';
-import { ActivitesService,AuthService,ReservationService,CartService } from '../../../services/index';
+import { ActivitesService,AuthService,ReservationService,CartService, SessionsService } from '../../../services/index';
 
 @Component({
     selector: 'app-tab-panier',
@@ -38,7 +38,8 @@ export class TabPanierComponent implements OnInit {
         private reservation: ReservationService,
         private location: Location,
         public _rsv: Reservation,
-        private auth: AuthService) {}
+        private auth: AuthService,
+        private sess : SessionsService) {}
 
     getAllReservationsByClient(session) {
 
@@ -102,6 +103,11 @@ export class TabPanierComponent implements OnInit {
         }, err => {
 
         });
+        this.sess.removeCartItem();
+        setTimeout(() => {
+            
+            location.reload();
+        }, 3000);
     }
     getTotal(datarray) {
         this.total = 0;
@@ -133,9 +139,7 @@ export class TabPanierComponent implements OnInit {
 
      });
     }
-    onSubmit() {
-        //  this.deleteRsv(this._rsv.RsvId());
-    }
+    
     ngOnInit() {
 
         this.getAllReservationsByClient(this.session);

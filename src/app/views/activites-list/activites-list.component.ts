@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
 import { Activites } from '../../models/index';
-import { ActivitesService } from '../../services/index';
+import { ActivitesService, LoaderPageService } from '../../services/index';
 
 @Component({
     selector: 'app-activites-list',
@@ -13,7 +13,7 @@ export class ActivitesListComponent implements OnInit {
 
     myActivities: any = [];
     activity_list;
-    constructor(private router: Router, private activites: ActivitesService) {}
+    constructor(private router: Router, private activites: ActivitesService, private loader : LoaderPageService) {}
 
     getActivites() {
 
@@ -34,11 +34,15 @@ export class ActivitesListComponent implements OnInit {
                this.activity_list
                 .subscribe(data => {
                     this.myActivities = data;
-                    console.log(data);
                 }, err => {});
 
         }
 
+    }
+
+    onClick(url){
+
+        this.loader.onClick(url)
     }
 
     ngOnInit() {

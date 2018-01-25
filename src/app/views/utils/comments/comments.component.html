@@ -1,7 +1,7 @@
 <article class="comment" *ngFor="let i = index ; let com of commentaires;">
 	<header class="header_comment">
-		<span class="nom_commentateur">{{user_info_com[0]?.prenom}} {{user_info_com[0]?.nom}}</span>
-		<span class="date_comment">le {{date_com}}</span>
+		<span class="nom_commentateur">{{user_info_com[i]?.prenom}} {{user_info_com[i]?.nom}}</span>
+		<span class="date_comment">le {{date_com[i]}}</span>
 
 	</header>
 	<p class="">{{com?.texte}}</p>

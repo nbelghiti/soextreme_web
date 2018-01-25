@@ -1,0 +1,14 @@
+<section class="amis">
+	<h2 class="">Mes amis</h2>
+	<div class="row">
+			<label for="search_ami">Rechercher un ami : </label>
+			<input id="search_ami" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+
+	</div>
+	<ul class="allfriends row" *ngIf="allfriends.length>0">
+		<li class="col-md-3" *ngFor="let ami of allfriends">
+			<span>{{ami?.nom}}</span>
+		</li>
+	</ul>
+	<p class="" *ngIf="allfriends.length === 0">Pas d'ami<p>
+</section>

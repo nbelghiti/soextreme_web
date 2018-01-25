@@ -14,7 +14,7 @@ import { ActivitesService,AuthService,ReservationService } from '../../../servic
 })
 export class TabReservationsComponent implements OnInit {
 
-    id_client = myGlobals.CURRENT_CLIENT._id;
+    id_client = JSON.parse(localStorage.getItem('currentUser'))._id;
     locale = myGlobals.LANGUE;
     id_act: any;
     act: any = [];

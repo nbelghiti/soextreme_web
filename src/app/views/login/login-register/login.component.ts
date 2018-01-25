@@ -5,6 +5,7 @@ import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
 
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         //this.authService.logout();
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
-
+       // console.log(this.form);
     }
 
     login() {

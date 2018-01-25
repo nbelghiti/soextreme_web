@@ -33,8 +33,8 @@ export class SessionsService {
 
 			};
 
-
-      if(!localStorage.getItem('currentSession') || new Date(Date.now()) < new Date(Date.now() - expiration_time)) {      
+      if(!localStorage.getItem('currentSession') || new Date(Date.now()).toISOString() > JSON.parse(localStorage.getItem('currentSession')).expires
+) {      
 
 
       	localStorage.setItem('currentSession',JSON.stringify(session));
@@ -61,8 +61,14 @@ export class SessionsService {
 
     }
     removeCartItem(){
+     var cartQty =0; 
+     if (parseInt(localStorage.getItem('cartQty'))>0) {
+       cartQty =  parseInt(localStorage.getItem('cartQty'))-1;
+     } else {
+       cartQty =  0;
+     }
 
-     // return myGlobals.CURRENT_SESSION.cart_qty - 1;
+      return localStorage.setItem('cartQty',cartQty.toString());
     }
     getAllSessions() : Observable<Session[]>{
         return this._http.get(myGlobals.API+'sessions')

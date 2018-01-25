@@ -27,6 +27,7 @@ export class DetailsActiviteComponent implements OnInit {
     currency = myGlobals.CURRENCY.euro;
     form: FormGroup;
     commentform: FormGroup;
+    img_path = myGlobals.ASSET_IMG_PATH;
     imageform: FormGroup;
     prix: number;
     myimg: any;
@@ -50,7 +51,7 @@ export class DetailsActiviteComponent implements OnInit {
     comment: Commentaires = {
         type: null,
         texte: null,
-        date: null,
+        createdAt: null,
         id_act: null,
         id_client: null,
         visible: false,
@@ -225,7 +226,7 @@ export class DetailsActiviteComponent implements OnInit {
             if (commentTexte !== null && commentTexte !== '') {
                 this.comment.id_client = myGlobals.CURRENT_CLIENT._id;
                 this.comment.id_act = this.id_activite;
-                this.comment.date = new Date(Date.now());
+                this.comment.createdAt = new Date(Date.now());
                 this.comment.texte = commentTexte;
                 this.comment.type = "";
 

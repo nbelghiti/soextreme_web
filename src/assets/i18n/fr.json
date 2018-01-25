@@ -123,6 +123,7 @@
             "reserv": "Mes activités",
             "infos": "Mes informations",
             "photos": "Mes photos",
+            "amis":"Mes amis",
             "deconnect": "Déconnexion",
             "connect": "Connexion"
         }
@@ -233,6 +234,48 @@
         "cgv": "Cgv",
         "cgu": "Cgu",
         "mentions": "Mentions légales"
+    },
+    "forms" : {
+
+        "email":{
+            "required":"Le champs \"email\" est requis",
+            "invalid":"Le champs \"email\" est invalide",
+            "minlength":"Le champs \"email\" doit comporter au minimum",
+            "maxlength":"Le champs \"email\" doit comporter au maximum"                
+        },
+        "password": {
+            "required":"Le champs \"mot de passe\" est requis",
+             "invalid":"Le champs \"mot de passe\" est invalide",
+            "minlength":"Le champs \"mot de passe\" doit comporter au minimum",
+            "maxlength":"Le champs \"mot de passe\" doit comporter au maximum"   
+        },
+        "confirmation":{
+            "required":"Le champs \"confirmation\" est requis",
+            "invalid":"Le champs \"confirmation\" est invalide",
+            "minlength":"Le champs \"confirmation\" doit comporter au minimum",
+            "maxlength":"Le champs \"confirmation\" doit comporter au maximum"   
+        },
+        "nom":{
+            "required":"Le champs \"nom\" est requis",
+           "invalid":"Le champs \"nom\" est invalide",
+            "minlength":"Le champs \"nom\" doit comporter au minimum",
+            "maxlength":"Le champs \"nom\" doit comporter au maximum"   
+        },
+        "prenom":{
+            "required":"Le champs \"prenom\" est requis",
+           "invalid":"Le champs \"prenom\" est invalide",
+            "minlength":"Le champs \"prenom\" doit comporter au minimum",
+            "maxlength":"Le champs \"prenom\" doit comporter au maximum"   
+        },
+        "telephone":{
+            "required":"Le champs \"telephone\" est requis",
+            "invalid":"Le champs \"telephone\" est invalide",
+            "minlength":"Le champs \"telephone\" doit comporter au minimum",
+            "maxlength":"Le champs \"telephone\" doit comporter au maximum"   
+
+        },
+        "form_invalid" : "Un ou plusieurs champs sont incorrects"
+
     }
 
 }

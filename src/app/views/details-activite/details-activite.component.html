@@ -4,24 +4,20 @@
 		<section class="activite">
 			<section class="left_activite">
 				<article class="">
-					<img src="assets/img/parachute.jpg">
+					<img src="assets/img/{{myActivity?.photo }}" >
 					
 					<section class="descriptif">
 						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
-						<p class="">
-							
-							 {{myActivity.description}}
-						</p>
+						<p class="" [innerHTML]="myActivity.description"></p>
 					</section>
 					<section class="conditions">
 						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
 						<h3 class="">{{ 'details.conditions.title' | translate}} </h3>
-						<p class="">
+						<p class="" [innerHTML]="myActivity.condition">
 							
-							 {{myActivity.condition}}
 						</p>
 					</section>
-					<h3 class="">{{ 'details.photos.title' | translate}}(3)</h3>
+					<h3 class="">{{ 'details.photos.title' | translate}}</h3>
 
 					<section class="share_photos">
 						<!-- <form class="" (ngSubmit)="submitPhoto()" [formGroup]="imageform" method="post" enctype="multipart/form-data"> -->
@@ -44,13 +40,16 @@
 
 					</section>
 					<section class="commentaires_container" >
-						<h3 class="">{{ 'details.comment.title' | translate}} ({{nb_coms?.length}})</h3>
+						<h3 class="">{{ 'details.comment.title' | translate}}</h3>
 						<h5 class="ajout_comm">{{ 'details.comment.add' | translate}}</h5>
 						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn; elsecreateComment" novalidate>
 
 							<textarea name="" id="" cols="30" rows="10" class="" formControlName="commentTexte"></textarea>
 							<div class="input-group">	
-								<input type="submit" id="valid_comment" name="valid_comment" value="{{ 'details.comment.valid' | translate}}">
+								<input type="submit" id="valid_comment" name="valid_comment" value="{{ 'details.comment.valid' | translate}}" [disabled]="commentform.invalid">
+							</div>
+							<div class="" *ngIf="commentform.invalid && ( commentform.dirty || commentform.touched)">		
+								<p>{{ 'forms.form_invalid' | translate}}</p>
 							</div>
 						</form>
 						<div class="mess" #elsecreateComment>
@@ -85,7 +84,7 @@
 						<p class="">
 							
 							<span>{{ 'details.reserv.prix_title' | translate}}  {{prix}} {{currency}} </span>
-							<span *ngIf="myActivity.remise !== null || myActivity.remise !== 'undefined'"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
+							<span *ngIf="myActivity.remise !== null && myActivity.remise !== 'undefined' && myActivity.remise !== '0' && myActivity.remise !== myActivity.remise"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
 						</p>
 					</section>
 					<input type="submit" id="insc_resa" name="insc_resa" value="{{ 'details.reserv.valid' | translate}}" >

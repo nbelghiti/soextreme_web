@@ -58,7 +58,7 @@ export class AdminClientComponent implements OnInit {
                 this.commentaires = data;
                 if (this.commentaires.length > 0) {
                     for (let i = 0; i < this.commentaires.length; i++) {
-                        this.date_com.push(this.date.getFullDate(this.commentaires[i].date));
+                        this.date_com.push(this.date.getFullDate(this.commentaires[i].createdAt));
                         this.getActCom(this.commentaires[i].id_act);
                     }
 

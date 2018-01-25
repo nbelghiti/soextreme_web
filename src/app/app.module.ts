@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { UserService, LoginService, ActivitesService, AuthService, CartService, DateService,
          GerantService, ReservationService, NotesService, CommentairesService, PhotosService, 
-         SessionsService, LoaderPageService, MetasService } from './services/index';
+         SessionsService, LoaderPageService, MetasService, AmisService, GroupesService } from './services/index';
 import { OrderbyPipe } from './pipes/orderby.pipe';
 import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
 
@@ -43,6 +43,8 @@ import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
     SessionsService,
     LoaderPageService,
     MetasService,
+    AmisService,
+    GroupesService,
     DatePipe
 
     ],

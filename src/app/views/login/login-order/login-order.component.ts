@@ -64,6 +64,7 @@ export class LoginOrderComponent implements AfterViewChecked {
     }
     public resetPanier(){
         localStorage.removeItem('cartQty');
+        localStorage.removeItem('currentSession');
         this.auth.logout();
     }
 

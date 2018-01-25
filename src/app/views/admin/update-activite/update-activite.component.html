@@ -58,7 +58,10 @@
 			
 				<label for=""></label>
 				<div class="input-group">	
-					<input type="submit" id="update_activite" name="update_activite" value="Modifier">
+					<input type="submit" id="update_activite" name="update_activite" value="Modifier" [disabled]="form.invalid">
+				</div>
+				<div class="" *ngIf="form.invalid && ( form.dirty || form.touched)">		
+					<p>{{ 'forms.form_invalid' | translate}}</p>
 				</div>
 			</form>
 		</section>		
