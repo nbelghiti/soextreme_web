@@ -217,11 +217,26 @@
         "back": "Back"
 
     },
-    "cgv": {
 
+    "mentions": {
+      "text": "<h1>Legal notice</h1>
+
+      <p>
+      The website soextreme.fr is edited and exploited by So'Extrême SARL with share capital of €30,000.
+      </p>
+
+      <h2>Head office:</h2> route de Napoléon, CASTELLANE 04120
+
+      <h2>Contact:</h2> contact@soextreme.fr
+
+      <h2>Host:</h2> OVH"
+    },
+
+    "cgv": {
+      "text": ""
     },
     "cgu": {
-
+      "text": ""
     },
     "not-found": {
 
