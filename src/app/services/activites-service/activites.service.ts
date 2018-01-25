@@ -24,9 +24,9 @@ export class ActivitesService {
 
   }
 
-  public getPrice(prix : number, remise : number){
+  public getPrice(prix : number, remise : number) : number{
 
-    if (remise !== null){
+    if (remise !== null && remise !== undefined){
       prix = prix - remise;
     
     }

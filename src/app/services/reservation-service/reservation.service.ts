@@ -41,7 +41,6 @@ export class ReservationService {
 
 
   public createReservation(reservation : Reservation) : Observable<Reservation>{
-     console.log(reservation);
      return this._http.post(myGlobals.API+"reservation/add", reservation)
          .map(result =>{
            let reservation = result.json();

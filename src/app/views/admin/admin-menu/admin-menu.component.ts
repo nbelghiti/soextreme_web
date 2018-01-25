@@ -11,5 +11,7 @@ export class AdminMenuComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  onClick(){
+  	location.reload();
+  }
 }

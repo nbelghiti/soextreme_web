@@ -42,6 +42,12 @@ export class PhotosService {
          .catch(this.handleError);
 
   }
+  public getPhotoActivite(id ) : Observable<Photo[]> {
+     return this._http.get(myGlobals.API+"photoss/"+id)
+         .map(result => result.json())
+         .catch(this.handleError);
+
+  }
 
   public createPhoto(photo : Photo) : Observable<Photo>{
 

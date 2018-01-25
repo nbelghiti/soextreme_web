@@ -20,7 +20,6 @@ export class AuthService {
         return this._http.post(myGlobals.API+'client/login', login_user)
                  .map(result =>{ 
                          let user = result.json();
-                         console.log(user);
                          if (user ) {
                            localStorage.setItem('currentUser', JSON.stringify(user));
                          }

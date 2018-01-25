@@ -36,7 +36,6 @@ export class AmisComponent implements OnInit {
   ngOnInit() {
   }
   getAllAmis(){
-  	console.log(this.id_client);
   	this.amis.getAllAmisByClient(this.id_client).subscribe(data =>{ 
 
   		this.allfriends = data;
@@ -45,19 +44,16 @@ export class AmisComponent implements OnInit {
   			this.friendsids.push(data[i].id_client_invite);
 
   		}
-  		console.log(this.friendsids);
   	}, err => {});
   }
    getAllClients(){
   	this.auth.getAllClients()
   	.map((result) => result.filter(item => item._id !== this.id_client && item._id !== this.friendsids[item._id] ))
   	.subscribe(data =>{ 
-  		//console.log(data);
   		for (var i = 0; i < data.length; i++) {
   			this.clientslist.push(data[i].nom);
   			this.clientsids.push(data[i]._id);
   		}
-  		console.log(this.clientsids);
 
   	}, err => {});
   }

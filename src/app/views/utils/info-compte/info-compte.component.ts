@@ -46,7 +46,6 @@ export class InfoCompteComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
         this.hideField();
         this.getClient();
-        console.log(this.create_user_form);
     }
     hideField() {
 

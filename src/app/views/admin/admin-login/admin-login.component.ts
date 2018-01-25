@@ -32,7 +32,7 @@ export class AdminLoginComponent implements OnInit {
 
     ngOnInit() {
         //this.gerantService.logout();
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'admin/home';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'admin/reservations';
     }
 
     login() {

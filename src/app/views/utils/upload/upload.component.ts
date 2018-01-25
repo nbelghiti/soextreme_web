@@ -50,45 +50,17 @@ export class UploadComponent implements OnInit {
     addFile() {
             let input = new FormData();
             input.append("file", this.selectedFiles[0]);
-            console.log(this.selectedFiles);
             this.imgphoto.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
             this.imgphoto.nom_img = this.selectedFiles[0].name;
             this.imgphoto.id_activite = this.id_activite;
-            console.log(this.imgphoto);
             this.photo.createPhoto(this.imgphoto).subscribe(data => {
 
-                    console.log(data);
                 }, err => {
 
                 })
-                //console.log( this.selectedFiles);
 
         }
-        /* addFile(): void {
-    let fi = this.fileInput.nativeElement;
-      if (fi.files && fi.files[0]) {
-          let fileToUpload = fi.files[0];
-          
-           let input = new FormData();
-         input.append("file", fileToUpload);
-         this.imgphoto.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id;
-         this.imgphoto.nom_img = input;
-         this.imgphoto.id_activite = this.id_activite;
-         this.photo.createPhoto(this.imgphoto).subscribe(data => {
-
-           console.log(data);
-         },err =>{
-      
-    })
-          // this.photo
-          //     .upload(fileToUpload)
-          //     .subscribe(res => {
-          //         console.log(res);
-          //     },err =>{
-      
-    });
-      }
-  }*/
+        
     ngOnInit() {}
 
 }

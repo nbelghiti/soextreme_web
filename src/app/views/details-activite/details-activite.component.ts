@@ -175,6 +175,21 @@ export class DetailsActiviteComponent implements OnInit {
         });
     }
 
+    openPopupComment() {
+        const modalRef = this.modalService.open(ConfirmPopupComponent);
+        var popup_info = ["details.comment.title",
+            "details.comment.send",
+            "details.reserv.popup.success.btclose"
+        ];
+
+        this.translate.get(popup_info).subscribe((res: String) => {
+            modalRef.componentInstance.title = res[popup_info[0]];
+            modalRef.componentInstance.content = res[popup_info[1]];
+            modalRef.componentInstance.btClose = res[popup_info[2]];
+        }, err => {
+
+        });
+    }
 
 
     uploadedPhoto() {
@@ -232,6 +247,10 @@ export class DetailsActiviteComponent implements OnInit {
 
                 this.commentaire.createCommentaire(this.comment).subscribe(data => {
 
+                    this.openPopupComment();
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
                 }, err => {
 
                 });

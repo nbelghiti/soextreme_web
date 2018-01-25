@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { LoaderPageService } from '../../services/index';
+import { MetasService } from '../../services/index';
 
 @Component({
     selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
     cart_items: any;
 
-    constructor(private loader: LoaderPageService, private location: Location) {
+    constructor(private loader: LoaderPageService, private location: Location, private meta: MetasService) {
 
 
 
@@ -34,6 +35,9 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.getCartItems();
+
+        this.meta.setTitle('metas.accueil.title');
+        this.meta.setOtherMetas('metas.accueil.other');
 
 
     }

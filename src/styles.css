@@ -635,6 +635,9 @@ app-details-activite app-upload button{
     background: #010e19;
     width: 90px;
 }
+.table a, .admin-menu a, .admin-menu a:hover{
+    color: #30b49a;
+}
 section.commentaires_container textarea {
     width: 100%;
     height: 115px;
@@ -647,6 +650,7 @@ section.commentaires_container textarea {
     color: #fff;
     width: 95px;
     margin-top: 15px;
+    cursor: pointer;
 }
 section.activite button {
    

@@ -3,15 +3,15 @@
 
         "accueil": {
 
-            "title": "So Extrême | En",
+            "title": "SO’Extreme - Extreme Sport ",
 
             "other": {
 
-                "description": "bla bla bla",
-                "og:title": "",
-                "og:type": "",
-                "og:url": "",
-                "og:image": ""
+                "description": "There will necessarily be an activity among all the ones we offer ! For you ...",
+                "og:title": "SO’Extreme - Extreme Sport",
+                "og:type": "website",
+                "og:url": "http://soextreme.fr",
+                "og:image": "http://54.36.190.213:4200/assets/img/Logo-essai3.png"
             }
 
         },
@@ -90,7 +90,8 @@
                 "login": "You must be logged in to comment.",
                 "nocom": "No comment",
                 "empty": "Your comment is empty"
-            }
+            },
+            "send" : "Your comment has been created"
 
         },
         "reserv": {

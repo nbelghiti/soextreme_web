@@ -1,7 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { NgbCarouselConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router,ActivatedRoute } from '@angular/router';
 import { PhotoCommentsComponent,CommentsComponent } from '../../../views/utils/index';
-
+import {PhotosService} from '../../../services/index';
 @Component({
   selector: 'app-slider-activite-photo',
   templateUrl: './slider-activite-photo.component.html',
@@ -10,8 +11,15 @@ import { PhotoCommentsComponent,CommentsComponent } from '../../../views/utils/i
 
 })
 export class SliderActivitePhotoComponent implements OnInit {
+    id_activite = this.route.snapshot.paramMap.get('id');
+    allphotos : any = [];
 
-    constructor(config: NgbCarouselConfig, private modalService: NgbModal, private el: ElementRef) { 
+    constructor(config: NgbCarouselConfig,
+                private modalService: NgbModal,
+                private el: ElementRef,
+                private route: ActivatedRoute,
+                private router: Router,
+                private photos : PhotosService) { 
   
     config.interval = 10000;
     config.wrap = false;
@@ -25,9 +33,16 @@ export class SliderActivitePhotoComponent implements OnInit {
     modalRef.componentInstance.btClose = 'Fermer';
 
   }
+  getAllPhotosByActivite(){
 
+    this.photos.getPhotoActivite(this.id_activite).subscribe(data => {
+
+      this.allphotos = data;
+    })
+  }
 
   ngOnInit() {
+    this.getAllPhotosByActivite();
   }
 
 }

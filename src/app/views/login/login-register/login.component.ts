@@ -27,21 +27,13 @@ export class LoginComponent implements OnInit {
             password: ['', [Validators.required, Validators.minLength(3)]],
 
         });
-        /* this.create_user_form = fb.group({
-            nom: ['',[Validators.required, Validators.minLength(3)]],
-              prenom:['',[Validators.required, Validators.minLength(3)]],
-               email: ['',[Validators.required, Validators.minLength(3)]],
-              password:['',[Validators.required, Validators.minLength(3)]],
-              confirm_password:['',[Validators.required, Validators.minLength(3)]]
-             
-           });*/
+        
 
     }
 
     ngOnInit() {
         //this.authService.logout();
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
-       // console.log(this.form);
     }
 
     login() {
@@ -56,7 +48,6 @@ export class LoginComponent implements OnInit {
 
                 },
                 err => {
-                    //this.alertService.error(error);
                 });
     }
 

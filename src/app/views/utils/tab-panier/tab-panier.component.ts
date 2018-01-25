@@ -58,7 +58,6 @@ export class TabPanierComponent implements OnInit {
     }
     getResponse(res){
         this.rsv = res;
-        console.log(this.rsv);
         if (this.location.path() == '/mon-panier') {
             
               if (this.rsv.length > 0) {
@@ -82,7 +81,6 @@ export class TabPanierComponent implements OnInit {
                      statut:'non-reserve',
                      session: this.rsv[i].session
                 };
-                    console.log(this.panier);
                   this.updateRsv(this.panier);
               }
           }
@@ -99,7 +97,6 @@ export class TabPanierComponent implements OnInit {
     }
     deleteRsv(id) {
         this.reservation.deleteReservation(id).subscribe(data => {
-            console.log(data)
         }, err => {
 
         });
@@ -135,7 +132,6 @@ export class TabPanierComponent implements OnInit {
 
       this.reservation.updateReservation(panier).subscribe(data => {
          //data.id_cli = this.id_cli;
-       console.log('update reservation',data);
 
      });
     }

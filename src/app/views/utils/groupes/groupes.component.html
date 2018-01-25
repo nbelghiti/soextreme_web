@@ -1,5 +1,5 @@
 <section class="groupe">
-	<h2 class="">Mes groupe</h2>
+	<h2 class="">Mes groupes</h2>
 	<!-- <div class="row">
 			<label for="search_groupe">Rechercher un ami : </label>
 			<input id="search_groupe" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
@@ -11,4 +11,12 @@
 		</li>
 	</ul>
 	<p class="" *ngIf="allgroups.length === 0">Pas de groupe<p>
+	<form action="" class="" (ngSubmit)="createGroup()" [formGroup]="groupform"  novalidate>
+
+		<input class="" formControlName="nom" >
+		<div class="input-group">	
+			<input type="submit" id="" name="" value="{{ 'details.comment.valid' | translate}}" [disabled]="groupform.invalid">
+		</div>
+	</form>
+	
 </section>

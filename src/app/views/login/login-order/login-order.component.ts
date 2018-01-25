@@ -92,7 +92,6 @@ export class LoginOrderComponent implements AfterViewChecked {
         onAuthorize: (data, actions) => {
             return actions.payment.execute().then((payment) => {
                 // show success page
-                console.log(payment);
                     this.updateStatut();
 
                     this.openPopup();

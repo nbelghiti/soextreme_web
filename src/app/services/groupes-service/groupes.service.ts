@@ -34,9 +34,9 @@ export class GroupesService {
   }
   // /groupe/add POST
 
-  public createGroupe(grpupe : Groupes) : Observable<Groupes>{
+  public createGroupe(groupe : Groupes) : Observable<Groupes>{
 
-     return this._http.post(myGlobals.API+"groupe/add", grpupe)
+     return this._http.post(myGlobals.API+"groupe/add", groupe)
          .map(result => result.json())
          .catch(this.handleError);
 

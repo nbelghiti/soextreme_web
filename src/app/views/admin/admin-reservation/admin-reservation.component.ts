@@ -33,9 +33,12 @@ export class AdminReservationComponent implements OnInit {
         //this.reservation.getAllReservations()
            // .map((result) => result.filter(item => item._id === id && item.statut === "reserve"))
          this.reservation.getReservation(this.id_com)
-            .map((result) => result.filter(item =>  item.statut !== "non-reserve" && item.statut !== null && item.statut !==""))
+            //.map((result) => result.filter(item =>  item.statut !== "non-reserve" && item.statut !== null && item.statut !==""))
             .subscribe((data) => {
                 this.reservations = data;
+                console.log(data);
+                console.log(this.id_com);
+
                 if (this.reservations.length > 0) {
                     this.rsv = data[0];
                     this.date_rsv.push(this.date.getDate(this.rsv.date_rsv));
