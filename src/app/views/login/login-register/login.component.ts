@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {NgForm,FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 //import { UserService } from '../services/user-service/user.service';
+import { TranslateService } from '@ngx-translate/core';
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
 
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
+        private translate: TranslateService,
         private router: Router,
         private authService: AuthService,
         public fb: FormBuilder) {
@@ -48,6 +50,12 @@ export class LoginComponent implements OnInit {
 
                 },
                 err => {
+                    this.translate.get("forms.form_invalid").subscribe((res: String) => {
+                        alert(res);
+
+                    }, err => {
+
+                    });
                 });
     }
 

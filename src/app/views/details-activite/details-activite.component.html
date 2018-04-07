@@ -74,11 +74,22 @@
 						</span>
 						<app-datepicker [group]="form.controls.date" ></app-datepicker>
 					</div>
+					<label for="" *ngIf="nb_pers_cond">Nombre de personnes </label>
+					<div class="input-group" *ngIf="nb_pers_cond">
+						
+						<input type="number" min="{{nb_pers_min}}" max="{{nb_pers_max}}" formControlName="nb_pers" (click)="changing()" [(ngModel)]="nb_pers">
+						
+					</div>
+					<div class="erreurs" *ngIf=" form.controls.nb_pers.dirty || form.controls.nb_pers.touched">	
+							<div class="" *ngIf="nb_pers>nb_pers_max">{{ 'forms.nb_pers.max' | translate}} {{nb_pers_max}}</div>
+							<div class="" *ngIf="nb_pers<nb_pers_min">{{ 'forms.nb_pers.min' | translate}} {{nb_pers_min}}</div>
+
+					</div>
 					<label for=""></label>
-					<!-- <div class="input-group">	
+					 <div class="input-group" *ngIf="nb_pers_cond">	
 						<app-timepicker [group]="form.controls.heure_in"></app-timepicker>
 			
-					</div> -->
+					</div>
 					<section class="prix">
 						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
 						<p class="">
@@ -87,7 +98,7 @@
 							<span *ngIf="myActivity.remise !== null && myActivity.remise !== 'undefined' && myActivity.remise !== '0' && myActivity.remise !== myActivity.remise"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
 						</p>
 					</section>
-					<input type="submit" id="insc_resa" name="insc_resa" value="{{ 'details.reserv.valid' | translate}}" >
+					<input type="submit" id="insc_resa" name="insc_resa" value="{{ 'details.reserv.valid' | translate}}" [disabled]="nb_pers<nb_pers_min || nb_pers>nb_pers_max">
 				</form>
 			</section>
 		</section>

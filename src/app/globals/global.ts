@@ -12,6 +12,11 @@ export const LOC_SOXTRM = {
     lat: 43.7613593,
     lon: 6.378837200000021
 };
+export const NB_PERS = {
+
+    min : 1,
+    max : 6
+}
 export const RATING_ACT = 5;
 export const RATING_PHOTO = 5;
 export const GMAP_KEY = 'AIzaSyAgiDSdRngu3Lqnac4YU5xP3JVwEwwZ0N0';

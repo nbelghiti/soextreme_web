@@ -30,9 +30,13 @@ export class DetailsActiviteComponent implements OnInit {
     img_path = myGlobals.ASSET_IMG_PATH;
     imageform: FormGroup;
     prix: number;
+    nb_pers_cond = this.route.snapshot.paramMap.get('id') === '5a6646c4af4ffd00015dd437';
     myimg: any;
     formData: FormData;
     //nb_coms : any = [];
+    nb_pers_min = myGlobals.NB_PERS.min;
+    nb_pers_max = myGlobals.NB_PERS.max;
+    nb_pers = 1;
     isLoggedIn = this.auth.isLoggedIn();
     session: String = JSON.parse(localStorage.getItem('currentSession'))._id;
     id_activite = this.route.snapshot.paramMap.get('id');
@@ -94,12 +98,12 @@ export class DetailsActiviteComponent implements OnInit {
 
         });
         this.form = this.fb.group({
-            //heure_in: this.fb.group({
-            //start_hour: ['',[Validators.required, Validators.minLength(3)]],
-            //start_min: ['',[Validators.required, Validators.minLength(3)]]
+            heure_in: this.fb.group({
+            start_hour: ['',[Validators.required, Validators.minLength(3)]],
+            start_min: ['',[Validators.required, Validators.minLength(3)]]
 
-
-            // }),
+             }),
+            nb_pers: ['',[Validators.required]],
             date: this.fb.group({
 
                 mydate: ['', [Validators.required, Validators.minLength(3)]]
@@ -158,7 +162,9 @@ export class DetailsActiviteComponent implements OnInit {
         }
 
     }
-
+    changing(){
+        console.log(this.form.get('nb_pers').value);
+    }
     openPopup() {
         const modalRef = this.modalService.open(ConfirmPopupComponent);
         var popup_info = ["details.reserv.popup.success.title",

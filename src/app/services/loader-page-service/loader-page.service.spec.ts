@@ -1,11 +1,11 @@
 import { TestBed, inject } from '@angular/core/testing';
-
+import { Router } from '@angular/router';
 import { LoaderPageService } from './loader-page.service';
 
 describe('LoaderPageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoaderPageService]
+      providers: [LoaderPageService, Router]
     });
   });
 

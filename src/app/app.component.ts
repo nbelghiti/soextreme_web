@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import  * as myGlobals from './globals/index';
 import { SessionsService } from './services/index';
 import {ViewEncapsulation} from '@angular/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers : [SessionsService]
   //encapsulation: ViewEncapsulation.Emulated
 
 })

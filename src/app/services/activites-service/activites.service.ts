@@ -9,6 +9,8 @@ import * as myGlobals from '../../globals/global';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/distinct';
 
 @Injectable()
 export class ActivitesService {

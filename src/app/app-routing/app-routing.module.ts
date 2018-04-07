@@ -75,7 +75,9 @@ import { BackComponent,
          TabPhotosComponent,
          RecapInfosComponent,
          GroupesComponent,
-         AmisComponent} from '../views/utils/index';
+         AmisComponent,
+         OtherMenuComponent,
+         CategoriesComponent} from '../views/utils/index';
   import {         SliderActivitePhotoComponent}  from '../views/utils/slider-activite-photo/slider-activite-photo.component';
 // import {LocalizeRouterHttpLoader} from 'localize-router-http-loader';
 // import {LocalizeRouterModule, LocalizeParser, LocalizeRouterSettings} from 'localize-router';
@@ -109,6 +111,7 @@ export const appRoutes: Routes = [
    { path: 'mes-reservations', component: ReservationsComponent, canActivate:[AuthguardGuard] },
    { path: 'activites', component: ActivitesComponent },
    { path: 'activite/:id', component: DetailsActiviteComponent },
+   { path: 'categorie/:id', component: CategoriesComponent },
    { path: 'mon-panier', component: PanierComponent},
    { path: 'cgu', component: CguComponent},
    { path: 'cgv', component: CgvComponent},
@@ -208,7 +211,9 @@ export const appRoutes: Routes = [
     RecapInfosComponent,
     MesGroupesComponent,
     GroupesComponent,
-    AmisComponent
+    AmisComponent,
+    OtherMenuComponent,
+    CategoriesComponent
    
    ],
   	providers : [

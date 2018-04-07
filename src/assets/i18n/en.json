@@ -134,11 +134,13 @@
 
     "login": {
         "creer_compte_title": "Create an account",
-        "nom": "Lastname :",
-        "prenom": "Firstname :",
-        "mail": "Email :",
-        "mdp": "Password  :",
-        "confirm_mdp": "Confirm :",
+        "oblig":"Required",
+        "nom": "Lastname",
+        "prenom": "Firstname",
+        "mail": "Email",
+        "confirm_email": "Confirm",
+        "mdp": "Password ",
+        "confirm_mdp": "Confirm",
         "creer_compte_button": "Create",
         "modif_compte_button": "Update",
         "connect_title": "Sign in",
@@ -218,26 +220,8 @@
 
     },
 
-    "mentions": {
-      "text": "<h1>Legal notice</h1>
+   
 
-      <p>
-      The website soextreme.fr is edited and exploited by So'Extrême SARL with share capital of €30,000.
-      </p>
-
-      <h2>Head office:</h2> route de Napoléon, CASTELLANE 04120
-
-      <h2>Contact:</h2> contact@soextreme.fr
-
-      <h2>Host:</h2> OVH"
-    },
-
-    "cgv": {
-      "text": ""
-    },
-    "cgu": {
-      "text": ""
-    },
     "not-found": {
 
         "message": "<p>Oops,</p><p>it occurred an error.</p><p><a [routerLink]=\"['']\">Click here to go back to the home page</a></p>"
@@ -251,11 +235,15 @@
     },
     "forms" : {
 
-             "email":{
+        "email":{
             "required":"The \"email\" field is required",
             "invalid":"The \"email\" field is invalid",
             "minlength":"The \"email\" field must contain at least",
             "maxlength":"The \"email\" field must contain at most"                
+        },
+         "nb_pers":{
+            "min":"The number of people can not be less than",
+            "max":"The number of people can not be greater than"
         },
         "password": {
             "required":"The \"mot de passe\" field is required",
@@ -267,7 +255,8 @@
             "required":"The \"confirmation\" field is required",
             "invalid":"The \"confirmation\" field is invalid",
             "minlength":"The \"confirmation\" field must contain at least",
-            "maxlength":"The \"confirmation\" field must contain at most"   
+            "maxlength":"The \"confirmation\" field must contain at most",
+            "same":"Le champs \"password\" et le champs \"confirmation\" ne correspondent pas"      
         },
         "nom":{
             "required":"The \"nom\" field is required",

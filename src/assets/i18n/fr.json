@@ -136,11 +136,13 @@
 
     "login": {
         "creer_compte_title": "Créer un compte",
-        "nom": "Nom :",
-        "prenom": "Prénom :",
-        "mail": "Adresse email :",
-        "mdp": "Mot de passe  :",
-        "confirm_mdp": "Confirmation :",
+        "oblig":"Champs obligatoires",
+        "nom": "Nom",
+        "prenom": "Prénom",
+        "mail": "Adresse email",
+        "confirm_email": "Confirmation",
+        "mdp": "Mot de passe",
+        "confirm_mdp": "Confirmation",
         "creer_compte_button": "Créer",
         "modif_compte_button": "Modifier",
         "connect_title": "Se connecter",
@@ -221,153 +223,7 @@
 
     },
 
-    "mentions": {
-      "text": "<h1>Mentions légales</h1>
 
-      <p>
-      Le site web <strong>soextreme.fr</strong> est édité et exploité par <strong>So'Extrême SARL</strong> au capital social de 30 000 €.
-      </p>
-
-      <h2>Siège social :</h2> route de Napoléon, CASTELLANE 04120
-
-      <h2>Contact :</h2> contact@soextreme.fr
-
-      <h2>Hébergeur :</h2> OVH"
-    },
-
-    "cgv": {
-      "text": "<h1>Conditions générales de ventes</h1>
-
-      <p>Entre la Société So Extreme,<br>route de Napoléon, CASTELLANE 04120<br>au Capital Social de 30.000€,<br>immatriculée au Registre du Commerce et des Sociétés de PARIS,<br>sous le numéro SIRET 123456789,<br>représentée par M. Jean DUPONT<br>en qualité de gérant,<br>dûment habilité aux fins des présentes.<br>La société peut être jointe par email en cliquant sur le formulaire de contact accessible via la page d’accueil du site.<br><br>Ci-après le « Vendeur » ou la « Société ».<br><br>D’une part,<br><br>Et la personne physique ou morale procédant à l’achat de produits ou services de la société,<br>Ci-après, « l’Acheteur », ou « le Client »<br><br>D’autre part,<br><br>Il a été exposé et convenu ce qui suit :<br><br>On indique ici les premiers éléments obligatoire du contrat à savoir : l'identification précise du vendeur - obligations imposées notamment par l'article 6 de la LCEN (sanctions 1 an d'emprisonnement et 75.000€ d'amende à défaut), l'article 19 de la LCEN, les articles L111-1 et s. du Code de la conso.. Il est également obligatoire de fournir un point de contact (LCEN art. 6).<br><br>PREAMBULE<br><br>Le Vendeur est éditeur de produits et de services de _____ à destination de consommateurs, commercialisés par l’intermédiaire de ses sites Internet (http://siteweb.com ). La liste et le descriptif des biens et services proposés par la Société peuvent être consultés sur les sites susmentionnés.<br><br>L'activité de la société est présentée et explicitée de même que la destination des produits -ces obligations sont imposées par l'art. L111-1 code conso.<br><br>Article 1 : Objet Les présentes Conditions Générales de Vente déterminent les droits et obligations des parties dans le cadre de la vente en ligne de Produits proposés par le Vendeur.<br><br>On détaille ici l'objet du contrat qui est la vente en ligne de produits par le Vendeur<br><br>Article 2 : Dispositions générales Les présentes Conditions Générales de Vente (CGV) s’appliquent à toutes les ventes de Produits, effectuées au travers des sites Internet de la Société qui sont partie intégrante du Contrat entre l’Acheteur et le Vendeur. Le Vendeur se réserve la possibilité de modifier les présentes, à tout moment par la publication d’une nouvelle version sur son site Internet. Les CGV applicables alors sont celles étant en vigueur à la date du paiement (ou du premier paiement en cas de paiements multiples) de la commande. Ces CGV sont consultables sur le site Internet de la Société à l'adresse suivante : _____ . La Société s’assure également que leur acceptation soit claire et sans réserve en mettant en place une case à cocher et un clic de validation. Le Client déclare avoir pris connaissance de l’ensemble des présentes Conditions Générales de Vente, et le cas échéant des Conditions Particulières de Vente liées à un produit ou à un service, et les accepter sans restriction ni réserve. Le Client reconnaît qu’il a bénéficié des conseils et informations nécessaires afin de s’assurer de l’adéquation de l’offre à ses besoins. Le Client déclare être en mesure de contracter légalement en vertu des lois françaises ou valablement représenter la personne physique ou morale pour laquelle il s’engage. Sauf preuve contraire les informations enregistrées par la Société constituent la preuve de l’ensemble des transactions.<br><br>Points à gérer : - Les modifications éventuelles des CGV - Formalité d'acceptation des CGV pour être certain que la personne a consenti au contrat - respect des obligations de conseil - on s'assure que le client est légalement en mesure de conclure un contrat - article L111-1 et s. c. conso.<br><br>Article 3 : Prix Les prix des produits vendus au travers des sites Internet sont indiqués en Euros hors taxes et précisément déterminés sur les pages de descriptifs des Produits. Ils sont également indiqués en euros toutes taxes comprises (TVA + autres taxes éventuelles) sur la page de commande des produits, et hors frais spécifiques d'expédition. Pour tous les produits expédiés hors Union européenne et/ou DOM-TOM, le prix est calculé hors taxes automatiquement sur la facture. Des droits de douane ou autres taxes locales ou droits d'importation ou taxes d'état sont susceptibles d'être exigibles dans certains cas. Ces droits et sommes ne relèvent pas du ressort du Vendeur. Ils seront à la charge de l'acheteur et relèvent de sa responsabilité (déclarations, paiement aux autorités compétentes, etc.). Le Vendeur invite à ce titre l'acheteur à se renseigner sur ces aspects auprès des autorités locales correspondantes.La Société se réserve la possibilité de modifier ses prix à tout moment pour l’avenir. Les frais de télécommunication nécessaires à l’accès aux sites Internet de la Société sont à la charge du Client. Le cas échéant également, les frais de livraison.<br><br>TRES IMPORTANT : - on détaille le prix de vente de manière précise (attention sanctions de ce côté la JP est très sévère) - on précise l'ensemble des éléments relatifs à la livraison (qui ne sont pas précisés dans ces CGV car elles sont, à l'origine, destinées à des produits immatériels).<br><br>Article 2.1 : Prix - exemple de clause illicite La Société se réserve la possibilité de changer les prix à tout moment des produits achetés par le consommateur en particulier pour les abonnements - ceux-ci seront librement déterminés par le Vendeur par la suite, au fur et à mesure de l'évolution des prestations.<br><br>Voici un exemple assez basique de de clause illicite essentiellement en raison du fait que le vendeur peut modifier le prix à tout moment - sans qu'en soit vraiment clairement informé le consommateur (ex : vous lui vendez un abonnement à 20€ à l'origine, puis vous changez le prix à 200€)<br><br>Article 4 : Conclusion du contrat en ligne Le Client devra suivre une série d’étapes spécifiques à chaque Produit offert par le Vendeur pour pouvoir réaliser sa commande. Toutefois, les étapes décrites ci-après sont systématiques : - Information sur les caractéristiques essentielles du Produit ; - Choix du Produit, le cas échéant de ses options et indication des données essentielles du Client (identification, adresse…) ; - Acceptation des présentes Conditions Générales de Vente. - Vérification des éléments de la commande et, le cas échéant, correction des erreurs. - Suivi des instructions pour le paiement, et paiement des produits. - Livraison des produits. Le Client recevra alors confirmation par courrier électronique du paiement de la commande, ainsi qu’un accusé de réception de la commande la confirmant. Il recevra un exemplaire .pdf des présentes conditions générales de vente. Pour les produits livrés, cette livraison se fera à l’adresse indiquée par le Client. Aux fins de bonne réalisation de la commande, et conformément à l’article 1316-1 du Code civil, le Client s’engage à fournir ses éléments d’identification véridiques. Le Vendeur se réserve la possibilité de refuser la commande, par exemple pour toute demande anormale, réalisée de mauvaise foi ou pour tout motif légitime.<br><br>Plusieurs points très importants : - on détaille le processus d'achat étape par étape - on rappelle la mise à disposition des CGV par PDF après commande - on rappelle le non traitement des commandes abusives Dispositions légales notamment art. L111-1, L111-2 du Code de la consommation.<br><br>Article 5 : Produits et services Les caractéristiques essentielles des biens, des services et leurs prix respectifs sont mis à disposition de l’acheteur sur les sites Internet de la société. Le client atteste avoir reçu un détail des frais de livraison ainsi que les modalités de paiement, de livraison et d’exécution du contrat. Le Vendeur s’engage à honorer la commande du Client dans la limite des stocks de Produits disponibles uniquement. A défaut, le Vendeur en informe le Client. Ces informations contractuelles sont présentées en détail et en langue française. Conformément à la loi française, elles font l’objet d’un récapitulatif et d’une confirmation lors de la validation de la commande. Les parties conviennent que les illustrations ou photos des produits offerts à la vente n’ont pas de valeur contractuelle. La durée de validité de l’offre des Produits ainsi que leurs prix est précisée sur les sites Internet de la Société, ainsi que la durée minimale des contrats proposés lorsque ceux-ci portent sur une fourniture continue ou périodique de produits ou services. Sauf conditions particulières, les droits concédés au titre des présentes le sont uniquement à la personne physique signataire de la commande (ou la personne titulaire de l’adresse email communiqué).Conformément aux dispositions légales en matière de conformité et de vices cachés, le Vendeur rembourse ou échange les produits défectueux ou ne correspondant pas à la commande. Le remboursement peut être demandé de la manière suivante : ________ (décrire la procédure de remboursement, et comment le produit doit être retourné, et le remboursement des frais d'expédition le cas échéant).<br><br>Ici on détaille les biens vendus ainsi que les caractéristiques essentielles de l'offre.<br><br>Article 6 : Clause de réserve de propriété Les produits demeurent la propriété de la Société jusqu’au complet paiement du prix.<br><br>Clause classique - optionnelle l'idée est de réserver la propriété du bien jusqu'au paiement du prix. A défaut le bien appartient à l'acheteur (qui n'a pas encore payé)<br><br>Article 7 : Modalités de livraison Les produits sont livrés à l'adresse de livraison qui a été indiquée lors de la commande et le délai indiqué. Ce délai ne prend pas en compte le délai de préparation de la commande. Lorsque la livraison nécessite une prise de rendez-vous avec le Client _____ (décrire la procédure) Lorsque le Client commande plusieurs produits en même temps ceux-ci peuvent avoir des délais de livraison différents acheminés selon les modalités suivantes _______ (décrire la procédure). En cas de retard d’expédition______ (décrire la procédure). En cas de retard de livraison, le Client dispose de la possibilité de résoudre le contrat dans les conditions et modalités définies à l’Article L 138-2 du Code de la consommation.Le Vendeur procède alors au remboursement du produit et aux frais « aller » dans les conditions de l’Article L 138-3 du Code de la consommation. Le Vendeur met à disposition un point de contact téléphonique (coût d’une communication locale à partir d’un poste fixe) indiqué dans l’email de confirmation de commande afin d'assurer le suivi de la commande. Le Vendeur rappelle qu’au moment où le Client pend possession physiquement des produits, les risques de perte ou d’endommagement des produits lui est transféré. Il appartient au Client de notifier au transporteur toute réserves sur le produit livré.<br><br>Description des modalités de livraison<br><br>Article 8 : Disponibilité et présentation Les commandes seront traitées dans la limite de nos stocks disponibles ou sous réserve des stocks disponibles chez nos fournisseurs. En cas d’indisponibilité d’un article pour une période supérieure à ________ jours ouvrables, vous serez immédiatement prévenu des délais prévisibles de livraison et la commande de cet article pourra être annulée sur simple demande. Le Client pourra alors demander un avoir pour le montant de l’article ou son remboursement.<br>Gestion de la disponibilité des articles<br><br>Article 9 : Paiement Le paiement est exigible immédiatement à la commande, y compris pour les produits en précommande. Le Client peut effectuer le règlement par carte de paiement ou chèque bancaire. Les cartes émises par des banques domiciliées hors de France doivent obligatoirement être des cartes bancaires internationales (Mastercard ou Visa).Le paiement sécurisé en ligne par carte bancaire est réalisé par notre prestataire de paiement. Les informations transmises sont chiffrées dans les règles de l’art et ne peuvent être lues au cours du transport sur le réseau ____ (décrire le process). Une fois le paiement lancé par le Client, la transaction est immédiatement débitée après vérification des informations. Conformément aux dispositions du Code monétaire et financier, l’engagement de payer donné par carte est irrévocable. En communiquant ses informations bancaires lors de la vente, le Client autorise le Vendeur à débiter sa carte du montant relatif au prix indiqué. Le Client confirme qu’il est bien le titulaire légal de la carte à débiter et qu’il est légalement en droit d’en faire usage. En cas d’erreur, ou d’impossibilité de débiter la carte, la Vente est immédiatement résolue de plein droit et la commande annulée.<br><br>Précisions importantes relatives au paiement, le type de cartes acceptées, les chèques, etc.<br><br>Article 10 : Délai de rétractation Conformément à l’article L. 121-20 du Code de la consommation, « le consommateur dispose d’un délai de quatorze jours francs pour exercer son droit de rétractation sans avoir à justifier de motifs ni à payer de pénalités, à l’exception, le cas échéant, des frais de retour ». « Le délai mentionné à l’alinéa précédent court à compter de la réception pour les biens ou de l’acceptation de l’offre pour les prestations de services ». Le droit de rétractation peut être exercé en contactant la Société de la manière suivante : _____ (décrire la procédure précise). Nous informons les Clients que conformément à l’article L. 121-20-2 du Code de la consommation, ce droit de rétractation ne peut être exercé pour _______ (décrire les biens non sujets à ces dispositions). En cas d’exercice du droit de rétractation dans le délai susmentionné, seul le prix du ou des produits achetés et les frais d’envoi seront remboursés, les frais de retour restent à la charge du Client. Les retours des produits sont à effectuer dans leur état d'origine et complets (emballage, accessoires, notice...) de sorte qu'ils puissent être recommercialisés à l’état neuf ; ils doivent si possible être accompagnés d’une copie du justificatif d'achat. Conformément aux dispositions légales, vous trouverez ci-après le formulaire-type de rétractation à nous adresser à l’adresse suivante : _______ (adresse). Procédure de remboursement : _____ (décrire précisément la procédure de remboursement - en particulier pour les gros achats)<br><br>Modalités d'exercice des délais de rétractation. Attention, le délai de rétractation est sujet à beaucoup de conflits, le vendeur doit être très précautionneux s'il refuse de le faire valoir. Il existe cependant de nombreux cas dans lesquels il peut valablement refuser l'application du délai de rétractation (voir cet article sur le sujet<br><br>Article 11 : Garanties Conformément à la loi, le Vendeur assume deux garanties : de conformité et relative aux vices cachés des produits. Le Vendeur rembourse l'acheteur ou échange les produits apparemment défectueux ou ne correspondant pas à la commande effectuée. La demande de remboursement doit s'effectuer de la manière suivante : _________ (détailler la procédure) Le Vendeur rappelle que le consommateur : - dispose d'un délai de 2 ans à compter de la délivrance du bien pour agir auprès du Vendeur - qu'il peut choisir entre le remplacement et la réparation du bien sous réserve des conditions prévues par les dispositions susmentionnées. apparemment défectueux ou ne correspondant - qu'il est dispensé d'apporter la preuve l’existence du défaut de conformité du bien durant les six mois suivant la délivrance du bien. - que, sauf biens d’occasion, ce délai sera porté à 24 mois à compter du 18 mars 2016 - que le consommateur peut également faire valoir la garantie contre les vices cachés de la chose vendue au sens de l’article 1641 du code civil et, dans cette hypothèse, il peut choisir entre la résolution de la vente ou une réduction du prix de vente (dispositions des articles 1644 du Code Civil). Garanties complémentaires : _____ (décrire vos garanties complémentaires)<br><br>Les garanties légales que le Vendeur doit respecter. Notamment v. les art. L211-4 et s. du Code de la consommation, les dispositions des art. 1641 et 1648 c. civ.<br><br>Article 12 : Réclamations Le cas échéant, l’Acheteur peut présenter toute réclamation en contactant la société au moyen des coordonnées suivantes _____ (indiquer les coordonnées et la procédure).<br><br>On détaille ici le processus par lequel la personne peut contacter la société et présenter ses éventuelles réclamations.<br><br>Article 13 : Droits de propriété intellectuelle Les marques, noms de domaines, produits, logiciels, images, vidéos, textes ou plus généralement toute information objet de droits de propriété intellectuelle sont et restent la propriété exclusive du vendeur. Aucune cession de droits de propriété intellectuelle n’est réalisée au travers des présentes CGV. Toute reproduction totale ou partielle, modification ou utilisation de ces biens pour quelque motif que ce soit est strictement interdite.<br><br>On rappelle ici simplement que la vente n'occasionne aucune cessions d'IP.<br><br>Article 14 : Force majeure L’exécution des obligations du vendeur au terme des présentes est suspendue en cas de survenance d’un cas fortuit ou de force majeure qui en empêcherait l’exécution. Le vendeur avisera le client de la survenance d’un tel évènement dès que possible.<br><br>Clause type classique<br><br>Article 15 : nullité et modification du contrat Si l’une des stipulations du présent contrat était annulée, cette nullité n’entraînerait pas la nullité des autres stipulations qui demeureront en vigueur entre les parties. Toute modification contractuelle n’est valable qu’après un accord écrit et signé des parties.<br><br>Clause classique de gestion de la nullité éventuelle du contrat<br><br>Article 16 : Protection des données personnelles Conformément à la Loi Informatique et Libertés du 6 janvier 1978, vous disposez des droits d’interrogation, d’accès, de modification, d’opposition et de rectification sur les données personnelles vous concernant. En adhérant à ces conditions générales de vente, vous consentez à ce que nous collections et utilisions ces données pour la réalisation du présent contrat. En saisissant votre adresse email sur l’un des sites de notre réseau, vous recevrez des emails contenant des informations et des offres promotionnelles concernant des produits édités par la Société et de ses partenaires. Vous pouvez vous désinscrire à tout instant. Il vous suffit pour cela de cliquer sur le lien présent à la fin de nos emails ou de contacter le responsable du traitement (la Société) par lettre RAR. Nous effectuons sur l’ensemble de nos sites un suivi de la fréquentation. Pour cela, nous avons recours à des outils tels que ________________.<br><br>Plusieurs points : - information des droits d'accès de modification, d'opposition de la personne dont les DCP sont traitées - détail des traitements effectués - on lie l'acceptation de la vente à la réalisation des traitements<br><br>Article 17 : Droit applicable Toutes les clauses figurant dans les présentes conditions générales de vente, ainsi que toutes les opérations d’achat et de vente qui y sont visées, seront soumises au droit français.</p>
-      "
-    },
-
-    "cgu": {
-      "text": "<h1>Conditions générales d'utilisation du site soextreme.fr</h1>
-
-      <h2>ARTICLE 1 : Objet</h2>
-
-      <p>Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique des modalités de mise à disposition des services du site So Extreme et leur utilisation par « l'Utilisateur ».</p>
-
-      <p>Les conditions générales d'utilisation doivent être acceptées par tout Utilisateur souhaitant accéder au site. Elles constituent le contrat entre le site et l'Utilisateur. L’accès au site par l’Utilisateur signifie son acceptation des présentes conditions générales d’utilisation.</p>
-
-      <p>
-          En cas de non-acceptation des conditions générales d'utilisation stipulées dans le présent contrat, l'Utilisateur se doit de renoncer à l'accès des services proposés par le site.
-
-          So Extreme se réserve le droit de modifier unilatéralement et à tout moment le contenu des présentes conditions générales d'utilisation.
-        </p>
-
-      <h2>ARTICLE 2 : Mentions légales
-
-      <p>L'édition du site So Extreme est assurée par la Société So Extreme SARL au capital de 30 000 € € dont le siège social est situé au route de Napoléon, CASTELLANE 04120.</p>
-
-      <p>
-          So Extreme SARL est une société du groupe So Extreme SARL au capital de 30 000 € € dont le siège social est situé au route de Napoléon, CASTELLANE 04120.
-        </p>
-
-      <p>L'hébergeur du site So Extreme est OVH.</p>
-
-      <h2>ARTICLE 3 : Définitions</h2>
-
-      <p>La présente clause a pour objet de définir les différents termes essentiels du contrat :<br>
-
-          Utilisateur : ce terme désigne toute personne qui utilise le site ou l'un des services proposés par le site.<br>
-
-          Contenu utilisateur : ce sont les données transmises par l'Utilisateur au sein du site.<br>
-
-          Membre : l'Utilisateur devient membre lorsqu'il est identifié sur le site.<br>
-
-          Identifiant et mot de passe : c'est l'ensemble des informations nécessaires à l'identification d'un Utilisateur sur le site. L'identifiant et le mot de passe permettent à l'Utilisateur d'accéder à des services réservés aux membres du site. Le mot de passe est confidentiel.</p>
-
-      <h2>ARTICLE 4 : accès aux services</h2>
-
-      <p>Le site est accessible gratuitement en tout lieu à tout Utilisateur ayant un accès à Internet. Tous les frais supportés par l'Utilisateur pour accéder au service (matériel informatique, logiciels, connexion Internet, etc.) sont à sa charge.
-
-      Selon le cas :
-
-      L’Utilisateur non membre n'a pas accès aux services réservés aux membres. Pour cela, il doit s'identifier à l'aide de son identifiant et de son mot de passe.
-
-      Le site met en œuvre tous les moyens mis à sa disposition pour assurer un accès de qualité à ses services. L'obligation étant de moyens, le site ne s'engage pas à atteindre ce résultat.
-
-      Tout événement dû à un cas de force majeure ayant pour conséquence un dysfonctionnement du réseau ou du serveur n'engage pas la responsabilité de So Extreme.
-
-      L'accès aux services du site peut à tout moment faire l'objet d'une interruption, d'une suspension, d'une modification sans préavis pour une maintenance ou pour tout autre cas. L'Utilisateur s'oblige à ne réclamer aucune indemnisation suite à l'interruption, à la suspension ou à la modification du présent contrat.
-
-      L'Utilisateur a la possibilité de contacter le site par messagerie électronique à l’adresse contact@soextreme.fr].</p>
-
-      <h2>ARTICLE 5 : Propriété intellectuelle</h2>
-
-      <p>Les marques, logos, signes et tout autre contenu du site font l'objet d'une protection par le Code de la propriété intellectuelle et plus particulièrement par le droit d'auteur.
-
-      L'Utilisateur sollicite l'autorisation préalable du site pour toute reproduction, publication, copie des différents contenus.
-
-      L'Utilisateur s'engage à une utilisation des contenus du site dans un cadre strictement privé. Une utilisation des contenus à des fins commerciales est strictement interdite.
-
-      Tout contenu mis en ligne par l'Utilisateur est de sa seule responsabilité. L'Utilisateur s'engage à ne pas mettre en ligne de contenus pouvant porter atteinte aux intérêts de tierces personnes. Tout recours en justice engagé par un tiers lésé contre le site sera pris en charge par l'Utilisateur.
-
-      Le contenu de l'Utilisateur peut être à tout moment et pour n'importe quelle raison supprimé ou modifié par le site. L'Utilisateur ne reçoit aucune justification et notification préalablement à la suppression ou à la modification du contenu Utilisateur.</p>
-
-      <h2>ARTICLE 6 : Données personnelles</h2>
-
-      <p>Les informations demandées à l’inscription au site sont nécessaires et obligatoires pour la création du compte de l'Utilisateur. En particulier, l'adresse électronique pourra être utilisée par le site pour l'administration, la gestion et l'animation du service.
-
-      Le site assure à l'Utilisateur une collecte et un traitement d'informations personnelles dans le respect de la vie privée conformément à la loi n°78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés. Le site est déclaré à la CNIL sous le numéro [numéro].
-
-      En vertu des articles 39 et 40 de la loi en date du 6 janvier 1978, l'Utilisateur dispose d'un droit d'accès, de rectification, de suppression et d'opposition de ses données personnelles. L'Utilisateur exerce ce droit via :
-
-          son espace personnel ;
-
-          un formulaire de contact ;
-
-          par mail à contact@soextreme.fr] ;
-
-          par voie postale au route de Napoléon, CASTELLANE 04120.</p>
-
-      <h2>ARTICLE 7 : Responsabilité et force majeure</h2>
-
-      <p>Les sources des informations diffusées sur le site sont réputées fiables. Toutefois, le site se réserve la faculté d'une non-garantie de la fiabilité des sources. Les informations données sur le site le sont à titre purement informatif. Ainsi, l'Utilisateur assume seul l'entière responsabilité de l'utilisation des informations et contenus du présent site.
-
-      L'Utilisateur s'assure de garder son mot de passe secret. Toute divulgation du mot de passe, quelle que soit sa forme, est interdite.
-
-      L'Utilisateur assume les risques liés à l'utilisation de son identifiant et mot de passe. Le site décline toute responsabilité.
-
-      Tout usage du service par l'Utilisateur ayant directement ou indirectement pour conséquence des dommages doit faire l'objet d'une indemnisation au profit du site.
-
-      Une garantie optimale de la sécurité et de la confidentialité des données transmises n'est pas assurée par le site. Toutefois, le site s'engage à mettre en œuvre tous les moyens nécessaires afin de garantir au mieux la sécurité et la confidentialité des données.
-
-      La responsabilité du site ne peut être engagée en cas de force majeure ou du fait imprévisible et insurmontable d'un tiers.</p>
-
-      <h2>ARTICLE 8 : Liens hypertextes</h2>
-
-      <p>De nombreux liens hypertextes sortants sont présents sur le site, cependant les pages web où mènent ces liens n'engagent en rien la responsabilité de So Extreme qui n'a pas le contrôle de ces liens.
-
-      L'Utilisateur s'interdit donc à engager la responsabilité du site concernant le contenu et les ressources relatives à ces liens hypertextes sortants.</p>
-
-      <h2>ARTICLE 9 : Évolution du contrat</h2>
-
-      <p>Le site se réserve à tout moment le droit de modifier les clauses stipulées dans le présent contrat.</p>
-
-      <h2>ARTICLE 10 : Durée</h2>
-
-      <p>La durée du présent contrat est indéterminée. Le contrat produit ses effets à l'égard de l'Utilisateur à compter de l'utilisation du service.</p>
-
-      <h2>ARTICLE 11 : Droit applicable et juridiction compétente</h2>
-
-      <p>La législation française s'applique au présent contrat. En cas d'absence de résolution amiable d'un litige né entre les parties, seuls les tribunaux [du ressort de la Cour d'appel de / de la ville de] [Ville] sont compétents.</p>
-
-      <h2>ARTICLE 12 : Publication par l’Utilisateur</h2>
-
-      <p>Le site permet aux membres de publier des commentaires et des photos.</p>
-
-      <p>Dans ses publications, le membre s’engage à respecter les règles de la Netiquette et les règles de droit en vigueur.</p>
-
-      <p>Le site exerce une modération [a priori / a posteriori] sur les publications et se réserve le droit de refuser leur mise en ligne, sans avoir à s’en justifier auprès du membre.</p>
-
-      <p>Le membre reste titulaire de l’intégralité de ses droits de propriété intellectuelle. Mais en publiant une publication sur le site, il cède à la société éditrice le droit non exclusif et gratuit de représenter, reproduire, adapter, modifier, diffuser et distribuer sa publication, directement ou par un tiers autorisé, dans le monde entier, sur tout support (numérique ou physique), pour la durée de la propriété intellectuelle. Le Membre cède notamment le droit d'utiliser sa publication sur internet et sur les réseaux de téléphonie mobile.</p>
-
-      <p>La société éditrice s'engage à faire figurer le nom du membre à proximité de chaque utilisation de sa publication.</p>
-      "
-    },
     "not-found": {
 
         "message": "<p>Oups,</p><p>il s'est produit une erreur.</p><p><a [routerLink]=\"['']\">Cliquez ici pour revenir \u00E0 la page d'accueil</a></p>"
@@ -386,6 +242,10 @@
             "minlength":"Le champs \"email\" doit comporter au minimum",
             "maxlength":"Le champs \"email\" doit comporter au maximum"                
         },
+        "nb_pers":{
+            "min":"Le nombre de personnes ne peut pas être inférieur à",
+            "max":"Le nombre de personnes ne peut pas être supérieur à"
+        },
         "password": {
             "required":"Le champs \"mot de passe\" est requis",
              "invalid":"Le champs \"mot de passe\" est invalide",
@@ -396,7 +256,8 @@
             "required":"Le champs \"confirmation\" est requis",
             "invalid":"Le champs \"confirmation\" est invalide",
             "minlength":"Le champs \"confirmation\" doit comporter au minimum",
-            "maxlength":"Le champs \"confirmation\" doit comporter au maximum"   
+            "maxlength":"Le champs \"confirmation\" doit comporter au maximum",
+            "same":"Le champs \"password\" et le champs \"confirmation\" ne correspondent pas"   
         },
         "nom":{
             "required":"Le champs \"nom\" est requis",

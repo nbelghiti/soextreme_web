@@ -5,7 +5,6 @@ import {NgForm,FormBuilder, FormGroup, FormControl, Validators, AbstractControl 
 import {Location} from '@angular/common';
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
-
 function passwordMatchValidator(g: FormGroup) {
    return g.get('password').value === g.get('confirm_password').value
       ? null : {'mismatch': true};
@@ -34,13 +33,17 @@ export class InfoCompteComponent implements OnInit {
             nom: ['', [Validators.required, Validators.minLength(3)]],
             prenom: ['', [Validators.required, Validators.minLength(3)]],
             email: ['', [Validators.required, Validators.minLength(3)]],
+            confirm_email: ['', [Validators.required, Validators.minLength(3)]],
             password: ['', [Validators.required, Validators.minLength(3)]],
-            confirm_password: ['', [Validators.required, Validators.minLength(3)]]
+            confirm_password: ['', [Validators.required, Validators.minLength(3)]],
+            // recaptchaReactive:  ['', [Validators.required]]
 
         });
 
     }
-
+    verifyCallback(response){
+    alert(response);
+  }
     ngOnInit() {
         //this.authService.logout();
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'loginOrder';
@@ -55,17 +58,13 @@ export class InfoCompteComponent implements OnInit {
             this.hideInfo = false;
         }
     }
-      passwordConfirming(c: AbstractControl): { invalid: boolean } {
-    if (c.get('password').value !== c.get('confirm_password').value) {
-                return {invalid: true};
-            }
-        }
+  
     getLocation() {
 
         return location.pathname === '/mes-informations';
     }
     onSubmit() {
-
+        console.log(this.create_user_form);
         if (this.getLocation()) {
             this.updateAccount();
         } else {
@@ -86,6 +85,13 @@ export class InfoCompteComponent implements OnInit {
 
 
     }
+
+   onCaptchaComplete(response: any) {
+        console.log('reCAPTCHA response recieved:');
+        console.log(response.success);
+        console.log(response.token);
+   }
+
     updateAccount() {
 
         this.create_user_form = this.fb.group({

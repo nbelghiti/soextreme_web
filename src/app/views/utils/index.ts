@@ -21,6 +21,8 @@ export * from './tab-photos/index';
 export * from './recap-infos/index';
 export * from './amis/index';
 export * from './groupes/index';
+export * from './other-menu/index';
+export * from './categories/index';
 
 
 
