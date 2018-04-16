@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "stop":"ng eject",
-    "start": "ng serve --host 0.0.0.0 --port 443",
+    "stop": "ng eject",
+    "start": "ng serve ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
