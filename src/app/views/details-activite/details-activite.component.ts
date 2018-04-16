@@ -50,7 +50,8 @@ export class DetailsActiviteComponent implements OnInit {
         date_rsv: null,
         _id: null,
         statut: 'non-reserve',
-        session: this.session
+        session: this.session,
+        nb_pers:1
     };
     comment: Commentaires = {
         type: null,
@@ -141,6 +142,8 @@ export class DetailsActiviteComponent implements OnInit {
             mois = this.form.get('date').get('mydate').value.month,
             jour = this.form.get('date').get('mydate').value.day,
             date = `${annee},${mois},${jour}`;
+        this.rsv.nb_pers = this.form.get('nb_pers').value || 1;
+        this.rsv.heure_in = this.form.get('heure_in').value || null;
 
         this.rsv.date_rsv = new Date(date);
         this.sess.addCartItem();
@@ -162,9 +165,7 @@ export class DetailsActiviteComponent implements OnInit {
         }
 
     }
-    changing(){
-        console.log(this.form.get('nb_pers').value);
-    }
+   
     openPopup() {
         const modalRef = this.modalService.open(ConfirmPopupComponent);
         var popup_info = ["details.reserv.popup.success.title",

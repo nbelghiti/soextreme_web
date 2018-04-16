@@ -8,6 +8,7 @@ export class Reservation {
    _id:String;
    statut:String;
    session:String;
+   nb_pers:Number;
    /*getActId(){return this.id_act;};
    get getRsvId(){return this._id;};*/
 

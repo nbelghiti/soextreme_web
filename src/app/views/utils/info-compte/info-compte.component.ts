@@ -5,10 +5,15 @@ import {NgForm,FormBuilder, FormGroup, FormControl, Validators, AbstractControl 
 import {Location} from '@angular/common';
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
+
 function passwordMatchValidator(g: FormGroup) {
    return g.get('password').value === g.get('confirm_password').value
       ? null : {'mismatch': true};
 }
+function getWindow (): any {
+    return window;
+}
+
 @Component({
     selector: 'app-info-compte',
     templateUrl: './info-compte.component.html',
