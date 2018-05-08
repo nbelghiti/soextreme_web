@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "stop": "ng eject",
-    "start": "ng serve ",
+    "start": "ng serve -H 0.0.0.0",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
