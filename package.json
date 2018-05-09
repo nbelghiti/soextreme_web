@@ -4,6 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+<<<<<<< HEAD
+=======
+    "stop": "ng eject",
+>>>>>>> df9ba64a20c5806826102fb32b8d3f001a30e5ab
     "start": "ng serve -H 0.0.0.0",
     "build": "ng build",
     "test": "ng test",
@@ -58,10 +62,19 @@
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
+<<<<<<< HEAD
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
+=======
+    "karma-jasmine-html-reporter": "^1.0.0",
+    "protractor": "~5.3.1",
+    "ts-node": "~5.0.1",
+    "tslint": "~5.9.1",
+    "webpack": "3.11.0",
+    "typescript": "~2.8.1"
+>>>>>>> df9ba64a20c5806826102fb32b8d3f001a30e5ab
   }
 }
