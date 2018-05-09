@@ -7,11 +7,9 @@
 					<img src="http://54.36.190.213:4200/assets/img/{{myActivity?.photo }}" >
 					
 					<section class="descriptif">
-						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
 						<p class="" [innerHTML]="myActivity.description"></p>
 					</section>
 					<section class="conditions">
-						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
 						<h3 class="">{{ 'details.conditions.title' | translate}} </h3>
 						<p class="" [innerHTML]="myActivity.condition">
 							
@@ -20,12 +18,11 @@
 					<h3 class="">{{ 'details.photos.title' | translate}}</h3>
 
 					<section class="share_photos">
-						<!-- <form class="" (ngSubmit)="submitPhoto()" [formGroup]="imageform" method="post" enctype="multipart/form-data"> -->
+				
 							
 							{{ 'details.photos.add' | translate}}
 							<app-upload></app-upload>
-<!-- 						</form>
- -->						<section class="galerie_photo">
+					<section class="galerie_photo">
 							<app-slider-activite-photo></app-slider-activite-photo>
 						</section>
 					</section>
@@ -39,6 +36,22 @@
 						</form>
 
 					</section>
+
+					<div class="toto">
+						<form [formGroup]="cform" (ngSubmit)="onSubmitp()">
+						  <div class="form-group">
+						    <label for="name">Name</label>
+						    <input type="text" class="form-control" id="name" placeholder="Bob" formControlName="name">
+						  </div>
+						  <div class="form-group">
+						    <label for="avatar">Avatar</label>
+						    <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+						    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">clear file</button>
+						  </div>
+						  <button type="submit" [disabled]="cform.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+						</form>
+
+					</div>
 					<section class="commentaires_container" >
 						<h3 class="">{{ 'details.comment.title' | translate}}</h3>
 						<h5 class="ajout_comm">{{ 'details.comment.add' | translate}}</h5>
@@ -66,13 +79,13 @@
 				<section class="gmap-act">
 					<app-gmap-activite></app-gmap-activite>
 				</section>
-				<form action="" class="" (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
+				<form action="" class="" (ngSubmit)="onSubmit()" [formGroup]="myform" novalidate>
 					<label for="date_resa">{{ 'details.reserv.title' | translate}} </label>
 					<div class="input-group">
 						<span class="input-group-addon" id="sizing-addon7">
 							<span class="glyphicon glyphicon-calendar"></span>
 						</span>
-						<app-datepicker [group]="form.controls.date" ></app-datepicker>
+						<app-datepicker [group]="myform.controls.date" ></app-datepicker>
 					</div>
 					<label for="" *ngIf="nb_pers_cond">Nombre de personnes </label>
 					<div class="input-group" *ngIf="nb_pers_cond">
@@ -80,18 +93,17 @@
 						<input type="number" min="{{nb_pers_min}}" max="{{nb_pers_max}}" formControlName="nb_pers" (click)="changing()" [(ngModel)]="nb_pers">
 						
 					</div>
-					<div class="erreurs" *ngIf=" form.controls.nb_pers.dirty || form.controls.nb_pers.touched">	
+					<div class="erreurs" *ngIf=" myform.controls.nb_pers.dirty || myform.controls.nb_pers.touched">	
 							<div class="" *ngIf="nb_pers>nb_pers_max">{{ 'forms.nb_pers.max' | translate}} {{nb_pers_max}}</div>
 							<div class="" *ngIf="nb_pers<nb_pers_min">{{ 'forms.nb_pers.min' | translate}} {{nb_pers_min}}</div>
 
 					</div>
 					<label for=""></label>
 					 <div class="input-group" *ngIf="nb_pers_cond">	
-						<app-timepicker [group]="form.controls.heure_in"></app-timepicker>
+						<!-- <app-timepicker [group]="myform.controls.heure_in" myheure="getheure()"></app-timepicker> -->
 			
 					</div>
 					<section class="prix">
-						<!-- <p class="">Durée : {{myActivity.duree_act}}</p> -->
 						<p class="">
 							
 							<span>{{ 'details.reserv.prix_title' | translate}}  {{prix}} {{currency}} </span>

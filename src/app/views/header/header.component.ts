@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
          this.myactivity.getActivite(this.id_activite).subscribe(data => {
             this.description = data.description;
             this.meta.setDescActivity(this.description);
-            console.log(this.description);
+           // console.log(this.description);
 
         });
     }

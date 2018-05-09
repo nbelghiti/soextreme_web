@@ -38,7 +38,13 @@ export class ReservationService {
          .catch(this.handleError);
 
   }
+  public changePrice(price, value){
 
+     if(value === true){
+
+       price = price * 0.6;
+     } 
+  }
 
   public createReservation(reservation : Reservation) : Observable<Reservation>{
      return this._http.post(myGlobals.API+"reservation/add", reservation)

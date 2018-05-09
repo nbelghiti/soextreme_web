@@ -80,7 +80,8 @@ export class TabPanierComponent implements OnInit {
                       _id :this.rsv[i]._id,
                      statut:'non-reserve',
                      session: this.rsv[i].session,
-                     nb_pers: this.rsv[i].nb_pers
+                     nb_pers: this.rsv[i].nb_pers,
+                     heure_creuse: this.rsv[i].heure_creuse
                 };
                   this.updateRsv(this.panier);
               }

@@ -22,10 +22,12 @@ import { ConfirmPopupComponent,CommentsComponent } from '../../views/utils/index
 })
 export class DetailsActiviteComponent implements OnInit {
     @Input() nb_coms;
+      @ViewChild('fileInput') fileInput: ElementRef;
     myActivity: any = [];
     err: String = '';
     currency = myGlobals.CURRENCY.euro;
-    form: FormGroup;
+    myform: FormGroup;
+        cform: FormGroup;
     commentform: FormGroup;
     img_path = myGlobals.ASSET_IMG_PATH;
     imageform: FormGroup;
@@ -51,7 +53,8 @@ export class DetailsActiviteComponent implements OnInit {
         _id: null,
         statut: 'non-reserve',
         session: this.session,
-        nb_pers:1
+        nb_pers:1,
+        heure_creuse:false
     };
     comment: Commentaires = {
         type: null,
@@ -72,6 +75,8 @@ export class DetailsActiviteComponent implements OnInit {
 
     };
 
+
+
     constructor(private route: ActivatedRoute,
         private router: Router,
         private sess: SessionsService,
@@ -87,21 +92,22 @@ export class DetailsActiviteComponent implements OnInit {
         private auth: AuthService,
         private fb: FormBuilder) {
 
-
+    this.createForm();
         this.commentform = this.fb.group({
 
             commentTexte: ['', [Validators.required, Validators.minLength(3)]]
 
         });
+        
         this.imageform = this.fb.group({
 
             imgUploader: ['', [Validators.required, Validators.minLength(3)]]
 
         });
-        this.form = this.fb.group({
+        this.myform = this.fb.group({
             heure_in: this.fb.group({
-            start_hour: ['',[Validators.required, Validators.minLength(3)]],
-            start_min: ['',[Validators.required, Validators.minLength(3)]]
+                start_hour: ['',[Validators.required, Validators.minLength(3)]],
+                start_min: ['',[Validators.required, Validators.minLength(3)]]
 
              }),
             nb_pers: ['',[Validators.required]],
@@ -109,11 +115,32 @@ export class DetailsActiviteComponent implements OnInit {
 
                 mydate: ['', [Validators.required, Validators.minLength(3)]]
 
-            })
+           })
         });
 
     }
+     createForm() {
+    this.cform = this.fb.group({
+      name: ['', Validators.required],
+      avatar: null
+    });
+  }
+    onSubmitp() {
+    const formModel = this.cform.value;
+    //this.loading = true;
+    // In a real-world app you'd have a http request / service call here like
+    // this.http.post('apiUrl', formModel)
+    setTimeout(() => {
+      console.log(formModel);
+      alert('done!');
+     // this.loading = false;
+    }, 1000);
+  }
 
+  clearFile() {
+    this.cform.get('avatar').setValue(null);
+    this.fileInput.nativeElement.value = '';
+  }
 
     getActivite() {
         this.activite.getActivite(this.id_activite)
@@ -138,25 +165,31 @@ export class DetailsActiviteComponent implements OnInit {
 
     }
     onSubmit() {
-        let annee = this.form.get('date').get('mydate').value.year,
-            mois = this.form.get('date').get('mydate').value.month,
-            jour = this.form.get('date').get('mydate').value.day,
+        let annee = this.myform.get('date').get('mydate').value.year,
+            mois = this.myform.get('date').get('mydate').value.month,
+            jour = this.myform.get('date').get('mydate').value.day,
             date = `${annee},${mois},${jour}`;
-        this.rsv.nb_pers = this.form.get('nb_pers').value || 1;
-        this.rsv.heure_in = this.form.get('heure_in').value || null;
+        this.rsv.nb_pers = this.myform.get('nb_pers').value || 1;
+        this.rsv.heure_in = this.myform.get('heure_in').value || null;
 
         this.rsv.date_rsv = new Date(date);
         this.sess.addCartItem();
-        this.createReservation();
-        setTimeout(() => {
-            this.openPopup();
-        }, 500);
-        setTimeout(() => {
-            location.reload();
-        }, 4000);
+       // this.createReservation();
+       // setTimeout(() => {
+      //      this.openPopup();
+      //  }, 500);
+      //  setTimeout(() => {
+      //      location.reload();
+      //  }, 4000);
+      //this.compareHours();
     }
 
-    onFileChange(event) {
+        // Compare hours
+// Date.parse('01/01/2011 10:20:45') > Date.parse('01/01/2011 5:10:10')
+// 
+
+  
+   /* onFileChange(event) {
 
         if (event.target.files.length > 0) {
             let file = event.target.files[0];
@@ -164,7 +197,23 @@ export class DetailsActiviteComponent implements OnInit {
             this.imageform.controls['imgUploader'].setValue(file ? file.name : '');
         }
 
+    }*/
+     onFileChange(event) {
+    let reader = new FileReader();
+    console.log(event);
+    if(event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      console.log(file);
+      reader.onload = () => {
+        this.cform.get('avatar').setValue({
+          filename: file.name,
+          filetype: file.type,
+          value: reader.result.split(',')[1]
+        })
+      };
     }
+  }
    
     openPopup() {
         const modalRef = this.modalService.open(ConfirmPopupComponent);
