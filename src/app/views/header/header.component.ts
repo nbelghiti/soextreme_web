@@ -39,22 +39,20 @@ export class HeaderComponent implements OnInit {
     }
  
     setDescriptionMetaActivity(){
-         this.myactivity.getActivite(this.id_activite).subscribe(data => {
-            this.description = data.description;
-            this.meta.setDescActivity(this.description);
-           // console.log(this.description);
-
-        });
+        if(this.id_activite){
+             this.myactivity.getActivite(this.id_activite).subscribe(data => {
+                this.description = data.description;
+                this.meta.setDescActivity(this.description);
+                //console.log(this.description);
+            });
+        }
     }
 
     ngOnInit() {
-        this.getCartItems();
-
-        this.meta.setTitle('metas.accueil.title');
-        this.meta.setOtherMetas('metas.accueil.other');
-        this.setDescriptionMetaActivity();
-
-
+            this.getCartItems();
+            this.meta.setTitle('metas.accueil.title');
+            this.meta.setOtherMetas('metas.accueil.other');
+            this.setDescriptionMetaActivity();
     }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {FormGroup } from '@angular/forms';
-import {NgbTimepickerConfig, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl } from '@angular/forms';
+import { NgbTimepickerConfig, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import { ActivitesService } from '../../../services/index';
 @Component({
     selector: 'app-timepicker',
@@ -12,12 +12,12 @@ import { ActivitesService } from '../../../services/index';
 export class TimepickerComponent implements OnInit {
     @Input('group')
     @Output() myheure = new EventEmitter<string>();     
-    public heure_in: FormGroup;
+    heure_in: FormGroup;
     prix : any ;
 
     minuteStep = 15;
     hourStep = 1;
-    time: NgbTimeStruct = {
+    time:NgbTimeStruct  = {
         hour: 13,
         minute: 30,
         second: 0
@@ -29,7 +29,19 @@ export class TimepickerComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.heure_in = new FormGroup({
+           start_hour: new FormControl(),
+           start_min : new FormControl()
+        });
+    }
+    changehd(event){
+        if (this.time.hour>=20) {
+            this.time.hour= 8
 
+        }else if(this.time.hour<8){
+            this.time.hour= 8 
+        }
+        console.log(this.time)
     }
     getheure(){
        let user_hours = this.time.hour+':'+this.time.minute+':'+this.time.second;
