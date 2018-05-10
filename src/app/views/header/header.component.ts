@@ -39,12 +39,15 @@ export class HeaderComponent implements OnInit {
     }
  
     setDescriptionMetaActivity(){
+        if(this.id_activite){
+            
          this.myactivity.getActivite(this.id_activite).subscribe(data => {
             this.description = data.description;
             this.meta.setDescActivity(this.description);
            // console.log(this.description);
 
         });
+        }
     }
 
     ngOnInit() {

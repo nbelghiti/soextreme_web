@@ -107,7 +107,7 @@ export class DetailsActiviteComponent implements OnInit {
         this.myform = this.fb.group({
             heure_in: this.fb.group({
                 start_hour: ['',[Validators.required, Validators.minLength(3)]],
-                start_min: ['',[Validators.required, Validators.minLength(3)]]
+              //  start_min: ['',[Validators.required, Validators.minLength(3)]]
 
              }),
             nb_pers: ['',[Validators.required]],
