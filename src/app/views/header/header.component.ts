@@ -51,13 +51,10 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getCartItems();
-
-        this.meta.setTitle('metas.accueil.title');
-        this.meta.setOtherMetas('metas.accueil.other');
-        this.setDescriptionMetaActivity();
-
-
+            this.getCartItems();
+            this.meta.setTitle('metas.accueil.title');
+            this.meta.setOtherMetas('metas.accueil.other');
+            this.setDescriptionMetaActivity();
     }
 
 }

@@ -54,8 +54,8 @@
 
 					<section class="commentaires_container" >
 						<h3 class="">{{ 'details.comment.title' | translate}}</h3>
-						<h5 class="ajout_comm">{{ 'details.comment.add' | translate}}</h5>
-						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn; elsecreateComment" novalidate>
+						<h5 class="ajout_comm" *ngIf="isLoggedIn && id">{{ 'details.comment.add' | translate}}</h5>
+						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn && id; elsecreateComment" novalidate>
 
 							<textarea name="" id="" cols="30" rows="10" class="" formControlName="commentTexte"></textarea>
 							<div class="input-group">	
@@ -101,7 +101,6 @@
 					<label for=""></label>
 					 <div class="input-group" *ngIf="nb_pers_cond">	
 						 <app-timepicker [group]="myform.controls.heure_in" myheure="getheure()"></app-timepicker> 
-			
 					</div>
 					<section class="prix">
 						<p class="">

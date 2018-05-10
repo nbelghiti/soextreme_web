@@ -6,8 +6,7 @@ import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { Activites, Reservation, Commentaires, Photo, Session } from '../../models/index';
 import * as myGlobals from '../../globals/index';
-import { ActivitesService,
-         AuthService,
+import { ActivitesService, AuthService,
          ReservationService,
          CommentairesService,
          PhotosService,
@@ -27,10 +26,10 @@ export class DetailsActiviteComponent implements OnInit {
     err: String = '';
     currency = myGlobals.CURRENCY.euro;
     myform: FormGroup;
-        cform: FormGroup;
+    cform: FormGroup;
     commentform: FormGroup;
-    img_path = myGlobals.ASSET_IMG_PATH;
     imageform: FormGroup;
+    img_path = myGlobals.ASSET_IMG_PATH;
     prix: number;
     nb_pers_cond = this.route.snapshot.paramMap.get('id') === '5a6646c4af4ffd00015dd437';
     myimg: any;
@@ -39,6 +38,9 @@ export class DetailsActiviteComponent implements OnInit {
     nb_pers_min = myGlobals.NB_PERS.min;
     nb_pers_max = myGlobals.NB_PERS.max;
     nb_pers = 1;
+    id_cli : any ="";
+    id: any;
+    datas: any;
     isLoggedIn = this.auth.isLoggedIn();
     session: String = JSON.parse(localStorage.getItem('currentSession'))._id;
     id_activite = this.route.snapshot.paramMap.get('id');
@@ -74,7 +76,7 @@ export class DetailsActiviteComponent implements OnInit {
         _id: null
 
     };
-
+    date : any
 
 
     constructor(private route: ActivatedRoute,
@@ -107,8 +109,7 @@ export class DetailsActiviteComponent implements OnInit {
         this.myform = this.fb.group({
             heure_in: this.fb.group({
                 start_hour: ['',[Validators.required, Validators.minLength(3)]],
-              //  start_min: ['',[Validators.required, Validators.minLength(3)]]
-
+                start_min: ['',[Validators.required, Validators.minLength(3)]]
              }),
             nb_pers: ['',[Validators.required]],
             date: this.fb.group({
@@ -145,13 +146,37 @@ export class DetailsActiviteComponent implements OnInit {
     getActivite() {
         this.activite.getActivite(this.id_activite)
             .subscribe(data => {
+                console.log(data)
                 this.myActivity = data;
                 this.prix = this.activite.getPrice(this.myActivity.prix, this.myActivity.remise);
             }, err => {
 
             });
         this.nb_coms = this.coms.nb_coms;
+        console.log(JSON.parse(localStorage.getItem('currentUser')))
 
+        if (JSON.parse(localStorage.getItem('currentUser')) !== null) {
+            this.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id
+            this.reservation.getReservation(this.id_cli).map((result)=> result.filter(item => item.id_act === this.id_activite)).subscribe(data => {
+                           this.datas = data
+                       if(this.datas.length>0)  {     console.log(data)
+                           this.date = new Date(Date.now()).toISOString()
+                           console.log(this.date)
+                           console.log(this.datas[0].date_rsv)
+                           if (this.datas[0].date_rsv < this.date) {
+                               console.log("ok")
+                               this.id = true
+                           }else{
+                               console.log("Nok")
+                               this.id = false
+                           }
+                       }
+            }, err => {
+
+            });
+        }else{
+            this.id = false
+        }
     }
 
 
