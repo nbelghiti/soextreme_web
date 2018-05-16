@@ -11,9 +11,9 @@ import { ActivitesService } from '../../../services/index';
 
 export class TimepickerComponent implements OnInit {
     @Input('group')
-    @Output() myheure = new EventEmitter<string>();     
     heure_in: FormGroup;
     prix : any ;
+    @Output() myHeure : EventEmitter < NgbTimeStruct > = new EventEmitter < NgbTimeStruct > ();
 
     minuteStep = 15;
     hourStep = 1;
@@ -41,37 +41,8 @@ export class TimepickerComponent implements OnInit {
         }else if(this.time.hour<8){
             this.time.hour= 8 
         }
-        console.log(this.time)
+        this.myHeure.emit(this.time);
     }
-    getheure(){
-       let user_hours = this.time.hour+':'+this.time.minute+':'+this.time.second;
-       this.myheure.emit(user_hours);
-
-    }
-     /*change(event){
-        console.log(this.time);
-         
-
-        if((Date.parse('01/01/2011 08:00:00')<=Date.parse('01/01/2011 '+user_hours) 
-         && Date.parse('01/01/2011 10:00:00')>=Date.parse('01/01/2011 '+user_hours))
-         || (Date.parse('01/01/2011 18:00:00')<=Date.parse('01/01/2011 '+user_hours) 
-         && Date.parse('01/01/2011 20:00:00')>=Date.parse('01/01/2011 '+user_hours))){
-
-             console.log('prix à diminuer');
-         } else {
-
-         }
-
-    }*/
  
-   
-    
-    /*  compareHours(){
-        console.log(this.form.get('heure_in').value );
-        let user_hours = this.form.get('heure_in').get('start_hour').value+':'+this.form.get('heure_in').get('start_hour').value+':00';
-        console.log(Date.parse('01/01/2011 15:20:45')>Date.parse('01/01/2011 '+user_hours));
-
-    }*/
-
 
 }

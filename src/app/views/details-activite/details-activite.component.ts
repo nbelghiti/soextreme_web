@@ -34,6 +34,7 @@ export class DetailsActiviteComponent implements OnInit {
     nb_pers_cond = this.route.snapshot.paramMap.get('id') === '5a6646c4af4ffd00015dd437';
     myimg: any;
     formData: FormData;
+    leprix: number;
     //nb_coms : any = [];
     nb_pers_min = myGlobals.NB_PERS.min;
     nb_pers_max = myGlobals.NB_PERS.max;
@@ -42,6 +43,7 @@ export class DetailsActiviteComponent implements OnInit {
     id: any;
     datas: any;
     isLoggedIn = this.auth.isLoggedIn();
+    heure : string;
     session: String = JSON.parse(localStorage.getItem('currentSession'))._id;
     id_activite = this.route.snapshot.paramMap.get('id');
     rsv: Reservation = {
@@ -142,18 +144,37 @@ export class DetailsActiviteComponent implements OnInit {
     this.cform.get('avatar').setValue(null);
     this.fileInput.nativeElement.value = '';
   }
+  getHeure(heure) {
+     this.changePrice(heure);
 
+   }
+   changePrice(heure){
+         this.heure = heure.hour+':'+heure.minute+':'+heure.second;
+        if((Date.parse('01/01/2011 08:00:00')<=Date.parse('01/01/2011 '+this.heure) 
+         && Date.parse('01/01/2011 10:00:00')>=Date.parse('01/01/2011 '+this.heure))
+         || (Date.parse('01/01/2011 18:00:00')<=Date.parse('01/01/2011 '+this.heure) 
+         && Date.parse('01/01/2011 20:00:00')>=Date.parse('01/01/2011 '+this.heure))){
+
+             this.leprix = this.prix * 0.6;
+
+         } else {
+            
+               this.leprix = this.prix;
+
+         }
+
+    }
     getActivite() {
         this.activite.getActivite(this.id_activite)
             .subscribe(data => {
-                console.log(data)
                 this.myActivity = data;
                 this.prix = this.activite.getPrice(this.myActivity.prix, this.myActivity.remise);
+                this.leprix = this.prix;
+
             }, err => {
 
             });
         this.nb_coms = this.coms.nb_coms;
-        console.log(JSON.parse(localStorage.getItem('currentUser')))
 
         if (JSON.parse(localStorage.getItem('currentUser')) !== null) {
             this.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id
@@ -209,10 +230,7 @@ export class DetailsActiviteComponent implements OnInit {
       //this.compareHours();
     }
 
-        // Compare hours
-// Date.parse('01/01/2011 10:20:45') > Date.parse('01/01/2011 5:10:10')
-// 
-
+   
   
    /* onFileChange(event) {
 

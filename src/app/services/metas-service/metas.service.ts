@@ -20,6 +20,10 @@ export class MetasService {
       
     });
   }
+  public setTitleActivity( res ) {
+      this.titleService.setTitle("SO‘ Extrême - "+ res );
+
+  }
   public setDescActivity( obj ) {
     //this.translate.get(obj).subscribe((res:string) =>{
          

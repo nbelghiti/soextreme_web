@@ -100,12 +100,12 @@
 					</div>
 					<label for=""></label>
 					 <div class="input-group" *ngIf="nb_pers_cond">	
-						 <app-timepicker [group]="myform.controls.heure_in" myheure="getheure()"></app-timepicker> 
+						 <app-timepicker [group]="myform.controls.heure_in" (myHeure)="getHeure($event)"></app-timepicker> 
 					</div>
 					<section class="prix">
 						<p class="">
 							
-							<span>{{ 'details.reserv.prix_title' | translate}}  {{prix}} {{currency}} </span>
+							<span>{{ 'details.reserv.prix_title' | translate}}  {{leprix}} {{currency}} </span>
 							<span *ngIf="myActivity.remise !== null && myActivity.remise !== 'undefined' && myActivity.remise !== '0' && myActivity.remise !== myActivity.remise"> {{ 'details.reserv.promo' | translate}} <span>{{myActivity.prix}} {{currency}}</span></span>
 						</p>
 					</section>

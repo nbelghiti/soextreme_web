@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
     cart_items: any;
     id_activite = this.route.snapshot.paramMap.get('id');
     description: any;
+    libelle : String;
 
     constructor(private loader: LoaderPageService,
                 private location: Location,
@@ -49,10 +50,37 @@ export class HeaderComponent implements OnInit {
         });
         }
     }
+    setTitlePage(){
+
+        if(this.id_activite){
+
+            this.setTitleActivity();
+
+        } else {
+
+            this.setTitle();
+
+        }
+
+    }
+    setTitle(){
+
+        this.meta.setTitle('metas.accueil.title');
+
+    }
+    setTitleActivity(){
+          this.myactivity.getActivite(this.id_activite).subscribe(data => {
+            this.libelle = data.libelle;
+            this.meta.setTitleActivity(this.libelle);
+
+           // console.log(this.description);
+
+        });
+    }
 
     ngOnInit() {
             this.getCartItems();
-            this.meta.setTitle('metas.accueil.title');
+            this.setTitlePage();
             this.meta.setOtherMetas('metas.accueil.other');
             this.setDescriptionMetaActivity();
     }
