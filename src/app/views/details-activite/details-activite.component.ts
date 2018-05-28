@@ -40,7 +40,7 @@ export class DetailsActiviteComponent implements OnInit {
     nb_pers_max = myGlobals.NB_PERS.max;
     nb_pers = 1;
     id_cli : any ="";
-    id: any;
+    isComment: any;
     datas: any;
     isLoggedIn = this.auth.isLoggedIn();
     heure : string;
@@ -175,31 +175,29 @@ export class DetailsActiviteComponent implements OnInit {
 
             });
         this.nb_coms = this.coms.nb_coms;
+    }
 
+    verifierReservation(){
         if (JSON.parse(localStorage.getItem('currentUser')) !== null) {
             this.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id
-            this.reservation.getReservation(this.id_cli).map((result)=> result.filter(item => item.id_act === this.id_activite)).subscribe(data => {
-                           this.datas = data
-                       if(this.datas.length>0)  {     console.log(data)
-                           this.date = new Date(Date.now()).toISOString()
-                           console.log(this.date)
-                           console.log(this.datas[0].date_rsv)
-                           if (this.datas[0].date_rsv < this.date) {
-                               console.log("ok")
-                               this.id = true
-                           }else{
-                               console.log("Nok")
-                               this.id = false
+            console.log(this.id_cli)
+            console.log(this.id_activite)
+            this.reservation.getReservation(this.id_cli).subscribe(data => {
+              console.log(data)
+                           this.datas = data;
+                           if (this.datas.statut==="fait") {
+                             this.isComment = true
+                           } else{
+                             this.isComment = false
                            }
-                       }
             }, err => {
 
             });
-        }else{
-            this.id = false
-        }
+        
+         } //else {
+        //   this.isComment = false
+        // }     
     }
-
 
     createReservation() {
 
@@ -385,6 +383,7 @@ export class DetailsActiviteComponent implements OnInit {
 
         this.getActivite();
         this.errComment();
+        this.verifierReservation();
 
     }
 

@@ -9,7 +9,7 @@
     <article>
       <div>
         <h3>N° de réservation : </h3>
-        <span class="">{{reservations[0]?._id}}</span>
+        <span class="">{{reservations?._id}}</span>
       </div>
       <div>
         <h3>Date : </h3>
@@ -17,12 +17,23 @@
       </div>
       <div>
         <h3>Activité : </h3>
-        <span class="">{{act_rsv[0]?.libelle}}</span>
+        <span class="">{{act_rsv?.libelle}}</span>
       </div>
       <div>
       <div>
         <h3>Client : </h3>
-        <span class="">{{user_info_rsv[0]?.prenom}} {{user_info_rsv[0]?.nom}}</span>
+        <span class="">{{user_info_rsv?.prenom}} {{user_info_rsv?.nom}}</span>
+      </div>
+      <div>
+        <h3>statut : </h3>
+        <span class="">{{statut}}</span>
+      </div>
+      <div>
+         Modifier le statut
+        <select name="" id="" [(ngModel)]="stat">
+          <option value="{{stat}}" *ngFor="let i = index ;let stat of statuts">{{stat}}</option>
+        </select>
+        <input type="submit" value="Modifier" (click)="changeStatut()">
       </div>
        
       </div>

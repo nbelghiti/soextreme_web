@@ -10,14 +10,15 @@ import { UserService, LoginService, ActivitesService, AuthService, CartService, 
          SessionsService, LoaderPageService, MetasService, AmisService, GroupesService } from './services/index';
 import { OrderbyPipe } from './pipes/orderby.pipe';
 import {appRoutes, AppRoutingModule} from './app-routing/app-routing.module';
-    import { RouterModule } from '@angular/router';
-
+import { RouterModule } from '@angular/router';
+import { ReCaptchaDirective } from './directives/captcha-directive/captcha.directive';
 
 // 6Le0AkgUAAAAAJxO8mZYTzD9HGOgVzrhg-Sf9QVr
 @NgModule({
   declarations: [
     AppComponent ,
-    OrderbyPipe
+    OrderbyPipe,
+    ReCaptchaDirective
     ],
   imports: [
     BrowserModule,

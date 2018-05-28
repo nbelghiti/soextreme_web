@@ -35,11 +35,10 @@ export class ActivitesService {
     return prix;
   }
   
-  public getActivite(id ) : Observable<Activites> {
+  public getActivite(id) : Observable<Activites> {
      return this._http.get(myGlobals.API+"activite/"+id)
          .map(result => result.json())
          .catch(this.handleError);
-
   }
 
   public createActivite(activity : Activites) : Observable<Activites>{
@@ -67,7 +66,7 @@ export class ActivitesService {
 
 
   private handleError (error: Response | any) {
-    console.error('ActivitesService::handleError', error);
+    //console.error('ActivitesService::handleError', error);
     return Observable.throw(error);
   }
 

@@ -11,8 +11,8 @@
       	<th>N° de réservation</th>
         <th>Date</th>
         <th>Activité</th>
-        <!-- <th>Client</th> -->
-        <!-- <th>Actions</th> -->
+        <!-- <th>Client</th>  -->
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -25,25 +25,25 @@
 				<div>{{date_rsv?date_rsv[i]:''}}</div>
 			</td>
 			<td>
-				<a *ngIf="act_rsv[i][0]" [routerLink]="['/activite/', act_rsv[i][0]?._id]">
-					{{act_rsv[i][0]?.libelle}}
+				<a *ngIf="act_rsv[i]" [routerLink]="['/activite/', act_rsv[i]?._id]">
+					{{act_rsv[i]?.libelle}}
 				</a>
-				<a *ngIf="!act_rsv[i][0]" >
-					{{act_rsv[i][0]?.libelle}}
+				<a *ngIf="!act_rsv[i]" >
+					{{act_rsv[i]?.libelle}}
 				</a>
 			</td>
-			<!-- <td>{{user_info_rsv[i][0]?.prenom}} {{user_info_rsv[i][0]?.nom}}</td> -->
-			<!-- <td>
+			<!-- <td>{{user_info_rsv[i][0]?.prenom}} {{user_info_rsv[i][0]?.nom}}</td>  -->
+			 <td>
 				<a  [routerLink]="['/admin/reservation/', rsv?._id]">
 					Voir la reservation
 				</a>
-			</td> -->
+			</td>
 
 	    </tr>   
       
     </tbody>
   </table>
-  <!-- <p *ngIf="reservations?.length==0">Pas de réservation</p> -->
+  <p *ngIf="reservations?.length==0">Pas de réservation</p> 
 
 </div>
 </section>

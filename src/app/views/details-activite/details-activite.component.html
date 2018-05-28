@@ -18,13 +18,20 @@
 					<h3 class="">{{ 'details.photos.title' | translate}}</h3>
 
 					<section class="share_photos">
-				
-							
-							{{ 'details.photos.add' | translate}}
-							<app-upload></app-upload>
-					<section class="galerie_photo">
+
+						<section class="galerie_photo">
 							<app-slider-activite-photo></app-slider-activite-photo>
 						</section>
+						<div class="photos" *ngIf="isLoggedIn && isComment">
+							<form [formGroup]="cform" (ngSubmit)="onSubmitp()">
+							  <div class="form-group">
+							    <label for="photo">Photo</label>
+							    <input type="file" id="photo" (change)="onFileChange($event)" #fileInput>
+							    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">Effacer</button>
+							  </div>
+							  <button type="submit" [disabled]="cform.invalid || loading" class="btn btn-success">Envoyer <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+							</form>
+						</div>
 					</section>
 					<section class="notation" *ngIf="isLoggedIn;">
 						
@@ -39,23 +46,12 @@
 
 					
 
-					<div class="photos">
-						<form [formGroup]="cform" (ngSubmit)="onSubmitp()">
-						  <div class="form-group">
-						    <label for="photo">Photo</label>
-						    <input type="file" id="photo" (change)="onFileChange($event)" #fileInput>
-						    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">Effacer</button>
-						  </div>
-						  <button type="submit" [disabled]="cform.invalid || loading" class="btn btn-success">Envoyer <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
-						</form>
-
-					</div>
-
+					
 
 					<section class="commentaires_container" >
 						<h3 class="">{{ 'details.comment.title' | translate}}</h3>
-						<h5 class="ajout_comm" *ngIf="isLoggedIn && id">{{ 'details.comment.add' | translate}}</h5>
-						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn && id; elsecreateComment" novalidate>
+						<h5 class="ajout_comm" *ngIf="isLoggedIn && isComment">{{ 'details.comment.add' | translate}}</h5>
+						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn && isComment; elsecreateComment" novalidate>
 
 							<textarea name="" id="" cols="30" rows="10" class="" formControlName="commentTexte"></textarea>
 							<div class="input-group">	

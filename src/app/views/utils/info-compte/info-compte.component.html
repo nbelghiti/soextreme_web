@@ -58,10 +58,11 @@
 				<div class="erreurs" *ngIf="create_user_form.get('password').value !== create_user_form.get('confirm_password').value">					
 						<p>{{ 'forms.confirmation.same' | translate}}</p>
 				</div>
-				<label for=""></label>
+				<label for="captcha"></label>
 				<div class="input-group">
-					<div class="g-recaptcha" data-sitekey="6Le0AkgUAAAAAJxO8mZYTzD9HGOgVzrhg-Sf9QVr" (click)="onCaptchaComplete($event)"></div>
-
+					<!-- <div class="g-recaptcha" data-sitekey="6Le0AkgUAAAAAJxO8mZYTzD9HGOgVzrhg-Sf9QVr" (click)="onCaptchaComplete($event)"></div> -->
+ 					<!-- <div nbRecaptcha key="6Le0AkgUAAAAAJxO8mZYTzD9HGOgVzrhg-Sf9QVr" id="captcha" formControlName="captcha"></div> -->
+ 					
 				</div>
 				<label for=""></label>
 				<div class="input-group">	

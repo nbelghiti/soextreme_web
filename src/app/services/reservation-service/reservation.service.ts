@@ -32,8 +32,8 @@ export class ReservationService {
 
   }
   
-  public getReservation(id ) : Observable<Reservation[]> {
-     return this._http.get(myGlobals.API+"reservations/"+id)
+  public getReservation(id) : Observable<Reservation[]> {
+     return this._http.get(myGlobals.API+"reservation/"+id)
          .map(result => result.json())
          .catch(this.handleError);
 

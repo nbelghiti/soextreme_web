@@ -5,7 +5,7 @@ import {NgForm,FormBuilder, FormGroup, FormControl, Validators, AbstractControl 
 import {Location} from '@angular/common';
 import { User } from '../../../models/index';
 import { AuthService } from '../../../services/index';
-
+import {ReCaptchaDirective} from '../../../directives/captcha-directive/captcha.directive';
 function passwordMatchValidator(g: FormGroup) {
    return g.get('password').value === g.get('confirm_password').value
       ? null : {'mismatch': true};
@@ -17,7 +17,8 @@ function getWindow (): any {
 @Component({
     selector: 'app-info-compte',
     templateUrl: './info-compte.component.html',
-    styleUrls: ['./info-compte.component.css']
+    styleUrls: ['./info-compte.component.css'],
+    providers : [ReCaptchaDirective]
 })
 export class InfoCompteComponent implements OnInit {
 
@@ -41,6 +42,8 @@ export class InfoCompteComponent implements OnInit {
             confirm_email: ['', [Validators.required, Validators.minLength(3)]],
             password: ['', [Validators.required, Validators.minLength(3)]],
             confirm_password: ['', [Validators.required, Validators.minLength(3)]],
+            captcha: ['', [Validators.required]]
+
             // recaptchaReactive:  ['', [Validators.required]]
 
         });

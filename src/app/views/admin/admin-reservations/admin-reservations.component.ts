@@ -15,7 +15,8 @@ export class AdminReservationsComponent implements OnInit {
     id_act_rsv: any;
     date_rsv: any = [];
     user_info_rsv: any = [];
-    act_rsv: any = [];
+    act_rsv: any[] = [];
+    datas : any[] = [];
 
     constructor(private reservation: ReservationService,
         private route: ActivatedRoute,
@@ -25,13 +26,13 @@ export class AdminReservationsComponent implements OnInit {
         private auth: AuthService) {}
 
     getAllReservations() {
-
         this.reservation.getAllReservations()
             //(item.statut === "reserve" || item.statut === "annule")
              .map((result) => result.filter(item =>  item.statut !== "non-reserve" && item.statut !== null && item.statut !==""))            .subscribe((data) => {
-                this.reservations = data;
+                
+                    console.log(data)
+                    this.reservations = data;
                 if (this.reservations.length > 0) {
-
                     for (let i = 0; i < this.reservations.length; i++) {
                         this.id_cli_rsv = this.reservations[i].id_client;
                         this.id_act_rsv = this.reservations[i].id_act;
@@ -60,8 +61,10 @@ export class AdminReservationsComponent implements OnInit {
     getActRsv(id: String) {
         this.activite.getAllActivites().map((result) => result.filter(item => item._id === id))
             .subscribe((response) => {
-                this.act_rsv.push(response);
-
+                console.log(response)
+                this.datas = response
+                this.act_rsv.push(this.datas[0]);
+                console.log(this.act_rsv)
 
             }, err => {
 
@@ -70,8 +73,6 @@ export class AdminReservationsComponent implements OnInit {
 
     }
     ngOnInit() {
-
         this.getAllReservations();
     }
-
 }
