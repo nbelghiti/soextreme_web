@@ -40,7 +40,7 @@ export class DetailsActiviteComponent implements OnInit {
     nb_pers_max = myGlobals.NB_PERS.max;
     nb_pers = 1;
     id_cli : any ="";
-    isComment: any;
+    isComment=false;
     datas: any;
     isLoggedIn = this.auth.isLoggedIn();
     heure : string;
@@ -182,21 +182,25 @@ export class DetailsActiviteComponent implements OnInit {
             this.id_cli = JSON.parse(localStorage.getItem('currentUser'))._id
             console.log(this.id_cli)
             console.log(this.id_activite)
-            this.reservation.getReservation(this.id_cli).subscribe(data => {
-              console.log(data)
-                           this.datas = data;
-                           if (this.datas.statut==="fait") {
-                             this.isComment = true
-                           } else{
-                             this.isComment = false
-                           }
+            this.reservation.getAllReservationsByClient(this.id_cli).subscribe(data => {
+                console.log(data)
+                this.datas = data;
+                for (var i = 0; this.datas.length > i; i++) {
+                    console.log(i)
+                    if (this.datas[i].id_act===this.id_activite) {
+                        if (this.datas[i].statut==="fait") {
+                            this.isComment = true
+                            console.log("ok")
+                        }
+                    }
+                }
             }, err => {
 
             });
         
-         } //else {
-        //   this.isComment = false
-        // }     
+        } else {
+           this.isComment = false
+        }     
     }
 
     createReservation() {

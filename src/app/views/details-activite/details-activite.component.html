@@ -15,10 +15,16 @@
 							
 						</p>
 					</section>
+					<section class="notation" *ngIf="isLoggedIn;">
+						<h3 class="">{{ 'details.note_act.title' | translate}}</h3>
+						<form action="" class="">
+							<section class="stars_notation">
+								<app-rating></app-rating>
+							</section>
+						</form>
+					</section>
 					<h3 class="">{{ 'details.photos.title' | translate}}</h3>
-
 					<section class="share_photos">
-
 						<section class="galerie_photo">
 							<app-slider-activite-photo></app-slider-activite-photo>
 						</section>
@@ -33,22 +39,15 @@
 							</form>
 						</div>
 					</section>
-					<section class="notation" *ngIf="isLoggedIn;">
-						
-						<h3 class="">{{ 'details.note_act.title' | translate}}</h3>
-						<form action="" class="">
-							<section class="stars_notation">
-								<app-rating></app-rating>
-							</section>
-						</form>
-
-					</section>
 
 					
 
 					
 
 					<section class="commentaires_container" >
+						<section class="commentaires">
+							<app-comments></app-comments>
+						</section>
 						<h3 class="">{{ 'details.comment.title' | translate}}</h3>
 						<h5 class="ajout_comm" *ngIf="isLoggedIn && isComment">{{ 'details.comment.add' | translate}}</h5>
 						<form action="" class="" (ngSubmit)="createComment()" [formGroup]="commentform" *ngIf="isLoggedIn && isComment; elsecreateComment" novalidate>
@@ -64,9 +63,6 @@
 						<div class="mess" #elsecreateComment>
 							{{err}}
 						</div>
-						<section class="commentaires">
-							<app-comments></app-comments>
-						</section>
 
 					</section>
 				</article>
