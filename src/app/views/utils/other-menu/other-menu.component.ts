@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivitesService, LoaderPageService } from '../../../services/index';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +18,8 @@ export class OtherMenuComponent implements OnInit {
   constructor(private activites : ActivitesService,
   			config: NgbDropdownConfig,
         private router: Router,
-        private loader: LoaderPageService) {
+        private loader: LoaderPageService,
+        private location : Location) {
         // customize default values of dropdowns used by this component tree
         config.placement = 'top-right';
         config.autoClose = true;
@@ -39,12 +41,13 @@ export class OtherMenuComponent implements OnInit {
   	})
   }
     onClick(url) {
-
-        this.loader.onClick(url);
+        this.router.navigate([url]);        
         setTimeout(() => {
 
           location.reload();
         }, 500);
     }
+
+
 
 }

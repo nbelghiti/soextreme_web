@@ -25,15 +25,9 @@ export class MetasService {
 
   }
   public setDescActivity( obj ) {
-    //this.translate.get(obj).subscribe((res:string) =>{
          
-                 this.meta.updateTag({ name: "description", content: obj  });
+    this.meta.updateTag({ name: "description", content: obj  });
 
-
-  //  }, err =>{
-
-      
-   // });
   }
   public setOtherMetas( obj ){
      var og_tag = new RegExp("^og");

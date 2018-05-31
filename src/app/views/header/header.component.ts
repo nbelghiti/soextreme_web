@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit {
     id_activite = this.route.snapshot.paramMap.get('id');
     description: any;
     libelle : String;
+    patt : RegExp = /activite/;
+    test_patt : boolean = this.patt.test(this.location.path());
 
     constructor(private loader: LoaderPageService,
                 private location: Location,
@@ -40,19 +42,19 @@ export class HeaderComponent implements OnInit {
     }
  
     setDescriptionMetaActivity(){
-        if(this.id_activite){
+        if(this.id_activite && this.test_patt){
             
-         this.myactivity.getActivite(this.id_activite).subscribe(data => {
-            this.description = data.description;
-            this.meta.setDescActivity(this.description);
-           // console.log(this.description);
+            this.myactivity.getActivite(this.id_activite).subscribe(data => {
+                this.description = data.description;
+                this.meta.setDescActivity(this.description);
+               // console.log(this.description);
 
-        });
+            });
         }
     }
     setTitlePage(){
 
-        if(this.id_activite){
+        if(this.id_activite && this.test_patt){
 
             this.setTitleActivity();
 
